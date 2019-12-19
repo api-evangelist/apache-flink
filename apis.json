@@ -1,0 +1,49 @@
+{
+    "name": "Apache Flink",
+    "description": "<p>Flink&rsquo;s core is a streaming dataflow engine that provides data distribution, communication, and fault tolerance for distributed computations over data streams. Flink includes several APIs for creating applications that use the Flink engine. You can integrate Flink easily with other well-known open source systems both for data input and output as well as deployment.<\/p>",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/apache-fink.jpeg",
+    "tags": [
+        "api tools",
+        "data",
+        "have api"
+    ],
+    "created": "2019-12-18",
+    "modified": "2019-12-18",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/apache-flink\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Apache Flink",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/logos\/apache-fink.jpeg",
+            "humanURL": "https:\/\/flink.apache.org\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apache-flink-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apache-flink-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog",
+            "url": "https:\/\/flink.apache.org\/blog\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "https:\/\/flink.apache.org\/blog\/feed.xml"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/flink.apache.org\/"
+        }
+    ]
+}
