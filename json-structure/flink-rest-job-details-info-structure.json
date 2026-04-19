@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-job-details-info-structure.json",
+  "name": "JobDetailsInfo",
+  "description": "JobDetailsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "int64"
+    },
+    "end-time": {
+      "type": "int64"
+    },
+    "isStoppable": {
+      "type": "boolean"
+    },
+    "jid": {
+      "type": "string"
+    },
+    "job-type": {
+      "type": "string"
+    },
+    "maxParallelism": {
+      "type": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "now": {
+      "type": "int64"
+    },
+    "pending-operators": {
+      "type": "int32"
+    },
+    "plan": {
+      "type": "string"
+    },
+    "start-time": {
+      "type": "int64"
+    },
+    "state": {
+      "type": "string"
+    },
+    "status-counts": {
+      "type": "object"
+    },
+    "stream-graph": {
+      "type": "string"
+    },
+    "timestamps": {
+      "type": "object"
+    },
+    "vertices": {
+      "type": "array"
+    }
+  }
+}

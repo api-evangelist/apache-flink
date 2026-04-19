@@ -1,0 +1,9 @@
+{
+  "endpoint": "example-value",
+  "exceptionName": "WordCount",
+  "failureLabels": {},
+  "stacktrace": "example-value",
+  "taskManagerId": "job-abc123",
+  "taskName": "WordCount",
+  "timestamp": 1
+}

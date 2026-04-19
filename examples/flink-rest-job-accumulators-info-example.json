@@ -1,0 +1,9 @@
+{
+  "job-accumulators": [
+    "example-value"
+  ],
+  "serialized-user-task-accumulators": {},
+  "user-task-accumulators": [
+    "example-value"
+  ]
+}

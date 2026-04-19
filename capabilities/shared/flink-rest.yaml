@@ -1,0 +1,154 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: "Apache Flink REST API"
+  description: "REST API for managing and monitoring Apache Flink jobs, clusters, checkpoints, and metrics."
+  tags:
+    - Apache Flink
+    - Stream Processing
+    - Batch Processing
+    - Job Management
+  created: "2026-04-19"
+  modified: "2026-04-19"
+binds:
+  - namespace: env
+    keys:
+      FLINK_JOBMANAGER_URL: FLINK_JOBMANAGER_URL
+capability:
+  consumes:
+    - type: http
+      namespace: flink-rest
+      baseUri: "http://localhost:8081"
+      description: "Apache Flink JobManager REST API"
+      resources:
+        - name: jobs
+          path: /jobs
+          description: Manage Flink jobs
+          operations:
+            - name: list-jobs
+              method: GET
+              description: List all Flink jobs
+              inputParameters: []
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-job
+              method: GET
+              description: Get details of a specific Flink job
+              inputParameters:
+                - name: jobid
+                  in: path
+                  type: string
+                  required: true
+                  description: Job ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: cluster
+          path: /cluster
+          description: Cluster management operations
+          operations:
+            - name: shutdown-cluster
+              method: DELETE
+              description: Shut down the Flink cluster
+              inputParameters: []
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: taskmanagers
+          path: /taskmanagers
+          description: TaskManager management
+          operations:
+            - name: list-taskmanagers
+              method: GET
+              description: List all TaskManagers in the cluster
+              inputParameters: []
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: metrics
+          path: /jobs/{jobid}/metrics
+          description: Job metrics access
+          operations:
+            - name: get-job-metrics
+              method: GET
+              description: Get metrics for a specific Flink job
+              inputParameters:
+                - name: jobid
+                  in: path
+                  type: string
+                  required: true
+                  description: Job ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: flink-rest-exposed
+      resources:
+        - path: /v1/jobs
+          name: jobs
+          description: Flink job management
+          operations:
+            - method: GET
+              name: list-jobs
+              description: List all Flink jobs
+              call: "flink-rest.list-jobs"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+    - type: mcp
+      port: 9100
+      namespace: flink-rest-mcp
+      transport: http
+      tools:
+        - name: list-flink-jobs
+          description: List all Flink jobs
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "flink-rest.list-jobs"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-flink-job
+          description: Get details of a specific Flink job
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "flink-rest.get-job"
+          with:
+            jobid: "tools.jobid"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-taskmanagers
+          description: List all Flink TaskManagers
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "flink-rest.list-taskmanagers"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-job-metrics
+          description: Get metrics for a Flink job
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "flink-rest.get-job-metrics"
+          with:
+            jobid: "tools.jobid"
+          outputParameters:
+            - type: object
+              mapping: "$."

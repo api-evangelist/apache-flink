@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-asynchronous-operation-info-structure.json",
+  "name": "AsynchronousOperationInfo",
+  "description": "AsynchronousOperationInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "failure-cause": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "attempt-number": 1,
+  "backpressureLevel": "example-value",
+  "busyRatio": 1.0,
+  "idleRatio": 1.0,
+  "other-concurrent-attempts": [
+    "example-value"
+  ],
+  "ratio": 1.0,
+  "subtask": 1
+}

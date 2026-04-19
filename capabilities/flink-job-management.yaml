@@ -1,0 +1,126 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: "Apache Flink Job Management"
+  description: "Unified capability for managing and monitoring Apache Flink streaming and batch jobs — submitting, tracking, monitoring metrics, and managing the cluster. Designed for data engineers and platform operators."
+  tags:
+    - Apache Flink
+    - Stream Processing
+    - Job Management
+    - Data Engineering
+    - Monitoring
+  created: "2026-04-19"
+  modified: "2026-04-19"
+binds:
+  - namespace: env
+    keys:
+      FLINK_JOBMANAGER_URL: FLINK_JOBMANAGER_URL
+capability:
+  consumes:
+    - import: flink-rest
+      location: ./shared/flink-rest.yaml
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: flink-management-api
+      description: "Unified REST API for Apache Flink job management."
+      resources:
+        - path: /v1/jobs
+          name: jobs
+          description: Flink job management
+          operations:
+            - method: GET
+              name: list-jobs
+              description: List all Flink jobs
+              call: "flink-rest.list-jobs"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: GET
+              name: get-job
+              description: Get details of a specific job
+              call: "flink-rest.get-job"
+              with:
+                jobid: "rest.jobid"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/taskmanagers
+          name: taskmanagers
+          description: TaskManager management
+          operations:
+            - method: GET
+              name: list-taskmanagers
+              description: List all TaskManagers
+              call: "flink-rest.list-taskmanagers"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/jobs/{jobid}/metrics
+          name: metrics
+          description: Job performance metrics
+          operations:
+            - method: GET
+              name: get-job-metrics
+              description: Get metrics for a Flink job
+              call: "flink-rest.get-job-metrics"
+              with:
+                jobid: "rest.jobid"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+    - type: mcp
+      port: 9090
+      namespace: flink-management-mcp
+      transport: http
+      description: "MCP server for AI-assisted Apache Flink job management."
+      tools:
+        - name: list-flink-jobs
+          description: List all Flink streaming and batch jobs
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "flink-rest.list-jobs"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-flink-job
+          description: Get detailed status and information for a specific Flink job
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "flink-rest.get-job"
+          with:
+            jobid: "tools.jobid"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-taskmanagers
+          description: List all TaskManagers in the Flink cluster
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "flink-rest.list-taskmanagers"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-job-metrics
+          description: Get performance metrics for a Flink job
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "flink-rest.get-job-metrics"
+          with:
+            jobid: "tools.jobid"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: shutdown-cluster
+          description: Shut down the Flink cluster
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "flink-rest.shutdown-cluster"
+          outputParameters:
+            - type: object
+              mapping: "$."

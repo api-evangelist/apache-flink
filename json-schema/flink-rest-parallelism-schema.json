@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-parallelism-schema.json",
+  "title": "Parallelism",
+  "description": "Parallelism schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "lowerBound": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "upperBound": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

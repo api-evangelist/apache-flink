@@ -1,0 +1,11 @@
+{
+  "aggregated": "example-value",
+  "duration": 1,
+  "end-time": 1,
+  "endpoint": "example-value",
+  "metrics": "example-value",
+  "start-time": 1,
+  "status": "RUNNING",
+  "status-counts": {},
+  "taskmanager-id": "job-abc123"
+}

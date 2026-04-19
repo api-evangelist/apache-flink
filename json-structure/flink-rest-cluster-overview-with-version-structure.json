@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-cluster-overview-with-version-structure.json",
+  "name": "ClusterOverviewWithVersion",
+  "description": "ClusterOverviewWithVersion schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "flink-commit": {
+      "type": "string"
+    },
+    "flink-version": {
+      "type": "string"
+    },
+    "jobs-cancelled": {
+      "type": "int32"
+    },
+    "jobs-failed": {
+      "type": "int32"
+    },
+    "jobs-finished": {
+      "type": "int32"
+    },
+    "jobs-running": {
+      "type": "int32"
+    },
+    "slots-available": {
+      "type": "int32"
+    },
+    "slots-free-and-blocked": {
+      "type": "int32"
+    },
+    "slots-total": {
+      "type": "int32"
+    },
+    "taskmanagers": {
+      "type": "int32"
+    },
+    "taskmanagers-blocked": {
+      "type": "int32"
+    }
+  }
+}

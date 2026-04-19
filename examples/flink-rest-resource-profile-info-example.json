@@ -1,0 +1,8 @@
+{
+  "cpuCores": 1.0,
+  "extendedResources": {},
+  "managedMemory": 1,
+  "networkMemory": 1,
+  "taskHeapMemory": 1,
+  "taskOffHeapMemory": 1
+}

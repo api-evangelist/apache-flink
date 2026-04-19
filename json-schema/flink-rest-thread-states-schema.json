@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-thread-states-schema.json",
+  "title": "ThreadStates",
+  "description": "ThreadStates schema from Apache Flink REST API",
+  "type": "string",
+  "enum": [
+    "FULL",
+    "ON_CPU",
+    "OFF_CPU"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "drain": true,
+  "formatType": "example-value",
+  "targetDirectory": "example-value",
+  "triggerId": "job-abc123"
+}

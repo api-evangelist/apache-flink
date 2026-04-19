@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-execution-result-response-body-schema.json",
+  "title": "JobExecutionResultResponseBody",
+  "description": "JobExecutionResultResponseBody schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "job-execution-result": {
+      "$ref": "#/components/schemas/JobResult"
+    },
+    "status": {
+      "$ref": "#/components/schemas/QueueStatus"
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

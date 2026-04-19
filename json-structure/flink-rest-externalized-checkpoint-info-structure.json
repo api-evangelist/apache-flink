@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-externalized-checkpoint-info-structure.json",
+  "name": "ExternalizedCheckpointInfo",
+  "description": "ExternalizedCheckpointInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "delete_on_cancellation": {
+      "type": "boolean"
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  }
+}

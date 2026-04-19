@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-task-manager-metrics-info-structure.json",
+  "name": "TaskManagerMetricsInfo",
+  "description": "TaskManagerMetricsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "directCount": {
+      "type": "int64"
+    },
+    "directMax": {
+      "type": "int64"
+    },
+    "directUsed": {
+      "type": "int64"
+    },
+    "garbageCollectors": {
+      "type": "array"
+    },
+    "heapCommitted": {
+      "type": "int64"
+    },
+    "heapMax": {
+      "type": "int64"
+    },
+    "heapUsed": {
+      "type": "int64"
+    },
+    "mappedCount": {
+      "type": "int64"
+    },
+    "mappedMax": {
+      "type": "int64"
+    },
+    "mappedUsed": {
+      "type": "int64"
+    },
+    "nettyShuffleMemoryAvailable": {
+      "type": "int64"
+    },
+    "nettyShuffleMemorySegmentsAvailable": {
+      "type": "int64"
+    },
+    "nettyShuffleMemorySegmentsTotal": {
+      "type": "int64"
+    },
+    "nettyShuffleMemorySegmentsUsed": {
+      "type": "int64"
+    },
+    "nettyShuffleMemoryTotal": {
+      "type": "int64"
+    },
+    "nettyShuffleMemoryUsed": {
+      "type": "int64"
+    },
+    "nonHeapCommitted": {
+      "type": "int64"
+    },
+    "nonHeapMax": {
+      "type": "int64"
+    },
+    "nonHeapUsed": {
+      "type": "int64"
+    }
+  }
+}

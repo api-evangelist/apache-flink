@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-asynchronous-operation-result-schema.json",
+  "title": "AsynchronousOperationResult",
+  "description": "AsynchronousOperationResult schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "operation": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/AsynchronousOperationInfo"
+        },
+        {
+          "$ref": "#/components/schemas/CheckpointInfo"
+        },
+        {
+          "$ref": "#/components/schemas/SavepointInfo"
+        }
+      ]
+    },
+    "status": {
+      "$ref": "#/components/schemas/QueueStatus"
+    }
+  }
+}

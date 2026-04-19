@@ -1,0 +1,14 @@
+{
+  "blocked": true,
+  "dataPort": 1,
+  "freeResource": "example-value",
+  "freeSlots": 1,
+  "hardware": "example-value",
+  "id": "job-abc123",
+  "jmxPort": 1,
+  "memoryConfiguration": "example-value",
+  "path": "example-value",
+  "slotsNumber": 1,
+  "timeSinceLastHeartbeat": 1,
+  "totalResource": "example-value"
+}

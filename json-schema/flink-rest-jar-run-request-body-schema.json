@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-jar-run-request-body-schema.json",
+  "title": "JarRunRequestBody",
+  "description": "JarRunRequestBody schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "allowNonRestoredState": {
+      "type": "boolean"
+    },
+    "claimMode": {
+      "$ref": "#/components/schemas/RecoveryClaimMode"
+    },
+    "entryClass": {
+      "type": "string"
+    },
+    "flinkConfiguration": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "jobId": {
+      "$ref": "#/components/schemas/JobID"
+    },
+    "parallelism": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "programArgsList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "restoreMode": {
+      "$ref": "#/components/schemas/RecoveryClaimMode"
+    },
+    "savepointPath": {
+      "type": "string"
+    }
+  }
+}

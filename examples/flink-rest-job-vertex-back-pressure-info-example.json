@@ -1,0 +1,8 @@
+{
+  "backpressureLevel": "example-value",
+  "end-timestamp": 1,
+  "status": "RUNNING",
+  "subtasks": [
+    "example-value"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-details-schema.json",
+  "title": "JobDetails",
+  "description": "JobDetails schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "end-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "jid": {
+      "$ref": "#/components/schemas/JobID"
+    },
+    "last-modification": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pending-operators": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "start-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "state": {
+      "$ref": "#/components/schemas/JobStatus"
+    },
+    "tasks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "format": "int32"
+      }
+    }
+  }
+}

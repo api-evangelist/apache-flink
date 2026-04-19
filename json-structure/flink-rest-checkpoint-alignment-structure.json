@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-checkpoint-alignment-structure.json",
+  "name": "CheckpointAlignment",
+  "description": "CheckpointAlignment schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "buffered": {
+      "type": "int64"
+    },
+    "duration": {
+      "type": "int64"
+    },
+    "persisted": {
+      "type": "int64"
+    },
+    "processed": {
+      "type": "int64"
+    }
+  }
+}

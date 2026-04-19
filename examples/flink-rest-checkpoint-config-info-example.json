@@ -1,0 +1,17 @@
+{
+  "aligned_checkpoint_timeout": 1,
+  "changelog_periodic_materialization_interval": 1,
+  "changelog_storage": "example-value",
+  "checkpoint_storage": "example-value",
+  "checkpoints_after_tasks_finish": true,
+  "externalization": "example-value",
+  "interval": 1,
+  "max_concurrent": 1,
+  "min_pause": 1,
+  "mode": "example-value",
+  "state_backend": "RUNNING",
+  "state_changelog_enabled": true,
+  "timeout": 1,
+  "tolerable_failed_checkpoints": 1,
+  "unaligned_checkpoints": true
+}

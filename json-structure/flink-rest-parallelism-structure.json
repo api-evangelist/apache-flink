@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-parallelism-structure.json",
+  "name": "Parallelism",
+  "description": "Parallelism schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "lowerBound": {
+      "type": "int32"
+    },
+    "upperBound": {
+      "type": "int32"
+    }
+  }
+}

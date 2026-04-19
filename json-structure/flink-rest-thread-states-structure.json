@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-thread-states-structure.json",
+  "name": "ThreadStates",
+  "description": "ThreadStates schema from Apache Flink REST API",
+  "type": "string"
+}

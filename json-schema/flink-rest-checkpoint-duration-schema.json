@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-checkpoint-duration-schema.json",
+  "title": "CheckpointDuration",
+  "description": "CheckpointDuration schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "async": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "sync": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

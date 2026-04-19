@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-job-ids-with-status-overview-structure.json",
+  "name": "JobIdsWithStatusOverview",
+  "description": "JobIdsWithStatusOverview schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "jobs": {
+      "type": "array"
+    }
+  }
+}

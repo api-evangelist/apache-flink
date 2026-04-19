@@ -1,0 +1,158 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Apache Flink"
+  description: "Vocabulary taxonomy for Apache Flink covering jobs, TaskManagers, checkpoints, metrics, and cluster management operations."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: flink-rest
+      version: "2.0"
+      baseUrl: "http://localhost:8081"
+      status: active
+      description: Apache Flink JobManager REST API
+
+  resources:
+    - name: jobs
+      apis: [flink-rest]
+      actions: [list, get, cancel, submit]
+    - name: taskmanagers
+      apis: [flink-rest]
+      actions: [list, get]
+    - name: checkpoints
+      apis: [flink-rest]
+      actions: [list, get, trigger]
+    - name: metrics
+      apis: [flink-rest]
+      actions: [get]
+    - name: cluster
+      apis: [flink-rest]
+      actions: [get, delete]
+    - name: savepoints
+      apis: [flink-rest]
+      actions: [create, get]
+    - name: datasets
+      apis: [flink-rest]
+      actions: [list, delete]
+
+  actions:
+    - name: list
+      httpMethods: [GET]
+      pattern: read
+    - name: get
+      httpMethods: [GET]
+      pattern: read
+    - name: submit
+      httpMethods: [POST]
+      pattern: write
+    - name: cancel
+      httpMethods: [PATCH, DELETE]
+      pattern: destructive
+    - name: trigger
+      httpMethods: [POST]
+      pattern: write
+    - name: delete
+      httpMethods: [DELETE]
+      pattern: destructive
+
+  schemas:
+    core:
+      - name: JobDetailsInfo
+        description: Comprehensive job status and execution details
+      - name: JobIdsWithStatusOverview
+        description: Overview of all jobs with their statuses
+      - name: TaskManagerInfo
+        description: TaskManager resource and status information
+      - name: CheckpointingStatistics
+        description: Checkpointing statistics for a job
+      - name: MetricCollectionResponseBody
+        description: Metric values collection response
+
+  parameters:
+    identifiers:
+      - name: jobid
+        description: Unique job identifier
+      - name: taskmanagerid
+        description: TaskManager identifier
+    filters:
+      - name: get
+        description: Comma-separated list of metric names to retrieve
+
+  enums:
+    jobStatus:
+      - INITIALIZING
+      - CREATED
+      - RUNNING
+      - FAILING
+      - FAILED
+      - CANCELLING
+      - CANCELED
+      - FINISHED
+      - RESTARTING
+      - SUSPENDED
+      - RECONCILING
+
+  authentication:
+    schemes:
+      - type: None
+        description: Flink REST API runs within internal network without auth by default
+
+capability:
+  workflows:
+    - name: Job Management
+      file: capabilities/flink-job-management.yaml
+      description: Manage and monitor Flink streaming and batch jobs
+      apis: [flink-rest]
+      toolCount: 5
+      personas: [Data Engineer, Platform Operator]
+      domains: [Job Management, Monitoring]
+
+  personas:
+    - id: data-engineer
+      name: Data Engineer
+      description: Engineers submitting and monitoring Flink streaming and batch jobs
+      workflows: [Job Management]
+    - id: platform-operator
+      name: Platform Operator
+      description: Operators managing the Flink cluster and ensuring job reliability
+      workflows: [Job Management]
+
+  domains:
+    - name: Job Management
+      description: Job submission, tracking, and lifecycle management
+    - name: Monitoring
+      description: Metrics, checkpoints, and cluster health monitoring
+
+  namespaces:
+    - name: flink-rest
+      type: consumed
+    - name: flink-management-api
+      type: rest-exposed
+      port: 8080
+    - name: flink-management-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: FLINK_JOBMANAGER_URL
+      workflows: [Job Management]
+
+crossReference:
+  - resource: jobs
+    operations: [list-jobs, get-job]
+    workflows: [Job Management]
+    personas: [Data Engineer, Platform Operator]
+  - resource: taskmanagers
+    operations: [list-taskmanagers]
+    workflows: [Job Management]
+    personas: [Platform Operator]
+  - resource: metrics
+    operations: [get-job-metrics]
+    workflows: [Job Management]
+    personas: [Data Engineer, Platform Operator]
+  - resource: cluster
+    operations: [shutdown-cluster]
+    workflows: [Job Management]
+    personas: [Platform Operator]

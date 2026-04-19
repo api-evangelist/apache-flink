@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-slot-info-schema.json",
+  "title": "SlotInfo",
+  "description": "SlotInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "$ref": "#/components/schemas/JobID"
+    },
+    "resource": {
+      "$ref": "#/components/schemas/ResourceProfileInfo"
+    }
+  }
+}

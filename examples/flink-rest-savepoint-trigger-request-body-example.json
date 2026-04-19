@@ -1,0 +1,6 @@
+{
+  "cancel-job": true,
+  "formatType": "example-value",
+  "target-directory": "example-value",
+  "triggerId": "job-abc123"
+}

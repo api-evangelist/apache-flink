@@ -1,0 +1,6 @@
+{
+  "job-parallelism": 1,
+  "object-reuse-mode": true,
+  "restart-strategy": "example-value",
+  "user-config": {}
+}

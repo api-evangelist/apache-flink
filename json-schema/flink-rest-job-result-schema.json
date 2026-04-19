@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-result-schema.json",
+  "title": "JobResult",
+  "description": "JobResult schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "accumulatorResults": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SerializedValueOptionalFailureObject"
+      }
+    },
+    "applicationStatus": {
+      "$ref": "#/components/schemas/ApplicationStatus"
+    },
+    "jobId": {
+      "$ref": "#/components/schemas/JobID"
+    },
+    "netRuntime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "serializedThrowable": {
+      "$ref": "#/components/schemas/SerializedThrowable"
+    },
+    "success": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-completed-subtask-checkpoint-statistics-schema.json",
+  "title": "CompletedSubtaskCheckpointStatistics",
+  "description": "CompletedSubtaskCheckpointStatistics schema from Apache Flink REST API",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/SubtaskCheckpointStatistics"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "ack_timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "end_to_end_duration": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "checkpointed_size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "state_size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "checkpoint": {
+          "$ref": "#/components/schemas/CheckpointDuration"
+        },
+        "alignment": {
+          "$ref": "#/components/schemas/CheckpointAlignment"
+        },
+        "start_delay": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "unaligned_checkpoint": {
+          "type": "boolean"
+        },
+        "aborted": {
+          "type": "boolean"
+        }
+      }
+    }
+  ]
+}

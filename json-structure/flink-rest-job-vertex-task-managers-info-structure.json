@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-job-vertex-task-managers-info-structure.json",
+  "name": "JobVertexTaskManagersInfo",
+  "description": "JobVertexTaskManagersInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "now": {
+      "type": "int64"
+    },
+    "taskmanagers": {
+      "type": "array"
+    }
+  }
+}

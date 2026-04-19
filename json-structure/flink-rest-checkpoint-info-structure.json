@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-checkpoint-info-structure.json",
+  "name": "CheckpointInfo",
+  "description": "CheckpointInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "checkpointId": {
+      "type": "int64"
+    },
+    "failureCause": {
+      "type": "string"
+    }
+  }
+}

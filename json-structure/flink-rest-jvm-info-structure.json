@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-jvm-info-structure.json",
+  "name": "JVMInfo",
+  "description": "JVMInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "arch": {
+      "type": "string"
+    },
+    "options": {
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-io-metrics-info-schema.json",
+  "title": "IOMetricsInfo",
+  "description": "IOMetricsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "accumulated-backpressured-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "accumulated-busy-time": {
+      "type": "number",
+      "format": "double"
+    },
+    "accumulated-idle-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "read-bytes": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "read-bytes-complete": {
+      "type": "boolean"
+    },
+    "read-records": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "read-records-complete": {
+      "type": "boolean"
+    },
+    "write-bytes": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "write-bytes-complete": {
+      "type": "boolean"
+    },
+    "write-records": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "write-records-complete": {
+      "type": "boolean"
+    }
+  }
+}

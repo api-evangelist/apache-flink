@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-job-config-info-structure.json",
+  "name": "JobConfigInfo",
+  "description": "JobConfigInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "executionConfigInfo": {
+      "type": "string"
+    },
+    "jobId": {
+      "type": "string"
+    },
+    "jobName": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "alignment_buffered": 1,
+  "checkpoint_type": "example-value",
+  "checkpointed_size": 1,
+  "className": "WordCount",
+  "end_to_end_duration": 1,
+  "id": 1,
+  "is_savepoint": true,
+  "latest_ack_timestamp": 1,
+  "num_acknowledged_subtasks": 1,
+  "num_subtasks": 1,
+  "persisted_data": 1,
+  "processed_data": 1,
+  "savepointFormat": "example-value",
+  "state_size": 1,
+  "status": "RUNNING",
+  "tasks": {},
+  "trigger_timestamp": 1
+}

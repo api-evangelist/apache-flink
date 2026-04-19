@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-task-manager-metrics-info-schema.json",
+  "title": "TaskManagerMetricsInfo",
+  "description": "TaskManagerMetricsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "directCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "directMax": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "directUsed": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "garbageCollectors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GarbageCollectorInfo"
+      }
+    },
+    "heapCommitted": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "heapMax": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "heapUsed": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "mappedCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "mappedMax": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "mappedUsed": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nettyShuffleMemoryAvailable": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nettyShuffleMemorySegmentsAvailable": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nettyShuffleMemorySegmentsTotal": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nettyShuffleMemorySegmentsUsed": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nettyShuffleMemoryTotal": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nettyShuffleMemoryUsed": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nonHeapCommitted": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nonHeapMax": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nonHeapUsed": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

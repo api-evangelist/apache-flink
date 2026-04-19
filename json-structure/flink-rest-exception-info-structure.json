@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-exception-info-structure.json",
+  "name": "ExceptionInfo",
+  "description": "ExceptionInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "endpoint": {
+      "type": "string"
+    },
+    "exceptionName": {
+      "type": "string"
+    },
+    "failureLabels": {
+      "type": "object"
+    },
+    "stacktrace": {
+      "type": "string"
+    },
+    "taskManagerId": {
+      "type": "string"
+    },
+    "taskName": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "int64"
+    }
+  }
+}

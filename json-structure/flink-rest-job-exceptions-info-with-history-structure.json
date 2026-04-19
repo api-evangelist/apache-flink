@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-job-exceptions-info-with-history-structure.json",
+  "name": "JobExceptionsInfoWithHistory",
+  "description": "JobExceptionsInfoWithHistory schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "exceptionHistory": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-jar-upload-response-body-schema.json",
+  "title": "JarUploadResponseBody",
+  "description": "JarUploadResponseBody schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "filename": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/components/schemas/UploadStatus"
+    }
+  }
+}

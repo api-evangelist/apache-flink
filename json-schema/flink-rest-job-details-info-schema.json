@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-details-info-schema.json",
+  "title": "JobDetailsInfo",
+  "description": "JobDetailsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "end-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "isStoppable": {
+      "type": "boolean"
+    },
+    "jid": {
+      "$ref": "#/components/schemas/JobID"
+    },
+    "job-type": {
+      "$ref": "#/components/schemas/JobType"
+    },
+    "maxParallelism": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "now": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "pending-operators": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "plan": {
+      "$ref": "#/components/schemas/RawJson"
+    },
+    "start-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "state": {
+      "$ref": "#/components/schemas/JobStatus"
+    },
+    "status-counts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "stream-graph": {
+      "$ref": "#/components/schemas/RawJson"
+    },
+    "timestamps": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "format": "int64"
+      }
+    },
+    "vertices": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/JobDetailsVertexInfo"
+      }
+    }
+  }
+}

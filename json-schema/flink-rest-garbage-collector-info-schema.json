@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-garbage-collector-info-schema.json",
+  "title": "GarbageCollectorInfo",
+  "description": "GarbageCollectorInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "time": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

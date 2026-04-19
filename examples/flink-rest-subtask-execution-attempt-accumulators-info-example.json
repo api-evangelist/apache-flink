@@ -1,0 +1,8 @@
+{
+  "attempt": 1,
+  "id": "job-abc123",
+  "subtask": 1,
+  "user-accumulators": [
+    "example-value"
+  ]
+}

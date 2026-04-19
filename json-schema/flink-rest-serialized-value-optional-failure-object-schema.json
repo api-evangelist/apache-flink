@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-serialized-value-optional-failure-object-schema.json",
+  "title": "SerializedValueOptionalFailureObject",
+  "description": "SerializedValueOptionalFailureObject schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "byteArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "byte"
+      }
+    }
+  }
+}

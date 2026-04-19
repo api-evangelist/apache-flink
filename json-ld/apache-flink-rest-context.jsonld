@@ -1,0 +1,589 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "flink": "https://flink.apache.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AggregatedMetricsResponseBody": "flink:AggregatedMetricsResponseBody",
+    "AggregatedTaskDetailsInfo": "flink:AggregatedTaskDetailsInfo",
+    "metrics": {
+      "@id": "flink:metrics",
+      "@type": "xsd:string"
+    },
+    "status-duration": {
+      "@id": "flink:status-duration",
+      "@type": "xsd:string"
+    },
+    "AggregationMode": "flink:AggregationMode",
+    "ApplicationStatus": "flink:ApplicationStatus",
+    "AsynchronousOperationInfo": "flink:AsynchronousOperationInfo",
+    "failure-cause": {
+      "@id": "flink:failure-cause",
+      "@type": "xsd:string"
+    },
+    "AsynchronousOperationResult": "flink:AsynchronousOperationResult",
+    "operation": {
+      "@id": "flink:operation",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "flink:status",
+      "@type": "xsd:string"
+    },
+    "CheckpointAlignment": "flink:CheckpointAlignment",
+    "buffered": {
+      "@id": "flink:buffered",
+      "@type": "xsd:integer"
+    },
+    "duration": {
+      "@id": "flink:duration",
+      "@type": "xsd:integer"
+    },
+    "persisted": {
+      "@id": "flink:persisted",
+      "@type": "xsd:integer"
+    },
+    "processed": {
+      "@id": "flink:processed",
+      "@type": "xsd:integer"
+    },
+    "CheckpointAlignmentSummary": "flink:CheckpointAlignmentSummary",
+    "CheckpointConfigInfo": "flink:CheckpointConfigInfo",
+    "aligned_checkpoint_timeout": {
+      "@id": "flink:aligned_checkpoint_timeout",
+      "@type": "xsd:integer"
+    },
+    "changelog_periodic_materialization_interval": {
+      "@id": "flink:changelog_periodic_materialization_interval",
+      "@type": "xsd:integer"
+    },
+    "changelog_storage": {
+      "@id": "flink:changelog_storage",
+      "@type": "xsd:string"
+    },
+    "checkpoint_storage": {
+      "@id": "flink:checkpoint_storage",
+      "@type": "xsd:string"
+    },
+    "checkpoints_after_tasks_finish": {
+      "@id": "flink:checkpoints_after_tasks_finish",
+      "@type": "xsd:boolean"
+    },
+    "externalization": {
+      "@id": "flink:externalization",
+      "@type": "xsd:string"
+    },
+    "interval": {
+      "@id": "flink:interval",
+      "@type": "xsd:integer"
+    },
+    "max_concurrent": {
+      "@id": "flink:max_concurrent",
+      "@type": "xsd:integer"
+    },
+    "min_pause": {
+      "@id": "flink:min_pause",
+      "@type": "xsd:integer"
+    },
+    "mode": {
+      "@id": "flink:mode",
+      "@type": "xsd:string"
+    },
+    "state_backend": {
+      "@id": "flink:state_backend",
+      "@type": "xsd:string"
+    },
+    "state_changelog_enabled": {
+      "@id": "flink:state_changelog_enabled",
+      "@type": "xsd:boolean"
+    },
+    "timeout": {
+      "@id": "flink:timeout",
+      "@type": "xsd:integer"
+    },
+    "tolerable_failed_checkpoints": {
+      "@id": "flink:tolerable_failed_checkpoints",
+      "@type": "xsd:integer"
+    },
+    "unaligned_checkpoints": {
+      "@id": "flink:unaligned_checkpoints",
+      "@type": "xsd:boolean"
+    },
+    "CheckpointDuration": "flink:CheckpointDuration",
+    "async": {
+      "@id": "flink:async",
+      "@type": "xsd:integer"
+    },
+    "sync": {
+      "@id": "flink:sync",
+      "@type": "xsd:integer"
+    },
+    "CheckpointDurationSummary": "flink:CheckpointDurationSummary",
+    "CheckpointInfo": "flink:CheckpointInfo",
+    "checkpointId": {
+      "@id": "flink:checkpointId",
+      "@type": "xsd:integer"
+    },
+    "failureCause": {
+      "@id": "flink:failureCause",
+      "@type": "xsd:string"
+    },
+    "CheckpointStatistics": "flink:CheckpointStatistics",
+    "alignment_buffered": {
+      "@id": "flink:alignment_buffered",
+      "@type": "xsd:integer"
+    },
+    "checkpoint_type": {
+      "@id": "flink:checkpoint_type",
+      "@type": "xsd:string"
+    },
+    "checkpointed_size": {
+      "@id": "flink:checkpointed_size",
+      "@type": "xsd:integer"
+    },
+    "className": {
+      "@id": "flink:className",
+      "@type": "xsd:string"
+    },
+    "end_to_end_duration": {
+      "@id": "flink:end_to_end_duration",
+      "@type": "xsd:integer"
+    },
+    "id": {
+      "@id": "flink:id",
+      "@type": "xsd:integer"
+    },
+    "is_savepoint": {
+      "@id": "flink:is_savepoint",
+      "@type": "xsd:boolean"
+    },
+    "latest_ack_timestamp": {
+      "@id": "flink:latest_ack_timestamp",
+      "@type": "xsd:integer"
+    },
+    "num_acknowledged_subtasks": {
+      "@id": "flink:num_acknowledged_subtasks",
+      "@type": "xsd:integer"
+    },
+    "num_subtasks": {
+      "@id": "flink:num_subtasks",
+      "@type": "xsd:integer"
+    },
+    "persisted_data": {
+      "@id": "flink:persisted_data",
+      "@type": "xsd:integer"
+    },
+    "processed_data": {
+      "@id": "flink:processed_data",
+      "@type": "xsd:integer"
+    },
+    "savepointFormat": {
+      "@id": "flink:savepointFormat",
+      "@type": "xsd:string"
+    },
+    "state_size": {
+      "@id": "flink:state_size",
+      "@type": "xsd:integer"
+    },
+    "tasks": {
+      "@id": "flink:tasks",
+      "@type": "xsd:string"
+    },
+    "trigger_timestamp": {
+      "@id": "flink:trigger_timestamp",
+      "@type": "xsd:integer"
+    },
+    "CheckpointStatisticsSummary": "flink:CheckpointStatisticsSummary",
+    "CheckpointStatsStatus": "flink:CheckpointStatsStatus",
+    "CheckpointTriggerRequestBody": "flink:CheckpointTriggerRequestBody",
+    "checkpointType": {
+      "@id": "flink:checkpointType",
+      "@type": "xsd:string"
+    },
+    "triggerId": {
+      "@id": "flink:triggerId",
+      "@type": "xsd:string"
+    },
+    "CheckpointType": "flink:CheckpointType",
+    "CheckpointingStatistics": "flink:CheckpointingStatistics",
+    "counts": {
+      "@id": "flink:counts",
+      "@type": "xsd:string"
+    },
+    "history": {
+      "@id": "flink:history",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "latest": {
+      "@id": "flink:latest",
+      "@type": "xsd:string"
+    },
+    "summary": {
+      "@id": "flink:summary",
+      "@type": "xsd:string"
+    },
+    "ClusterDataSetEntry": "flink:ClusterDataSetEntry",
+    "isComplete": {
+      "@id": "flink:isComplete",
+      "@type": "xsd:boolean"
+    },
+    "ClusterDataSetListResponseBody": "flink:ClusterDataSetListResponseBody",
+    "dataSets": {
+      "@id": "flink:dataSets",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ClusterOverviewWithVersion": "flink:ClusterOverviewWithVersion",
+    "flink-commit": {
+      "@id": "flink:flink-commit",
+      "@type": "xsd:string"
+    },
+    "flink-version": {
+      "@id": "flink:flink-version",
+      "@type": "xsd:string"
+    },
+    "jobs-cancelled": {
+      "@id": "flink:jobs-cancelled",
+      "@type": "xsd:integer"
+    },
+    "jobs-failed": {
+      "@id": "flink:jobs-failed",
+      "@type": "xsd:integer"
+    },
+    "jobs-finished": {
+      "@id": "flink:jobs-finished",
+      "@type": "xsd:integer"
+    },
+    "jobs-running": {
+      "@id": "flink:jobs-running",
+      "@type": "xsd:integer"
+    },
+    "slots-available": {
+      "@id": "flink:slots-available",
+      "@type": "xsd:integer"
+    },
+    "slots-free-and-blocked": {
+      "@id": "flink:slots-free-and-blocked",
+      "@type": "xsd:integer"
+    },
+    "slots-total": {
+      "@id": "flink:slots-total",
+      "@type": "xsd:integer"
+    },
+    "taskmanagers": {
+      "@id": "flink:taskmanagers",
+      "@type": "xsd:integer"
+    },
+    "taskmanagers-blocked": {
+      "@id": "flink:taskmanagers-blocked",
+      "@type": "xsd:integer"
+    },
+    "CompletedCheckpointStatistics": "flink:CompletedCheckpointStatistics",
+    "CompletedSubtaskCheckpointStatistics": "flink:CompletedSubtaskCheckpointStatistics",
+    "ConfigurationInfoEntry": "flink:ConfigurationInfoEntry",
+    "key": {
+      "@id": "flink:key",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "flink:value",
+      "@type": "xsd:string"
+    },
+    "ConfigurationInfo": "flink:ConfigurationInfo",
+    "Counts": "flink:Counts",
+    "completed": {
+      "@id": "flink:completed",
+      "@type": "xsd:integer"
+    },
+    "failed": {
+      "@id": "flink:failed",
+      "@type": "xsd:integer"
+    },
+    "in_progress": {
+      "@id": "flink:in_progress",
+      "@type": "xsd:integer"
+    },
+    "restored": {
+      "@id": "flink:restored",
+      "@type": "xsd:integer"
+    },
+    "total": {
+      "@id": "flink:total",
+      "@type": "xsd:integer"
+    },
+    "DashboardConfiguration": "flink:DashboardConfiguration",
+    "features": {
+      "@id": "flink:features",
+      "@type": "xsd:string"
+    },
+    "flink-revision": {
+      "@id": "flink:flink-revision",
+      "@type": "xsd:string"
+    },
+    "refresh-interval": {
+      "@id": "flink:refresh-interval",
+      "@type": "xsd:integer"
+    },
+    "timezone-name": {
+      "@id": "flink:timezone-name",
+      "@type": "xsd:string"
+    },
+    "timezone-offset": {
+      "@id": "flink:timezone-offset",
+      "@type": "xsd:integer"
+    },
+    "EnvironmentInfo": "flink:EnvironmentInfo",
+    "classpath": {
+      "@id": "flink:classpath",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "jvm": {
+      "@id": "flink:jvm",
+      "@type": "xsd:string"
+    },
+    "ExceptionInfo": "flink:ExceptionInfo",
+    "endpoint": {
+      "@id": "flink:endpoint",
+      "@type": "xsd:string"
+    },
+    "exceptionName": {
+      "@id": "flink:exceptionName",
+      "@type": "xsd:string"
+    },
+    "failureLabels": {
+      "@id": "flink:failureLabels",
+      "@type": "xsd:string"
+    },
+    "stacktrace": {
+      "@id": "flink:stacktrace",
+      "@type": "xsd:string"
+    },
+    "taskManagerId": {
+      "@id": "flink:taskManagerId",
+      "@type": "xsd:string"
+    },
+    "taskName": {
+      "@id": "flink:taskName",
+      "@type": "xsd:string"
+    },
+    "timestamp": {
+      "@id": "flink:timestamp",
+      "@type": "xsd:integer"
+    },
+    "ExecutionConfigInfo": "flink:ExecutionConfigInfo",
+    "job-parallelism": {
+      "@id": "flink:job-parallelism",
+      "@type": "xsd:integer"
+    },
+    "object-reuse-mode": {
+      "@id": "flink:object-reuse-mode",
+      "@type": "xsd:boolean"
+    },
+    "restart-strategy": {
+      "@id": "flink:restart-strategy",
+      "@type": "xsd:string"
+    },
+    "user-config": {
+      "@id": "flink:user-config",
+      "@type": "xsd:string"
+    },
+    "ExecutionState": "flink:ExecutionState",
+    "ExternalizedCheckpointInfo": "flink:ExternalizedCheckpointInfo",
+    "delete_on_cancellation": {
+      "@id": "flink:delete_on_cancellation",
+      "@type": "xsd:boolean"
+    },
+    "enabled": {
+      "@id": "flink:enabled",
+      "@type": "xsd:boolean"
+    },
+    "FailedCheckpointStatistics": "flink:FailedCheckpointStatistics",
+    "FailureLabel": "flink:FailureLabel",
+    "Features": "flink:Features",
+    "web-cancel": {
+      "@id": "flink:web-cancel",
+      "@type": "xsd:boolean"
+    },
+    "web-history": {
+      "@id": "flink:web-history",
+      "@type": "xsd:boolean"
+    },
+    "web-rescale": {
+      "@id": "flink:web-rescale",
+      "@type": "xsd:boolean"
+    },
+    "web-submit": {
+      "@id": "flink:web-submit",
+      "@type": "xsd:boolean"
+    },
+    "GarbageCollectorInfo": "flink:GarbageCollectorInfo",
+    "count": {
+      "@id": "flink:count",
+      "@type": "xsd:integer"
+    },
+    "name": "schema:name",
+    "time": {
+      "@id": "flink:time",
+      "@type": "xsd:integer"
+    },
+    "HardwareDescription": "flink:HardwareDescription",
+    "cpuCores": {
+      "@id": "flink:cpuCores",
+      "@type": "xsd:integer"
+    },
+    "freeMemory": {
+      "@id": "flink:freeMemory",
+      "@type": "xsd:integer"
+    },
+    "managedMemory": {
+      "@id": "flink:managedMemory",
+      "@type": "xsd:integer"
+    },
+    "physicalMemory": {
+      "@id": "flink:physicalMemory",
+      "@type": "xsd:integer"
+    },
+    "Id": "flink:Id",
+    "IntermediateDataSetID": "flink:IntermediateDataSetID",
+    "IOMetricsInfo": "flink:IOMetricsInfo",
+    "accumulated-backpressured-time": {
+      "@id": "flink:accumulated-backpressured-time",
+      "@type": "xsd:integer"
+    },
+    "accumulated-busy-time": {
+      "@id": "flink:accumulated-busy-time",
+      "@type": "xsd:integer"
+    },
+    "accumulated-idle-time": {
+      "@id": "flink:accumulated-idle-time",
+      "@type": "xsd:integer"
+    },
+    "read-bytes": {
+      "@id": "flink:read-bytes",
+      "@type": "xsd:integer"
+    },
+    "read-bytes-complete": {
+      "@id": "flink:read-bytes-complete",
+      "@type": "xsd:boolean"
+    },
+    "read-records": {
+      "@id": "flink:read-records",
+      "@type": "xsd:integer"
+    },
+    "read-records-complete": {
+      "@id": "flink:read-records-complete",
+      "@type": "xsd:boolean"
+    },
+    "write-bytes": {
+      "@id": "flink:write-bytes",
+      "@type": "xsd:integer"
+    },
+    "write-bytes-complete": {
+      "@id": "flink:write-bytes-complete",
+      "@type": "xsd:boolean"
+    },
+    "write-records": {
+      "@id": "flink:write-records",
+      "@type": "xsd:integer"
+    },
+    "write-records-complete": {
+      "@id": "flink:write-records-complete",
+      "@type": "xsd:boolean"
+    },
+    "JarEntryInfo": "flink:JarEntryInfo",
+    "description": "schema:description",
+    "JarFileInfo": "flink:JarFileInfo",
+    "entry": {
+      "@id": "flink:entry",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "uploaded": {
+      "@id": "flink:uploaded",
+      "@type": "xsd:integer"
+    },
+    "JarListInfo": "flink:JarListInfo",
+    "address": {
+      "@id": "flink:address",
+      "@type": "xsd:string"
+    },
+    "files": {
+      "@id": "flink:files",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "JarPlanRequestBody": "flink:JarPlanRequestBody",
+    "entryClass": {
+      "@id": "flink:entryClass",
+      "@type": "xsd:string"
+    },
+    "flinkConfiguration": {
+      "@id": "flink:flinkConfiguration",
+      "@type": "xsd:string"
+    },
+    "jobId": {
+      "@id": "flink:jobId",
+      "@type": "xsd:string"
+    },
+    "parallelism": {
+      "@id": "flink:parallelism",
+      "@type": "xsd:integer"
+    },
+    "programArgsList": {
+      "@id": "flink:programArgsList",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "JarRunRequestBody": "flink:JarRunRequestBody",
+    "allowNonRestoredState": {
+      "@id": "flink:allowNonRestoredState",
+      "@type": "xsd:boolean"
+    },
+    "claimMode": {
+      "@id": "flink:claimMode",
+      "@type": "xsd:string"
+    },
+    "restoreMode": {
+      "@id": "flink:restoreMode",
+      "@type": "xsd:string"
+    },
+    "savepointPath": {
+      "@id": "flink:savepointPath",
+      "@type": "xsd:string"
+    },
+    "JarRunResponseBody": "flink:JarRunResponseBody",
+    "jobid": {
+      "@id": "flink:jobid",
+      "@type": "xsd:string"
+    },
+    "JarUploadResponseBody": "flink:JarUploadResponseBody",
+    "filename": {
+      "@id": "flink:filename",
+      "@type": "xsd:string"
+    },
+    "JobAccumulator": "flink:JobAccumulator",
+    "JobAccumulatorsInfo": "flink:JobAccumulatorsInfo",
+    "job-accumulators": {
+      "@id": "flink:job-accumulators",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "serialized-user-task-accumulators": {
+      "@id": "flink:serialized-user-task-accumulators",
+      "@type": "xsd:string"
+    },
+    "user-task-accumulators": {
+      "@id": "flink:user-task-accumulators",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "JobClientHeartbeatRequestBody": "flink:JobClientHeartbeatRequestBody",
+    "expiredTimestamp": {
+      "@id": "flink:expiredTimestamp",
+      "@type": "xsd:integer"
+    }
+  }
+}

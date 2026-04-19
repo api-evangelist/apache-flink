@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-subtask-back-pressure-info-structure.json",
+  "name": "SubtaskBackPressureInfo",
+  "description": "SubtaskBackPressureInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "attempt-number": {
+      "type": "int32"
+    },
+    "backpressureLevel": {
+      "type": "string"
+    },
+    "busyRatio": {
+      "type": "double"
+    },
+    "idleRatio": {
+      "type": "double"
+    },
+    "other-concurrent-attempts": {
+      "type": "array"
+    },
+    "ratio": {
+      "type": "double"
+    },
+    "subtask": {
+      "type": "int32"
+    }
+  }
+}

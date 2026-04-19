@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-job-details-vertex-info-structure.json",
+  "name": "JobDetailsVertexInfo",
+  "description": "JobDetailsVertexInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "int64"
+    },
+    "end-time": {
+      "type": "int64"
+    },
+    "id": {
+      "type": "string"
+    },
+    "maxParallelism": {
+      "type": "int32"
+    },
+    "metrics": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "parallelism": {
+      "type": "int32"
+    },
+    "slotSharingGroupId": {
+      "type": "string"
+    },
+    "start-time": {
+      "type": "int64"
+    },
+    "status": {
+      "type": "string"
+    },
+    "tasks": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "accumulated-backpressured-time": 1,
+  "accumulated-busy-time": 1.0,
+  "accumulated-idle-time": 1,
+  "read-bytes": 1,
+  "read-bytes-complete": true,
+  "read-records": 1,
+  "read-records-complete": true,
+  "write-bytes": 1,
+  "write-bytes-complete": true,
+  "write-records": 1,
+  "write-records-complete": true
+}

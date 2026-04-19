@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-subtask-execution-attempt-details-info-structure.json",
+  "name": "SubtaskExecutionAttemptDetailsInfo",
+  "description": "SubtaskExecutionAttemptDetailsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "attempt": {
+      "type": "int32"
+    },
+    "duration": {
+      "type": "int64"
+    },
+    "end-time": {
+      "type": "int64"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "string"
+    },
+    "other-concurrent-attempts": {
+      "type": "array"
+    },
+    "start-time": {
+      "type": "int64"
+    },
+    "status": {
+      "type": "string"
+    },
+    "status-duration": {
+      "type": "object"
+    },
+    "subtask": {
+      "type": "int32"
+    },
+    "taskmanager-id": {
+      "type": "string"
+    }
+  }
+}

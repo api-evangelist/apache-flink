@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-task-manager-info-structure.json",
+  "name": "TaskManagerInfo",
+  "description": "TaskManagerInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "blocked": {
+      "type": "boolean"
+    },
+    "dataPort": {
+      "type": "int32"
+    },
+    "freeResource": {
+      "type": "string"
+    },
+    "freeSlots": {
+      "type": "int32"
+    },
+    "hardware": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "jmxPort": {
+      "type": "int32"
+    },
+    "memoryConfiguration": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "slotsNumber": {
+      "type": "int32"
+    },
+    "timeSinceLastHeartbeat": {
+      "type": "int64"
+    },
+    "totalResource": {
+      "type": "string"
+    }
+  }
+}

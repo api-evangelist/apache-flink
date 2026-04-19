@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-latest-checkpoints-schema.json",
+  "title": "LatestCheckpoints",
+  "description": "LatestCheckpoints schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "completed": {
+      "$ref": "#/components/schemas/CompletedCheckpointStatistics"
+    },
+    "failed": {
+      "$ref": "#/components/schemas/FailedCheckpointStatistics"
+    },
+    "restored": {
+      "$ref": "#/components/schemas/RestoredCheckpointStatistics"
+    },
+    "savepoint": {
+      "$ref": "#/components/schemas/CompletedCheckpointStatistics"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-subtask-execution-attempt-accumulators-info-schema.json",
+  "title": "SubtaskExecutionAttemptAccumulatorsInfo",
+  "description": "SubtaskExecutionAttemptAccumulatorsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "attempt": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "id": {
+      "type": "string"
+    },
+    "subtask": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "user-accumulators": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/UserAccumulator"
+      }
+    }
+  }
+}

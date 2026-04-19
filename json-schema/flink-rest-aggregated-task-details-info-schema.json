@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-aggregated-task-details-info-schema.json",
+  "title": "AggregatedTaskDetailsInfo",
+  "description": "AggregatedTaskDetailsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "status-duration": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

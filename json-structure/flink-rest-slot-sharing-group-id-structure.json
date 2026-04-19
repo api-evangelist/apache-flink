@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-slot-sharing-group-id-structure.json",
+  "name": "SlotSharingGroupId",
+  "description": "SlotSharingGroupId schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "bytes": {
+      "type": "array"
+    },
+    "lowerPart": {
+      "type": "int64"
+    },
+    "upperPart": {
+      "type": "int64"
+    }
+  }
+}

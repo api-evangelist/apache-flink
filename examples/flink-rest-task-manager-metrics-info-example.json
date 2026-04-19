@@ -1,0 +1,23 @@
+{
+  "directCount": 1,
+  "directMax": 1,
+  "directUsed": 1,
+  "garbageCollectors": [
+    "example-value"
+  ],
+  "heapCommitted": 1,
+  "heapMax": 1,
+  "heapUsed": 1,
+  "mappedCount": 1,
+  "mappedMax": 1,
+  "mappedUsed": 1,
+  "nettyShuffleMemoryAvailable": 1,
+  "nettyShuffleMemorySegmentsAvailable": 1,
+  "nettyShuffleMemorySegmentsTotal": 1,
+  "nettyShuffleMemorySegmentsUsed": 1,
+  "nettyShuffleMemoryTotal": 1,
+  "nettyShuffleMemoryUsed": 1,
+  "nonHeapCommitted": 1,
+  "nonHeapMax": 1,
+  "nonHeapUsed": 1
+}

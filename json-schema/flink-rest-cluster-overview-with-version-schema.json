@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-cluster-overview-with-version-schema.json",
+  "title": "ClusterOverviewWithVersion",
+  "description": "ClusterOverviewWithVersion schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "flink-commit": {
+      "type": "string"
+    },
+    "flink-version": {
+      "type": "string"
+    },
+    "jobs-cancelled": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "jobs-failed": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "jobs-finished": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "jobs-running": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "slots-available": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "slots-free-and-blocked": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "slots-total": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "taskmanagers": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "taskmanagers-blocked": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

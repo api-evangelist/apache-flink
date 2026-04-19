@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-task-managers-info-schema.json",
+  "title": "TaskManagersInfo",
+  "description": "TaskManagersInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "taskmanagers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TaskManagerInfo"
+      }
+    }
+  }
+}

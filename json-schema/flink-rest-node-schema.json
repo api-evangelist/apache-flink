@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-node-schema.json",
+  "title": "Node",
+  "description": "Node schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "children": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Node"
+      }
+    },
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

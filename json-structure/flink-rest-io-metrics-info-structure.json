@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-io-metrics-info-structure.json",
+  "name": "IOMetricsInfo",
+  "description": "IOMetricsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "accumulated-backpressured-time": {
+      "type": "int64"
+    },
+    "accumulated-busy-time": {
+      "type": "double"
+    },
+    "accumulated-idle-time": {
+      "type": "int64"
+    },
+    "read-bytes": {
+      "type": "int64"
+    },
+    "read-bytes-complete": {
+      "type": "boolean"
+    },
+    "read-records": {
+      "type": "int64"
+    },
+    "read-records-complete": {
+      "type": "boolean"
+    },
+    "write-bytes": {
+      "type": "int64"
+    },
+    "write-bytes-complete": {
+      "type": "boolean"
+    },
+    "write-records": {
+      "type": "int64"
+    },
+    "write-records-complete": {
+      "type": "boolean"
+    }
+  }
+}

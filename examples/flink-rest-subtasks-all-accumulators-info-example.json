@@ -1,0 +1,7 @@
+{
+  "id": "job-abc123",
+  "parallelism": 1,
+  "subtasks": [
+    "example-value"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "duration": 1,
+  "end-time": 1,
+  "isStoppable": true,
+  "jid": "job-abc123",
+  "job-type": "example-value",
+  "maxParallelism": 1,
+  "name": "WordCount",
+  "now": 1,
+  "pending-operators": 1,
+  "plan": "example-value",
+  "start-time": 1,
+  "state": "RUNNING",
+  "status-counts": {},
+  "stream-graph": "example-value",
+  "timestamps": {},
+  "vertices": [
+    "example-value"
+  ]
+}

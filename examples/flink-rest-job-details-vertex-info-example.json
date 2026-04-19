@@ -1,0 +1,13 @@
+{
+  "duration": 1,
+  "end-time": 1,
+  "id": "job-abc123",
+  "maxParallelism": 1,
+  "metrics": "example-value",
+  "name": "WordCount",
+  "parallelism": 1,
+  "slotSharingGroupId": "job-abc123",
+  "start-time": 1,
+  "status": "RUNNING",
+  "tasks": {}
+}

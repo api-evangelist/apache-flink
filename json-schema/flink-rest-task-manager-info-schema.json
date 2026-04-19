@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-task-manager-info-schema.json",
+  "title": "TaskManagerInfo",
+  "description": "TaskManagerInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "blocked": {
+      "type": "boolean"
+    },
+    "dataPort": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "freeResource": {
+      "$ref": "#/components/schemas/ResourceProfileInfo"
+    },
+    "freeSlots": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "hardware": {
+      "$ref": "#/components/schemas/HardwareDescription"
+    },
+    "id": {
+      "$ref": "#/components/schemas/ResourceID"
+    },
+    "jmxPort": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "memoryConfiguration": {
+      "$ref": "#/components/schemas/TaskExecutorMemoryConfiguration"
+    },
+    "path": {
+      "type": "string"
+    },
+    "slotsNumber": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "timeSinceLastHeartbeat": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "totalResource": {
+      "$ref": "#/components/schemas/ResourceProfileInfo"
+    }
+  }
+}

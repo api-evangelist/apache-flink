@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-vertex-back-pressure-info-schema.json",
+  "title": "JobVertexBackPressureInfo",
+  "description": "JobVertexBackPressureInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "backpressureLevel": {
+      "$ref": "#/components/schemas/VertexBackPressureLevel"
+    },
+    "end-timestamp": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "status": {
+      "$ref": "#/components/schemas/VertexBackPressureStatus"
+    },
+    "subtasks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SubtaskBackPressureInfo"
+      }
+    }
+  }
+}

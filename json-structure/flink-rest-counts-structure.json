@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-counts-structure.json",
+  "name": "Counts",
+  "description": "Counts schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "completed": {
+      "type": "int64"
+    },
+    "failed": {
+      "type": "int64"
+    },
+    "in_progress": {
+      "type": "int32"
+    },
+    "restored": {
+      "type": "int64"
+    },
+    "total": {
+      "type": "int64"
+    }
+  }
+}

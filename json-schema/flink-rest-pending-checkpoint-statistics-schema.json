@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-pending-checkpoint-statistics-schema.json",
+  "title": "PendingCheckpointStatistics",
+  "description": "PendingCheckpointStatistics schema from Apache Flink REST API",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CheckpointStatistics"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-vertex-task-manager-info-schema.json",
+  "title": "JobVertexTaskManagerInfo",
+  "description": "JobVertexTaskManagerInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "aggregated": {
+      "$ref": "#/components/schemas/AggregatedTaskDetailsInfo"
+    },
+    "duration": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "end-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "metrics": {
+      "$ref": "#/components/schemas/IOMetricsInfo"
+    },
+    "start-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "status": {
+      "$ref": "#/components/schemas/ExecutionState"
+    },
+    "status-counts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "taskmanager-id": {
+      "type": "string"
+    }
+  }
+}

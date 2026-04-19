@@ -1,0 +1,13 @@
+{
+  "allowNonRestoredState": true,
+  "claimMode": "example-value",
+  "entryClass": "example-value",
+  "flinkConfiguration": {},
+  "jobId": "job-abc123",
+  "parallelism": 1,
+  "programArgsList": [
+    "example-value"
+  ],
+  "restoreMode": "example-value",
+  "savepointPath": "example-value"
+}

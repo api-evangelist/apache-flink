@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-checkpointing-statistics-schema.json",
+  "title": "CheckpointingStatistics",
+  "description": "CheckpointingStatistics schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "counts": {
+      "$ref": "#/components/schemas/Counts"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/CheckpointStatistics"
+      }
+    },
+    "latest": {
+      "$ref": "#/components/schemas/LatestCheckpoints"
+    },
+    "summary": {
+      "$ref": "#/components/schemas/CheckpointStatisticsSummary"
+    }
+  }
+}

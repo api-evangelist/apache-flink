@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-task-checkpoint-statistics-with-subtask-details-structure.json",
+  "name": "TaskCheckpointStatisticsWithSubtaskDetails",
+  "description": "TaskCheckpointStatisticsWithSubtaskDetails schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "alignment_buffered": {
+      "type": "int64"
+    },
+    "checkpointed_size": {
+      "type": "int64"
+    },
+    "end_to_end_duration": {
+      "type": "int64"
+    },
+    "id": {
+      "type": "int64"
+    },
+    "latest_ack_timestamp": {
+      "type": "int64"
+    },
+    "num_acknowledged_subtasks": {
+      "type": "int32"
+    },
+    "num_subtasks": {
+      "type": "int32"
+    },
+    "persisted_data": {
+      "type": "int64"
+    },
+    "processed_data": {
+      "type": "int64"
+    },
+    "state_size": {
+      "type": "int64"
+    },
+    "status": {
+      "type": "string"
+    },
+    "subtasks": {
+      "type": "array"
+    },
+    "summary": {
+      "type": "string"
+    }
+  }
+}

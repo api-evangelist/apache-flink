@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-node-structure.json",
+  "name": "Node",
+  "description": "Node schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "children": {
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "int32"
+    }
+  }
+}

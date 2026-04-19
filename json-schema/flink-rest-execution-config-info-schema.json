@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-execution-config-info-schema.json",
+  "title": "ExecutionConfigInfo",
+  "description": "ExecutionConfigInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "job-parallelism": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "object-reuse-mode": {
+      "type": "boolean"
+    },
+    "restart-strategy": {
+      "type": "string"
+    },
+    "user-config": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

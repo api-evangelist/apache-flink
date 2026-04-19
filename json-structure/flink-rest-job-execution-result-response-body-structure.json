@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-job-execution-result-response-body-structure.json",
+  "name": "JobExecutionResultResponseBody",
+  "description": "JobExecutionResultResponseBody schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "job-execution-result": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

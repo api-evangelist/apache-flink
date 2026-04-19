@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-stop-with-savepoint-request-body-schema.json",
+  "title": "StopWithSavepointRequestBody",
+  "description": "StopWithSavepointRequestBody schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "drain": {
+      "type": "boolean"
+    },
+    "formatType": {
+      "$ref": "#/components/schemas/SavepointFormatType"
+    },
+    "targetDirectory": {
+      "type": "string"
+    },
+    "triggerId": {
+      "$ref": "#/components/schemas/TriggerId"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-checkpoint-statistics-summary-structure.json",
+  "name": "CheckpointStatisticsSummary",
+  "description": "CheckpointStatisticsSummary schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "alignment_buffered": {
+      "type": "string"
+    },
+    "checkpointed_size": {
+      "type": "string"
+    },
+    "end_to_end_duration": {
+      "type": "string"
+    },
+    "persisted_data": {
+      "type": "string"
+    },
+    "processed_data": {
+      "type": "string"
+    },
+    "state_size": {
+      "type": "string"
+    }
+  }
+}

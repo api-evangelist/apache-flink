@@ -1,0 +1,13 @@
+{
+  "flink-commit": "example-value",
+  "flink-version": "example-value",
+  "jobs-cancelled": 1,
+  "jobs-failed": 1,
+  "jobs-finished": 1,
+  "jobs-running": 1,
+  "slots-available": 1,
+  "slots-free-and-blocked": 1,
+  "slots-total": 1,
+  "taskmanagers": 1,
+  "taskmanagers-blocked": 1
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-subtask-execution-attempt-details-info-schema.json",
+  "title": "SubtaskExecutionAttemptDetailsInfo",
+  "description": "SubtaskExecutionAttemptDetailsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "attempt": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "duration": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "end-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "metrics": {
+      "$ref": "#/components/schemas/IOMetricsInfo"
+    },
+    "other-concurrent-attempts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SubtaskExecutionAttemptDetailsInfo"
+      }
+    },
+    "start-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "status": {
+      "$ref": "#/components/schemas/ExecutionState"
+    },
+    "status-duration": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "format": "int64"
+      }
+    },
+    "subtask": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "taskmanager-id": {
+      "type": "string"
+    }
+  }
+}

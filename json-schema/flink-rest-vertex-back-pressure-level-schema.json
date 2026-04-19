@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-vertex-back-pressure-level-schema.json",
+  "title": "VertexBackPressureLevel",
+  "description": "VertexBackPressureLevel schema from Apache Flink REST API",
+  "type": "string",
+  "enum": [
+    "ok",
+    "low",
+    "high"
+  ]
+}

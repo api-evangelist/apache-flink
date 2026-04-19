@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-jar-entry-info-schema.json",
+  "title": "JarEntryInfo",
+  "description": "JarEntryInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

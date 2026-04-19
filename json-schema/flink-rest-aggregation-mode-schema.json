@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-aggregation-mode-schema.json",
+  "title": "AggregationMode",
+  "description": "AggregationMode schema from Apache Flink REST API",
+  "type": "string",
+  "enum": [
+    "MIN",
+    "MAX",
+    "SUM",
+    "AVG",
+    "SKEW"
+  ]
+}

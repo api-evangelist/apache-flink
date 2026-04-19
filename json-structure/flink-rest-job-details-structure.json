@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-job-details-structure.json",
+  "name": "JobDetails",
+  "description": "JobDetails schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "int64"
+    },
+    "end-time": {
+      "type": "int64"
+    },
+    "jid": {
+      "type": "string"
+    },
+    "last-modification": {
+      "type": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pending-operators": {
+      "type": "int32"
+    },
+    "start-time": {
+      "type": "int64"
+    },
+    "state": {
+      "type": "string"
+    },
+    "tasks": {
+      "type": "object"
+    }
+  }
+}

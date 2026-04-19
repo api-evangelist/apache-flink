@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-jar-plan-request-body-schema.json",
+  "title": "JarPlanRequestBody",
+  "description": "JarPlanRequestBody schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "entryClass": {
+      "type": "string"
+    },
+    "flinkConfiguration": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "jobId": {
+      "$ref": "#/components/schemas/JobID"
+    },
+    "parallelism": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "programArgsList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

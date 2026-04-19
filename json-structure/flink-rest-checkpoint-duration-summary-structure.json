@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-checkpoint-duration-summary-structure.json",
+  "name": "CheckpointDurationSummary",
+  "description": "CheckpointDurationSummary schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "async": {
+      "type": "string"
+    },
+    "sync": {
+      "type": "string"
+    }
+  }
+}

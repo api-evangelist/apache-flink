@@ -1,0 +1,11 @@
+{
+  "duration": 1,
+  "end-time": 1,
+  "jid": "job-abc123",
+  "last-modification": 1,
+  "name": "WordCount",
+  "pending-operators": 1,
+  "start-time": 1,
+  "state": "RUNNING",
+  "tasks": {}
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-exception-history-schema.json",
+  "title": "JobExceptionHistory",
+  "description": "JobExceptionHistory schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/RootExceptionInfo"
+      }
+    },
+    "truncated": {
+      "type": "boolean"
+    }
+  }
+}

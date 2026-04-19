@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-checkpoint-alignment-summary-schema.json",
+  "title": "CheckpointAlignmentSummary",
+  "description": "CheckpointAlignmentSummary schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "buffered": {
+      "$ref": "#/components/schemas/StatsSummaryDto"
+    },
+    "duration": {
+      "$ref": "#/components/schemas/StatsSummaryDto"
+    },
+    "persisted": {
+      "$ref": "#/components/schemas/StatsSummaryDto"
+    },
+    "processed": {
+      "$ref": "#/components/schemas/StatsSummaryDto"
+    }
+  }
+}

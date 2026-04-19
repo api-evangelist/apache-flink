@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-hardware-description-schema.json",
+  "title": "HardwareDescription",
+  "description": "HardwareDescription schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "cpuCores": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "freeMemory": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "managedMemory": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "physicalMemory": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

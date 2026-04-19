@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-subtask-time-info-schema.json",
+  "title": "SubtaskTimeInfo",
+  "description": "SubtaskTimeInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "endpoint": {
+      "type": "string"
+    },
+    "subtask": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "timestamps": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "format": "int64"
+      }
+    }
+  }
+}

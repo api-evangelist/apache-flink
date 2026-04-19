@@ -1,0 +1,8 @@
+{
+  "alignment": "example-value",
+  "checkpoint_duration": "example-value",
+  "checkpointed_size": "example-value",
+  "end_to_end_duration": "example-value",
+  "start_delay": "example-value",
+  "state_size": "RUNNING"
+}

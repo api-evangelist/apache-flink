@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-restored-checkpoint-statistics-schema.json",
+  "title": "RestoredCheckpointStatistics",
+  "description": "RestoredCheckpointStatistics schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "external_path": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "is_savepoint": {
+      "type": "boolean"
+    },
+    "restore_timestamp": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

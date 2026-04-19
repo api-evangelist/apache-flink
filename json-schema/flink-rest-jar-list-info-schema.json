@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-jar-list-info-schema.json",
+  "title": "JarListInfo",
+  "description": "JarListInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string"
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/JarFileInfo"
+      }
+    }
+  }
+}

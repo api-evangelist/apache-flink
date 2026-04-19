@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-savepoint-info-schema.json",
+  "title": "SavepointInfo",
+  "description": "SavepointInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "failure-cause": {
+      "$ref": "#/components/schemas/SerializedThrowable"
+    },
+    "location": {
+      "type": "string"
+    }
+  }
+}

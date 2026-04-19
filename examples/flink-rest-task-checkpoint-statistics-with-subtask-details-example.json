@@ -1,0 +1,17 @@
+{
+  "alignment_buffered": 1,
+  "checkpointed_size": 1,
+  "end_to_end_duration": 1,
+  "id": 1,
+  "latest_ack_timestamp": 1,
+  "num_acknowledged_subtasks": 1,
+  "num_subtasks": 1,
+  "persisted_data": 1,
+  "processed_data": 1,
+  "state_size": 1,
+  "status": "RUNNING",
+  "subtasks": [
+    "example-value"
+  ],
+  "summary": "example-value"
+}

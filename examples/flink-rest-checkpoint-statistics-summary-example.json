@@ -1,0 +1,8 @@
+{
+  "alignment_buffered": "example-value",
+  "checkpointed_size": "example-value",
+  "end_to_end_duration": "example-value",
+  "persisted_data": "example-value",
+  "processed_data": "example-value",
+  "state_size": "RUNNING"
+}

@@ -1,0 +1,15 @@
+{
+  "attempt": 1,
+  "duration": 1,
+  "end-time": 1,
+  "endpoint": "example-value",
+  "metrics": "example-value",
+  "other-concurrent-attempts": [
+    "example-value"
+  ],
+  "start-time": 1,
+  "status": "RUNNING",
+  "status-duration": {},
+  "subtask": 1,
+  "taskmanager-id": "job-abc123"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-subtasks-all-accumulators-info-structure.json",
+  "name": "SubtasksAllAccumulatorsInfo",
+  "description": "SubtasksAllAccumulatorsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "parallelism": {
+      "type": "int32"
+    },
+    "subtasks": {
+      "type": "array"
+    }
+  }
+}

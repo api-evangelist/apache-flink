@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-counts-schema.json",
+  "title": "Counts",
+  "description": "Counts schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "completed": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "failed": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "in_progress": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "restored": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "total": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

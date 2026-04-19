@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-vertex-details-info-schema.json",
+  "title": "JobVertexDetailsInfo",
+  "description": "JobVertexDetailsInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "aggregated": {
+      "$ref": "#/components/schemas/AggregatedTaskDetailsInfo"
+    },
+    "id": {
+      "$ref": "#/components/schemas/JobVertexID"
+    },
+    "maxParallelism": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string"
+    },
+    "now": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "parallelism": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "subtasks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SubtaskExecutionAttemptDetailsInfo"
+      }
+    }
+  }
+}

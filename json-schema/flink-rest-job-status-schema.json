@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-status-schema.json",
+  "title": "JobStatus",
+  "description": "JobStatus schema from Apache Flink REST API",
+  "type": "string",
+  "enum": [
+    "INITIALIZING",
+    "CREATED",
+    "RUNNING",
+    "FAILING",
+    "FAILED",
+    "CANCELLING",
+    "CANCELED",
+    "FINISHED",
+    "RESTARTING",
+    "SUSPENDED",
+    "RECONCILING"
+  ]
+}

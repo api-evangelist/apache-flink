@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-exception-info-schema.json",
+  "title": "ExceptionInfo",
+  "description": "ExceptionInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "endpoint": {
+      "type": "string"
+    },
+    "exceptionName": {
+      "type": "string"
+    },
+    "failureLabels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "stacktrace": {
+      "type": "string"
+    },
+    "taskManagerId": {
+      "type": "string"
+    },
+    "taskName": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

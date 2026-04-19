@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-stats-summary-dto-schema.json",
+  "title": "StatsSummaryDto",
+  "description": "StatsSummaryDto schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "avg": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "max": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "min": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "p50": {
+      "type": "number",
+      "format": "double"
+    },
+    "p90": {
+      "type": "number",
+      "format": "double"
+    },
+    "p95": {
+      "type": "number",
+      "format": "double"
+    },
+    "p99": {
+      "type": "number",
+      "format": "double"
+    },
+    "p999": {
+      "type": "number",
+      "format": "double"
+    }
+  }
+}

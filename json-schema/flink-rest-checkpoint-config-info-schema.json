@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-checkpoint-config-info-schema.json",
+  "title": "CheckpointConfigInfo",
+  "description": "CheckpointConfigInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "aligned_checkpoint_timeout": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "changelog_periodic_materialization_interval": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "changelog_storage": {
+      "type": "string"
+    },
+    "checkpoint_storage": {
+      "type": "string"
+    },
+    "checkpoints_after_tasks_finish": {
+      "type": "boolean"
+    },
+    "externalization": {
+      "$ref": "#/components/schemas/ExternalizedCheckpointInfo"
+    },
+    "interval": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "max_concurrent": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "min_pause": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "mode": {
+      "$ref": "#/components/schemas/ProcessingMode"
+    },
+    "state_backend": {
+      "type": "string"
+    },
+    "state_changelog_enabled": {
+      "type": "boolean"
+    },
+    "timeout": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "tolerable_failed_checkpoints": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "unaligned_checkpoints": {
+      "type": "boolean"
+    }
+  }
+}

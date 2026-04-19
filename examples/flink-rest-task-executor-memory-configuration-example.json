@@ -1,0 +1,12 @@
+{
+  "frameworkHeap": 1,
+  "frameworkOffHeap": 1,
+  "jvmMetaspace": 1,
+  "jvmOverhead": 1,
+  "managedMemory": 1,
+  "networkMemory": 1,
+  "taskHeap": 1,
+  "taskOffHeap": 1,
+  "totalFlinkMemory": 1,
+  "totalProcessMemory": 1
+}

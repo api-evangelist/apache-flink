@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-checkpoint-trigger-request-body-structure.json",
+  "name": "CheckpointTriggerRequestBody",
+  "description": "CheckpointTriggerRequestBody schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "checkpointType": {
+      "type": "string"
+    },
+    "triggerId": {
+      "type": "string"
+    }
+  }
+}

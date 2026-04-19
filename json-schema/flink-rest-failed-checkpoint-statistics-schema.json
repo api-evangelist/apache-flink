@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-failed-checkpoint-statistics-schema.json",
+  "title": "FailedCheckpointStatistics",
+  "description": "FailedCheckpointStatistics schema from Apache Flink REST API",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/CheckpointStatistics"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "failure_timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "failure_message": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

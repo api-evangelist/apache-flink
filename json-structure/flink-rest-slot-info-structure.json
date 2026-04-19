@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-slot-info-structure.json",
+  "name": "SlotInfo",
+  "description": "SlotInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "type": "string"
+    },
+    "resource": {
+      "type": "string"
+    }
+  }
+}

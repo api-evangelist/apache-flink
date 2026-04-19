@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-task-checkpoint-statistics-with-subtask-details-schema.json",
+  "title": "TaskCheckpointStatisticsWithSubtaskDetails",
+  "description": "TaskCheckpointStatisticsWithSubtaskDetails schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "alignment_buffered": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "checkpointed_size": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "end_to_end_duration": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "latest_ack_timestamp": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "num_acknowledged_subtasks": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "num_subtasks": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "persisted_data": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "processed_data": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "state_size": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "status": {
+      "$ref": "#/components/schemas/CheckpointStatsStatus"
+    },
+    "subtasks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SubtaskCheckpointStatistics"
+      }
+    },
+    "summary": {
+      "$ref": "#/components/schemas/TaskCheckpointStatisticsWithSubtaskDetailsSummary"
+    }
+  }
+}

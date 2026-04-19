@@ -1,0 +1,8 @@
+{
+  "features": "example-value",
+  "flink-revision": "example-value",
+  "flink-version": "example-value",
+  "refresh-interval": 1,
+  "timezone-name": "WordCount",
+  "timezone-offset": 1
+}

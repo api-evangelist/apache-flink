@@ -1,0 +1,11 @@
+{
+  "aggregated": "example-value",
+  "id": "job-abc123",
+  "maxParallelism": 1,
+  "name": "WordCount",
+  "now": 1,
+  "parallelism": 1,
+  "subtasks": [
+    "example-value"
+  ]
+}

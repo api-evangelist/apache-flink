@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-task-executor-memory-configuration-schema.json",
+  "title": "TaskExecutorMemoryConfiguration",
+  "description": "TaskExecutorMemoryConfiguration schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "frameworkHeap": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "frameworkOffHeap": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "jvmMetaspace": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "jvmOverhead": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "managedMemory": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "networkMemory": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "taskHeap": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "taskOffHeap": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "totalFlinkMemory": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "totalProcessMemory": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

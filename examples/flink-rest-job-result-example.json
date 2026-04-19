@@ -1,0 +1,8 @@
+{
+  "accumulatorResults": {},
+  "applicationStatus": "RUNNING",
+  "jobId": "job-abc123",
+  "netRuntime": 1,
+  "serializedThrowable": "example-value",
+  "success": true
+}

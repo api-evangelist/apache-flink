@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-structure/flink-rest-dashboard-configuration-structure.json",
+  "name": "DashboardConfiguration",
+  "description": "DashboardConfiguration schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "features": {
+      "type": "string"
+    },
+    "flink-revision": {
+      "type": "string"
+    },
+    "flink-version": {
+      "type": "string"
+    },
+    "refresh-interval": {
+      "type": "int64"
+    },
+    "timezone-name": {
+      "type": "string"
+    },
+    "timezone-offset": {
+      "type": "int32"
+    }
+  }
+}

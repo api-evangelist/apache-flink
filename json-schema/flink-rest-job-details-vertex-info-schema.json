@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-job-details-vertex-info-schema.json",
+  "title": "JobDetailsVertexInfo",
+  "description": "JobDetailsVertexInfo schema from Apache Flink REST API",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "end-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "id": {
+      "$ref": "#/components/schemas/JobVertexID"
+    },
+    "maxParallelism": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "metrics": {
+      "$ref": "#/components/schemas/IOMetricsInfo"
+    },
+    "name": {
+      "type": "string"
+    },
+    "parallelism": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "slotSharingGroupId": {
+      "$ref": "#/components/schemas/SlotSharingGroupId"
+    },
+    "start-time": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "status": {
+      "$ref": "#/components/schemas/ExecutionState"
+    },
+    "tasks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "format": "int32"
+      }
+    }
+  }
+}

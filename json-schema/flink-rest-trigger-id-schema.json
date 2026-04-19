@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/json-schema/flink-rest-trigger-id-schema.json",
+  "title": "TriggerId",
+  "description": "TriggerId schema from Apache Flink REST API",
+  "type": "string"
+}
