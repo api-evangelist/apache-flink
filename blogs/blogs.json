@@ -1,0 +1,13 @@
+{
+  "repo": "apache-flink",
+  "feeds": [
+    {
+      "source": "https://flink.apache.org/blog/",
+      "feed_url": "https://flink.apache.org/posts/index.xml",
+      "saved": 10,
+      "title": "Flink Blog on Apache Flink"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:22:07Z"
+}
