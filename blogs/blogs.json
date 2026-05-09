@@ -3,11 +3,11 @@
   "feeds": [
     {
       "source": "https://flink.apache.org/blog/",
-      "feed_url": "https://flink.apache.org/posts/index.xml",
-      "saved": 10,
-      "title": "Flink Blog on Apache Flink"
+      "feed_url": "https://flink.apache.org/index.xml",
+      "title": "Apache Flink\u00ae \u2014 Stateful Computations over Data Streams on Apache Flink",
+      "saved": 0
     }
   ],
   "post_count": 10,
-  "fetched": "2026-05-03T23:22:07Z"
+  "fetched": "2026-05-09T20:17:51Z"
 }
