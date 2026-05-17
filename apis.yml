@@ -38,7 +38,7 @@ apis:
         url: openapi/apache-flink-rest-openapi-original.yml
       - type: JSONSchema
         url: json-schema/flink-rest-job-details-info-schema.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/apache-flink-rest-context.jsonld
 
   - aid: apache-flink:apache-flink-monitoring
