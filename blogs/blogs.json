@@ -2,12 +2,20 @@
   "repo": "apache-flink",
   "feeds": [
     {
-      "source": "https://flink.apache.org/blog/",
+      "source": "https://flink.apache.org/index.xml",
       "feed_url": "https://flink.apache.org/index.xml",
-      "title": "Apache Flink\u00ae \u2014 Stateful Computations over Data Streams on Apache Flink",
-      "saved": 49
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://github.com/apache/flink",
+      "feed_url": "https://github.com/apache/flink",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 59,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 60,
+  "fetched": "2026-06-01T23:35:02Z"
 }
