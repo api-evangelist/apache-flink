@@ -4,7 +4,7 @@ description: Apache Flink is a framework and distributed processing engine for s
   data streams. It provides a REST API for job management, cluster operations, metrics collection, and checkpoint management
   for real-time streaming and batch processing workloads.
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Apache
 - Batch Processing
