@@ -40,7 +40,7 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest.yaml
 - aid: apache-flink:apache-flink-monitoring
   name: Apache Flink Monitoring API
