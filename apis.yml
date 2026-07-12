@@ -58,6 +58,10 @@ apis:
     url: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/metrics/
     title: Metrics Reference
 common:
+- type: VulnerabilityDisclosure
+  url: security/apache-flink-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/apache-flink-domain-security.yml
 - type: GettingStarted
   url: https://nightlies.apache.org/flink/flink-docs-stable/docs/try-flink/local_installation/
 - type: GitHubOrganization
