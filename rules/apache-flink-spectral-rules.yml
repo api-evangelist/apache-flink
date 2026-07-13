@@ -1,4 +1,18 @@
-# Apache Flink REST API Spectral Ruleset
+# apache-flink — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - path-params-casing: snake @ 100% (n=80)
+#   - query-params-casing: snake @ 70% (n=30)
+#   - operationid-casing: camel @ 100% (n=69)
+#   - schema-names-casing: pascal @ 100% (n=132)
+#   - schema-properties-casing: snake @ 56% (n=444)
+#   - merge: kept 11 existing, added 5 measured, upgraded 0
+#   - added: query-params-casing, operationid-casing, schema-names-casing, schema-properties-casing, no-empty-descriptions
+extends:
+  - spectral:oas
 rules:
   info-title-required:
     description: Info title must be defined
@@ -28,7 +42,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^Apache Flink"
+        match: ^Apache Flink
   operation-operationId-required:
     description: All operations must have an operationId
     severity: error
@@ -48,10 +62,10 @@ rules:
     severity: warn
     given: $.paths
     then:
-      field: "@key"
+      field: '@key'
       function: pattern
       functionOptions:
-        notMatch: "/$"
+        notMatch: /$
   parameter-description-required:
     description: All parameters must have descriptions
     severity: warn
@@ -81,4 +95,45 @@ rules:
     given: $.components.schemas[*]
     then:
       field: description
+      function: truthy
+  query-params-casing:
+    description: Query parameters should be snake_case (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='query')]
+    then:
+      field: name
+      function: casing
+      functionOptions:
+        type: snake
+  operationid-casing:
+    description: Operation IDs should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][A-Za-z0-9]*$
+  schema-properties-casing:
+    description: Schema properties should be snake_case (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: snake
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
       function: truthy
