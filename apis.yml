@@ -58,6 +58,8 @@ apis:
     url: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/metrics/
     title: Metrics Reference
 common:
+- type: AgenticAccess
+  url: agentic-access/apache-flink-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/apache-flink-vulnerability-disclosure.yml
 - type: DomainSecurity
