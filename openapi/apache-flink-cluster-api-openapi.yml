@@ -1,0 +1,22 @@
+openapi: 3.0.1
+info:
+  title: Flink JobManager REST Cluster API
+  contact:
+    email: user@flink.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1/2.0-SNAPSHOT
+tags:
+- name: Cluster
+paths:
+  /cluster:
+    delete:
+      description: Shuts down the cluster
+      operationId: shutdownCluster
+      responses:
+        '200':
+          description: The request was successful.
+      summary: Apache Flink Delete Cluster
+      tags:
+      - Cluster

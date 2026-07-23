@@ -1,0 +1,115 @@
+openapi: 3.0.1
+info:
+  title: Flink JobManager REST Cluster Savepoint Disposal API
+  contact:
+    email: user@flink.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1/2.0-SNAPSHOT
+tags:
+- name: Savepoint Disposal
+paths:
+  /savepoint-disposal:
+    post:
+      description: Triggers the desposal of a savepoint. This async operation would return a 'triggerid' for further query identifier.
+      operationId: triggerSavepointDisposal
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavepointDisposalRequest'
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TriggerResponse'
+      summary: Apache Flink Create Savepoint-Disposal
+      tags:
+      - Savepoint Disposal
+  /savepoint-disposal/{triggerid}:
+    get:
+      description: Returns the status of a savepoint disposal operation.
+      operationId: getSavepointDisposalStatus
+      parameters:
+      - name: triggerid
+        in: path
+        description: 32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered.
+        required: true
+        schema:
+          $ref: '#/components/schemas/TriggerId'
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsynchronousOperationResult'
+      summary: Apache Flink Get Savepoint-Disposal
+      tags:
+      - Savepoint Disposal
+components:
+  schemas:
+    QueueStatus:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+    TriggerResponse:
+      type: object
+      properties:
+        request-id:
+          $ref: '#/components/schemas/TriggerId'
+    CheckpointInfo:
+      type: object
+      properties:
+        checkpointId:
+          type: integer
+          format: int64
+        failureCause:
+          $ref: '#/components/schemas/SerializedThrowable'
+    AsynchronousOperationInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+    TriggerId:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    AsynchronousOperationResult:
+      type: object
+      properties:
+        operation:
+          oneOf:
+          - $ref: '#/components/schemas/AsynchronousOperationInfo'
+          - $ref: '#/components/schemas/CheckpointInfo'
+          - $ref: '#/components/schemas/SavepointInfo'
+        status:
+          $ref: '#/components/schemas/QueueStatus'
+    Id:
+      type: string
+      enum:
+      - IN_PROGRESS
+      - COMPLETED
+    SavepointInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+        location:
+          type: string
+    SerializedThrowable:
+      type: object
+      properties:
+        serialized-throwable:
+          type: string
+          format: binary
+    SavepointDisposalRequest:
+      type: object
+      properties:
+        savepoint-path:
+          type: string

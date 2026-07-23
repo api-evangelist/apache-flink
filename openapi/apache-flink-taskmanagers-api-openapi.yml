@@ -1,0 +1,446 @@
+openapi: 3.0.1
+info:
+  title: Flink JobManager REST Cluster Taskmanagers API
+  contact:
+    email: user@flink.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1/2.0-SNAPSHOT
+tags:
+- name: Taskmanagers
+paths:
+  /taskmanagers:
+    get:
+      description: Returns an overview over all task managers.
+      operationId: getTaskManagers
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskManagersInfo'
+      summary: Apache Flink List Taskmanagers
+      tags:
+      - Taskmanagers
+  /taskmanagers/metrics:
+    get:
+      description: Provides access to aggregated task manager metrics.
+      operationId: getAggregatedTaskManagerMetrics
+      parameters:
+      - name: get
+        in: query
+        description: Comma-separated list of string values to select specific metrics.
+        required: false
+        style: form
+        schema:
+          type: string
+      - name: agg
+        in: query
+        description: 'Comma-separated list of aggregation modes which should be calculated. Available aggregations are: "min, max, sum, avg, skew".'
+        required: false
+        style: form
+        schema:
+          $ref: '#/components/schemas/AggregationMode'
+      - name: taskmanagers
+        in: query
+        description: Comma-separated list of 32-character hexadecimal strings to select specific task managers.
+        required: false
+        style: form
+        schema:
+          $ref: '#/components/schemas/ResourceID'
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AggregatedMetricsResponseBody'
+      summary: Apache Flink List Taskmanagers Metrics
+      tags:
+      - Taskmanagers
+  /taskmanagers/{taskmanagerid}:
+    get:
+      description: Returns details for a task manager.
+      operationId: getTaskManagerDetails
+      parameters:
+      - name: taskmanagerid
+        in: path
+        description: 32-character hexadecimal string that identifies a task manager.
+        required: true
+        schema:
+          $ref: '#/components/schemas/ResourceID'
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskManagerDetailsInfo'
+      summary: Apache Flink Get Taskmanagers
+      tags:
+      - Taskmanagers
+  /taskmanagers/{taskmanagerid}/logs:
+    get:
+      description: Returns the list of log files on a TaskManager.
+      operationId: getTaskManagerLogs
+      parameters:
+      - name: taskmanagerid
+        in: path
+        description: 32-character hexadecimal string that identifies a task manager.
+        required: true
+        schema:
+          $ref: '#/components/schemas/ResourceID'
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogListInfo'
+      summary: Apache Flink List Taskmanagers Logs
+      tags:
+      - Taskmanagers
+  /taskmanagers/{taskmanagerid}/metrics:
+    get:
+      description: Provides access to task manager metrics.
+      operationId: getTaskManagerMetrics
+      parameters:
+      - name: taskmanagerid
+        in: path
+        description: 32-character hexadecimal string that identifies a task manager.
+        required: true
+        schema:
+          $ref: '#/components/schemas/ResourceID'
+      - name: get
+        in: query
+        description: Comma-separated list of string values to select specific metrics.
+        required: false
+        style: form
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricCollectionResponseBody'
+      summary: Apache Flink List Taskmanagers Metrics
+      tags:
+      - Taskmanagers
+  /taskmanagers/{taskmanagerid}/thread-dump:
+    get:
+      description: Returns the thread dump of the requested TaskManager.
+      operationId: getTaskManagerThreadDump
+      parameters:
+      - name: taskmanagerid
+        in: path
+        description: 32-character hexadecimal string that identifies a task manager.
+        required: true
+        schema:
+          $ref: '#/components/schemas/ResourceID'
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreadDumpInfo'
+      summary: Apache Flink List Taskmanagers Thread-Dump
+      tags:
+      - Taskmanagers
+components:
+  schemas:
+    TaskExecutorMemoryConfiguration:
+      type: object
+      properties:
+        frameworkHeap:
+          type: integer
+          format: int64
+        frameworkOffHeap:
+          type: integer
+          format: int64
+        jvmMetaspace:
+          type: integer
+          format: int64
+        jvmOverhead:
+          type: integer
+          format: int64
+        managedMemory:
+          type: integer
+          format: int64
+        networkMemory:
+          type: integer
+          format: int64
+        taskHeap:
+          type: integer
+          format: int64
+        taskOffHeap:
+          type: integer
+          format: int64
+        totalFlinkMemory:
+          type: integer
+          format: int64
+        totalProcessMemory:
+          type: integer
+          format: int64
+    SlotInfo:
+      type: object
+      properties:
+        jobId:
+          $ref: '#/components/schemas/JobID'
+        resource:
+          $ref: '#/components/schemas/ResourceProfileInfo'
+    HardwareDescription:
+      type: object
+      properties:
+        cpuCores:
+          type: integer
+          format: int32
+        freeMemory:
+          type: integer
+          format: int64
+        managedMemory:
+          type: integer
+          format: int64
+        physicalMemory:
+          type: integer
+          format: int64
+    TaskManagerMetricsInfo:
+      type: object
+      properties:
+        directCount:
+          type: integer
+          format: int64
+        directMax:
+          type: integer
+          format: int64
+        directUsed:
+          type: integer
+          format: int64
+        garbageCollectors:
+          type: array
+          items:
+            $ref: '#/components/schemas/GarbageCollectorInfo'
+        heapCommitted:
+          type: integer
+          format: int64
+        heapMax:
+          type: integer
+          format: int64
+        heapUsed:
+          type: integer
+          format: int64
+        mappedCount:
+          type: integer
+          format: int64
+        mappedMax:
+          type: integer
+          format: int64
+        mappedUsed:
+          type: integer
+          format: int64
+        nettyShuffleMemoryAvailable:
+          type: integer
+          format: int64
+        nettyShuffleMemorySegmentsAvailable:
+          type: integer
+          format: int64
+        nettyShuffleMemorySegmentsTotal:
+          type: integer
+          format: int64
+        nettyShuffleMemorySegmentsUsed:
+          type: integer
+          format: int64
+        nettyShuffleMemoryTotal:
+          type: integer
+          format: int64
+        nettyShuffleMemoryUsed:
+          type: integer
+          format: int64
+        nonHeapCommitted:
+          type: integer
+          format: int64
+        nonHeapMax:
+          type: integer
+          format: int64
+        nonHeapUsed:
+          type: integer
+          format: int64
+    ThreadInfo:
+      type: object
+      properties:
+        stringifiedThreadInfo:
+          type: string
+        threadName:
+          type: string
+    ResourceProfileInfo:
+      type: object
+      properties:
+        cpuCores:
+          type: number
+          format: double
+        extendedResources:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        managedMemory:
+          type: integer
+          format: int32
+        networkMemory:
+          type: integer
+          format: int32
+        taskHeapMemory:
+          type: integer
+          format: int32
+        taskOffHeapMemory:
+          type: integer
+          format: int32
+    TaskManagerDetailsInfo:
+      type: object
+      properties:
+        allocatedSlots:
+          type: array
+          items:
+            $ref: '#/components/schemas/SlotInfo'
+        blocked:
+          type: boolean
+        dataPort:
+          type: integer
+          format: int32
+        freeResource:
+          $ref: '#/components/schemas/ResourceProfileInfo'
+        freeSlots:
+          type: integer
+          format: int32
+        hardware:
+          $ref: '#/components/schemas/HardwareDescription'
+        id:
+          $ref: '#/components/schemas/ResourceID'
+        jmxPort:
+          type: integer
+          format: int32
+        memoryConfiguration:
+          $ref: '#/components/schemas/TaskExecutorMemoryConfiguration'
+        metrics:
+          $ref: '#/components/schemas/TaskManagerMetricsInfo'
+        path:
+          type: string
+        slotsNumber:
+          type: integer
+          format: int32
+        timeSinceLastHeartbeat:
+          type: integer
+          format: int64
+        totalResource:
+          $ref: '#/components/schemas/ResourceProfileInfo'
+    MetricCollectionResponseBody:
+      type: object
+      properties:
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+    ThreadDumpInfo:
+      type: object
+      properties:
+        threadInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThreadInfo'
+    ResourceID:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    AggregatedMetricsResponseBody:
+      type: object
+    Metric:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+    LogListInfo:
+      type: object
+      properties:
+        logs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogInfo'
+    TaskManagerInfo:
+      type: object
+      properties:
+        blocked:
+          type: boolean
+        dataPort:
+          type: integer
+          format: int32
+        freeResource:
+          $ref: '#/components/schemas/ResourceProfileInfo'
+        freeSlots:
+          type: integer
+          format: int32
+        hardware:
+          $ref: '#/components/schemas/HardwareDescription'
+        id:
+          $ref: '#/components/schemas/ResourceID'
+        jmxPort:
+          type: integer
+          format: int32
+        memoryConfiguration:
+          $ref: '#/components/schemas/TaskExecutorMemoryConfiguration'
+        path:
+          type: string
+        slotsNumber:
+          type: integer
+          format: int32
+        timeSinceLastHeartbeat:
+          type: integer
+          format: int64
+        totalResource:
+          $ref: '#/components/schemas/ResourceProfileInfo'
+    AggregationMode:
+      type: string
+      enum:
+      - MIN
+      - MAX
+      - SUM
+      - AVG
+      - SKEW
+    GarbageCollectorInfo:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        name:
+          type: string
+        time:
+          type: integer
+          format: int64
+    TaskManagersInfo:
+      type: object
+      properties:
+        taskmanagers:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskManagerInfo'
+    LogInfo:
+      type: object
+      properties:
+        mtime:
+          type: integer
+          format: int64
+        name:
+          type: string
+        size:
+          type: integer
+          format: int64
+    JobID:
+      pattern: '[0-9a-f]{32}'
+      type: string

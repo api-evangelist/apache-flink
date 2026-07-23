@@ -1,0 +1,284 @@
+openapi: 3.0.1
+info:
+  title: Flink JobManager REST Cluster Jars API
+  contact:
+    email: user@flink.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1/2.0-SNAPSHOT
+tags:
+- name: Jars
+paths:
+  /jars:
+    get:
+      description: Returns a list of all jars previously uploaded via '/jars/upload'.
+      operationId: getJarList
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JarListInfo'
+      summary: Apache Flink List Jars
+      tags:
+      - Jars
+  /jars/upload:
+    post:
+      description: 'Uploads a jar to the cluster. The jar must be sent as multi-part data. Make sure that the "Content-Type" header is set to "application/x-java-archive", as some http libraries do not add the header by default.
+
+        Using ''curl'' you can upload a jar via ''curl -X POST -H "Expect:" -F "jarfile=@path/to/flink-job.jar" http://hostname:port/jars/upload''.'
+      operationId: uploadJar
+      requestBody:
+        content:
+          application/x-java-archive:
+            schema:
+              type: string
+              format: binary
+        required: true
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JarUploadResponseBody'
+      summary: Apache Flink Create Jars Upload
+      tags:
+      - Jars
+  /jars/{jarid}:
+    delete:
+      description: Deletes a jar previously uploaded via '/jars/upload'.
+      operationId: deleteJar
+      parameters:
+      - name: jarid
+        in: path
+        description: String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars).
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The request was successful.
+      summary: Apache Flink Delete Jars
+      tags:
+      - Jars
+  /jars/{jarid}/plan:
+    post:
+      description: Returns the dataflow plan of a job contained in a jar previously uploaded via '/jars/upload'. Program arguments can be passed both via the JSON request (recommended) or query parameters.
+      operationId: generatePlanFromJar
+      parameters:
+      - name: jarid
+        in: path
+        description: String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars).
+        required: true
+        schema:
+          type: string
+      - name: programArg
+        in: query
+        description: Comma-separated list of program arguments.
+        required: false
+        style: form
+        schema:
+          type: string
+      - name: entry-class
+        in: query
+        description: String value that specifies the fully qualified name of the entry point class. Overrides the class defined in the jar file manifest.
+        required: false
+        style: form
+        schema:
+          type: string
+      - name: parallelism
+        in: query
+        description: Positive integer value that specifies the desired parallelism for the job.
+        required: false
+        style: form
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JarPlanRequestBody'
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobPlanInfo'
+      summary: Apache Flink Create Jars Plan
+      tags:
+      - Jars
+  /jars/{jarid}/run:
+    post:
+      description: Submits a job by running a jar previously uploaded via '/jars/upload'. Program arguments can be passed both via the JSON request (recommended) or query parameters.
+      operationId: submitJobFromJar
+      parameters:
+      - name: jarid
+        in: path
+        description: String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars).
+        required: true
+        schema:
+          type: string
+      - name: allowNonRestoredState
+        in: query
+        description: Boolean value that specifies whether the job submission should be rejected if the savepoint contains state that cannot be mapped back to the job.
+        required: false
+        style: form
+        schema:
+          type: boolean
+      - name: savepointPath
+        in: query
+        description: String value that specifies the path of the savepoint to restore the job from.
+        required: false
+        style: form
+        schema:
+          type: string
+      - name: programArg
+        in: query
+        description: Comma-separated list of program arguments.
+        required: false
+        style: form
+        schema:
+          type: string
+      - name: entry-class
+        in: query
+        description: String value that specifies the fully qualified name of the entry point class. Overrides the class defined in the jar file manifest.
+        required: false
+        style: form
+        schema:
+          type: string
+      - name: parallelism
+        in: query
+        description: Positive integer value that specifies the desired parallelism for the job.
+        required: false
+        style: form
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JarRunRequestBody'
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JarRunResponseBody'
+      summary: Apache Flink Create Jars Run
+      tags:
+      - Jars
+components:
+  schemas:
+    JarEntryInfo:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+    JarUploadResponseBody:
+      type: object
+      properties:
+        filename:
+          type: string
+        status:
+          $ref: '#/components/schemas/UploadStatus'
+    JobPlanInfo:
+      type: object
+      properties:
+        plan:
+          $ref: '#/components/schemas/RawJson'
+    JarListInfo:
+      type: object
+      properties:
+        address:
+          type: string
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/JarFileInfo'
+    JarPlanRequestBody:
+      type: object
+      properties:
+        entryClass:
+          type: string
+        flinkConfiguration:
+          type: object
+          additionalProperties:
+            type: string
+        jobId:
+          $ref: '#/components/schemas/JobID'
+        parallelism:
+          type: integer
+          format: int32
+        programArgsList:
+          type: array
+          items:
+            type: string
+    JarRunResponseBody:
+      type: object
+      properties:
+        jobid:
+          $ref: '#/components/schemas/JobID'
+    JarFileInfo:
+      type: object
+      properties:
+        entry:
+          type: array
+          items:
+            $ref: '#/components/schemas/JarEntryInfo'
+        id:
+          type: string
+        name:
+          type: string
+        uploaded:
+          type: integer
+          format: int64
+    RawJson:
+      type: object
+    RecoveryClaimMode:
+      type: string
+      enum:
+      - CLAIM
+      - NO_CLAIM
+      - LEGACY
+    UploadStatus:
+      type: string
+      enum:
+      - success
+    JarRunRequestBody:
+      type: object
+      properties:
+        allowNonRestoredState:
+          type: boolean
+        claimMode:
+          $ref: '#/components/schemas/RecoveryClaimMode'
+        entryClass:
+          type: string
+        flinkConfiguration:
+          type: object
+          additionalProperties:
+            type: string
+        jobId:
+          $ref: '#/components/schemas/JobID'
+        parallelism:
+          type: integer
+          format: int32
+        programArgsList:
+          type: array
+          items:
+            type: string
+        restoreMode:
+          $ref: '#/components/schemas/RecoveryClaimMode'
+        savepointPath:
+          type: string
+    JobID:
+      pattern: '[0-9a-f]{32}'
+      type: string

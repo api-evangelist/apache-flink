@@ -1,0 +1,169 @@
+openapi: 3.0.1
+info:
+  title: Flink REST Cluster Jobmanager API
+  contact:
+    email: user@flink.apache.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: v1/2.0-SNAPSHOT
+tags:
+- name: Jobmanager
+paths:
+  /jobmanager/config:
+    get:
+      description: Returns the cluster configuration.
+      operationId: getClusterConfigurationInfo
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConfigurationInfoEntry'
+      summary: Apache Flink List Jobmanager Config
+      tags:
+      - Jobmanager
+  /jobmanager/environment:
+    get:
+      description: Returns the jobmanager environment.
+      operationId: getJobManagerEnvironment
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnvironmentInfo'
+      summary: Apache Flink List Jobmanager Environment
+      tags:
+      - Jobmanager
+  /jobmanager/logs:
+    get:
+      description: Returns the list of log files on the JobManager.
+      operationId: getJobManagerLogList
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogListInfo'
+      summary: Apache Flink List Jobmanager Logs
+      tags:
+      - Jobmanager
+  /jobmanager/metrics:
+    get:
+      description: Provides access to job manager metrics.
+      operationId: getJobManagerMetrics
+      parameters:
+      - name: get
+        in: query
+        description: Comma-separated list of string values to select specific metrics.
+        required: false
+        style: form
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricCollectionResponseBody'
+      summary: Apache Flink List Jobmanager Metrics
+      tags:
+      - Jobmanager
+  /jobmanager/thread-dump:
+    get:
+      description: Returns the thread dump of the JobManager.
+      operationId: getJobManagerThreadDump
+      responses:
+        '200':
+          description: The request was successful.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThreadDumpInfo'
+      summary: Apache Flink List Jobmanager Thread-Dump
+      tags:
+      - Jobmanager
+components:
+  schemas:
+    Metric:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+    EnvironmentInfo:
+      type: object
+      properties:
+        classpath:
+          type: array
+          items:
+            type: string
+        jvm:
+          $ref: '#/components/schemas/JVMInfo'
+    ThreadInfo:
+      type: object
+      properties:
+        stringifiedThreadInfo:
+          type: string
+        threadName:
+          type: string
+    ConfigurationInfoEntry:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    LogListInfo:
+      type: object
+      properties:
+        logs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogInfo'
+    LogInfo:
+      type: object
+      properties:
+        mtime:
+          type: integer
+          format: int64
+        name:
+          type: string
+        size:
+          type: integer
+          format: int64
+    MetricCollectionResponseBody:
+      type: object
+      properties:
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+    JVMInfo:
+      type: object
+      properties:
+        arch:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        version:
+          type: string
+    ThreadDumpInfo:
+      type: object
+      properties:
+        threadInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThreadInfo'
