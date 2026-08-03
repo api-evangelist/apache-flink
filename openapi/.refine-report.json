@@ -1,0 +1,30 @@
+{
+  "provider": "apache-flink",
+  "sources": [
+    "apache-flink-cluster-api-openapi.yml",
+    "apache-flink-config-api-openapi.yml",
+    "apache-flink-datasets-api-openapi.yml",
+    "apache-flink-jars-api-openapi.yml",
+    "apache-flink-jobmanager-api-openapi.yml",
+    "apache-flink-jobs-api-openapi.yml",
+    "apache-flink-overview-api-openapi.yml",
+    "apache-flink-savepoint-disposal-api-openapi.yml",
+    "apache-flink-taskmanagers-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-flink-cluster-api-openapi.yml",
+    "apache-flink-config-api-openapi.yml",
+    "apache-flink-datasets-api-openapi.yml",
+    "apache-flink-jars-api-openapi.yml",
+    "apache-flink-jobmanager-api-openapi.yml",
+    "apache-flink-jobs-api-openapi.yml",
+    "apache-flink-overview-api-openapi.yml",
+    "apache-flink-savepoint-disposal-api-openapi.yml",
+    "apache-flink-taskmanagers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
