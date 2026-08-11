@@ -63,8 +63,6 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/rest.yaml
 - aid: apache-flink:apache-flink-config-api
   name: Apache Flink Config API
   description: The Config API from Apache Flink — 1 operation(s) for config.
@@ -81,8 +79,6 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/rest.yaml
 - aid: apache-flink:apache-flink-datasets-api
   name: Apache Flink Datasets API
   description: The Datasets API from Apache Flink — 3 operation(s) for datasets.
@@ -99,8 +95,6 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/rest.yaml
 - aid: apache-flink:apache-flink-jars-api
   name: Apache Flink Jars API
   description: The Jars API from Apache Flink — 5 operation(s) for jars.
@@ -117,8 +111,6 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/rest.yaml
 - aid: apache-flink:apache-flink-jobmanager-api
   name: Apache Flink Jobmanager API
   description: The Jobmanager API from Apache Flink — 5 operation(s) for jobmanager.
@@ -135,8 +127,6 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/rest.yaml
 - aid: apache-flink:apache-flink-jobs-api
   name: Apache Flink Jobs API
   description: The Jobs API from Apache Flink — 42 operation(s) for jobs.
@@ -153,8 +143,6 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/rest.yaml
 - aid: apache-flink:apache-flink-overview-api
   name: Apache Flink Overview API
   description: The Overview API from Apache Flink — 1 operation(s) for overview.
@@ -171,8 +159,6 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/rest.yaml
 - aid: apache-flink:apache-flink-savepoint-disposal-api
   name: Apache Flink Savepoint Disposal API
   description: The Savepoint Disposal API from Apache Flink — 2 operation(s) for savepoint disposal.
@@ -189,8 +175,6 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/rest.yaml
 - aid: apache-flink:apache-flink-taskmanagers-api
   name: Apache Flink Taskmanagers API
   description: The Taskmanagers API from Apache Flink — 6 operation(s) for taskmanagers.
@@ -207,9 +191,14 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/rest.yaml
 common:
+- type: CodeOfConduct
+  url: https://github.com/apache/.github/blob/main/.github/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/apache/flink/blob/master/.github/CONTRIBUTING.md
+- type: License
+  name: Apache-2.0
+  url: https://github.com/apache/flink/blob/master/LICENSE
 - type: AgenticAccess
   url: agentic-access/apache-flink-agentic-access.yml
 - type: VulnerabilityDisclosure
