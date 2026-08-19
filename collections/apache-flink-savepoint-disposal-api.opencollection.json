@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flink JobManager REST Cluster Savepoint Disposal API",
+    "version": "v1/2.0-SNAPSHOT"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Savepoint Disposal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Flink Create Savepoint-Disposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/savepoint-disposal",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers the desposal of a savepoint. This async operation would return a 'triggerid' for further query identifier."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Savepoint-Disposal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/savepoint-disposal/:triggerid",
+            "params": [
+              {
+                "name": "triggerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered."
+              }
+            ]
+          },
+          "docs": "Returns the status of a savepoint disposal operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

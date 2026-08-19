@@ -1,0 +1,211 @@
+{
+  "item": [
+    {
+      "id": "d64bbb55-7c83-4b1a-b145-65c248c30968",
+      "name": "Savepoint Disposal",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0fb0f87e-6cba-491a-ba17-b4bd060c5cff",
+          "name": "Apache Flink Create Savepoint-Disposal",
+          "request": {
+            "name": "Apache Flink Create Savepoint-Disposal",
+            "description": {
+              "content": "Triggers the desposal of a savepoint. This async operation would return a 'triggerid' for further query identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "savepoint-disposal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"savepoint-path\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "db6753bd-58a5-4da0-b9c8-f5c543f39770",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savepoint-disposal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"savepoint-path\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request-id\": \"654b4e300fd328d46ef59869473babe3\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "917c8243-218f-41f9-a461-5813aa4ed1a9",
+          "name": "Apache Flink Get Savepoint-Disposal",
+          "request": {
+            "name": "Apache Flink Get Savepoint-Disposal",
+            "description": {
+              "content": "Returns the status of a savepoint disposal operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "savepoint-disposal",
+                ":triggerid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "triggerid",
+                  "description": "(Required) 32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17b97846-8171-4121-9287-268d4e290882",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "savepoint-disposal",
+                    ":triggerid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "triggerid",
+                      "description": "(Required) 32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"operation\": {\n    \"failure-cause\": {\n      \"serialized-throwable\": \"string\"\n    }\n  },\n  \"status\": {\n    \"id\": \"COMPLETED\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "289e16ea-426b-4141-a85d-0981e40f001f",
+    "name": "Flink JobManager REST Cluster Savepoint Disposal API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: user@flink.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

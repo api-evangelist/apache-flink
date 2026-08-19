@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flink JobManager REST Cluster API",
+    "version": "v1/2.0-SNAPSHOT"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Flink Delete Cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/cluster"
+          },
+          "docs": "Shuts down the cluster"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

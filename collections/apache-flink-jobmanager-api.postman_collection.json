@@ -1,0 +1,404 @@
+{
+  "item": [
+    {
+      "id": "b2f772e3-0028-4152-bb2c-d686b718d670",
+      "name": "Jobmanager",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9aae40b5-1848-4896-b445-55242ca90743",
+          "name": "Apache Flink List Jobmanager Config",
+          "request": {
+            "name": "Apache Flink List Jobmanager Config",
+            "description": {
+              "content": "Returns the cluster configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobmanager",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea756a56-b8ae-4882-bac6-7a551c128677",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobmanager",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  },\n  {\n    \"key\": \"string\",\n    \"value\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba4f7e4d-e4d8-44e3-b01e-a4bd377995c5",
+          "name": "Apache Flink List Jobmanager Environment",
+          "request": {
+            "name": "Apache Flink List Jobmanager Environment",
+            "description": {
+              "content": "Returns the jobmanager environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobmanager",
+                "environment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b30f4fb-c772-4864-8bb9-97d122698989",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobmanager",
+                    "environment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classpath\": [\n    \"string\",\n    \"string\"\n  ],\n  \"jvm\": {\n    \"arch\": \"string\",\n    \"options\": [\n      \"string\",\n      \"string\"\n    ],\n    \"version\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c53a285f-b84d-487b-b5ea-ff1a378a3bc2",
+          "name": "Apache Flink List Jobmanager Logs",
+          "request": {
+            "name": "Apache Flink List Jobmanager Logs",
+            "description": {
+              "content": "Returns the list of log files on the JobManager.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobmanager",
+                "logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d52ffbc6-8975-44b0-8471-698928884727",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobmanager",
+                    "logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"logs\": [\n    {\n      \"mtime\": 7012,\n      \"name\": \"string\",\n      \"size\": 7719\n    },\n    {\n      \"mtime\": 510,\n      \"name\": \"string\",\n      \"size\": 9935\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e042a3ba-1c94-4e7e-a9cf-d86c7d950c15",
+          "name": "Apache Flink List Jobmanager Metrics",
+          "request": {
+            "name": "Apache Flink List Jobmanager Metrics",
+            "description": {
+              "content": "Provides access to job manager metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobmanager",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "get",
+                  "value": "<string>",
+                  "description": "Comma-separated list of string values to select specific metrics."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b884cee5-2080-42f8-ac44-21b6487b5fa4",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobmanager",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "get",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metrics\": [\n    {\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3296f804-3c58-4272-ac83-ff6795b69939",
+          "name": "Apache Flink List Jobmanager Thread-Dump",
+          "request": {
+            "name": "Apache Flink List Jobmanager Thread-Dump",
+            "description": {
+              "content": "Returns the thread dump of the JobManager.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobmanager",
+                "thread-dump"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c169ff95-a24a-4a72-8d2c-9d1bed35abee",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobmanager",
+                    "thread-dump"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"threadInfos\": [\n    {\n      \"stringifiedThreadInfo\": \"string\",\n      \"threadName\": \"string\"\n    },\n    {\n      \"stringifiedThreadInfo\": \"string\",\n      \"threadName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cc678ef2-04a4-43af-a530-8db5cd0cfb55",
+    "name": "Flink REST Cluster Jobmanager API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: user@flink.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

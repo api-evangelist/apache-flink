@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flink JobManager REST Cluster Datasets API",
+    "version": "v1/2.0-SNAPSHOT"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Flink List Datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/datasets"
+          },
+          "docs": "Returns all cluster data sets."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Datasets Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/datasets/delete/:triggerid",
+            "params": [
+              {
+                "name": "triggerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered."
+              }
+            ]
+          },
+          "docs": "Returns the status for the delete operation of a cluster data set."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Delete Datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/datasets/:datasetid",
+            "params": [
+              {
+                "name": "datasetid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a cluster data set."
+              }
+            ]
+          },
+          "docs": "Triggers the deletion of a cluster data set. This async operation would return a 'triggerid' for further query identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

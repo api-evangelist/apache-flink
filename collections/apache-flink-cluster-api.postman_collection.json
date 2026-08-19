@@ -1,0 +1,90 @@
+{
+  "item": [
+    {
+      "id": "f5c353ad-aa9b-406f-88b9-92de8040feb7",
+      "name": "Cluster",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4655ac1a-73b4-4b80-847d-8da7315d6133",
+          "name": "Apache Flink Delete Cluster",
+          "request": {
+            "name": "Apache Flink Delete Cluster",
+            "description": {
+              "content": "Shuts down the cluster",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cluster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f019d41-88df-498e-952d-aa6970d82318",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cluster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eab90905-72ab-4e96-8963-6b9a7b90e961",
+    "name": "Flink JobManager REST Cluster API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: user@flink.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flink REST Cluster Jobmanager API",
+    "version": "v1/2.0-SNAPSHOT"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobmanager",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Flink List Jobmanager Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobmanager/config"
+          },
+          "docs": "Returns the cluster configuration."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobmanager Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobmanager/environment"
+          },
+          "docs": "Returns the jobmanager environment."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobmanager Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobmanager/logs"
+          },
+          "docs": "Returns the list of log files on the JobManager."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobmanager Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobmanager/metrics",
+            "params": [
+              {
+                "name": "get",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of string values to select specific metrics."
+              }
+            ]
+          },
+          "docs": "Provides access to job manager metrics."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobmanager Thread-Dump",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobmanager/thread-dump"
+          },
+          "docs": "Returns the thread dump of the JobManager."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

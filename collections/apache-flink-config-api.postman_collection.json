@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "9724065b-ff0d-4d70-acdc-b0c2da1b9fad",
+      "name": "Config",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "931a3886-e260-4ac9-9b46-c7a024fb94ff",
+          "name": "Apache Flink List Config",
+          "request": {
+            "name": "Apache Flink List Config",
+            "description": {
+              "content": "Returns the configuration of the WebUI.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80d3dd7c-0953-490e-a380-a38ac23d29f8",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"features\": {\n    \"web-cancel\": false,\n    \"web-history\": false,\n    \"web-rescale\": false,\n    \"web-submit\": false\n  },\n  \"flink-revision\": \"string\",\n  \"flink-version\": \"string\",\n  \"refresh-interval\": 4743,\n  \"timezone-name\": \"string\",\n  \"timezone-offset\": 721\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "609f52cd-cd29-47e6-927e-74c823c2e83d",
+    "name": "Flink JobManager REST Cluster Config API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: user@flink.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

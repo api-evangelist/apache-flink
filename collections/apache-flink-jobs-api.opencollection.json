@@ -1,0 +1,1141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flink JobManager REST Cluster Jobs API",
+    "version": "v1/2.0-SNAPSHOT"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Flink List Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs"
+          },
+          "docs": "Returns an overview over all jobs and their current state."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/metrics",
+            "params": [
+              {
+                "name": "get",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of string values to select specific metrics."
+              },
+              {
+                "name": "agg",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of aggregation modes which should be calculated. Available aggregations are: \"min, max, sum, avg, skew\"."
+              },
+              {
+                "name": "jobs",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of 32-character hexadecimal strings to select specific jobs."
+              }
+            ]
+          },
+          "docs": "Provides access to aggregated job metrics."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Overview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/overview"
+          },
+          "docs": "Returns an overview over all jobs."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns details of a job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Update Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/jobs/:jobid",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "String value that specifies the termination mode. The only supported value is: \"cancel\"."
+              }
+            ]
+          },
+          "docs": "Terminates a job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Accumulators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/accumulators",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "includeSerializedValue",
+                "value": "",
+                "type": "query",
+                "description": "Boolean value that specifies whether serialized user task accumulators should be included in the response."
+              }
+            ]
+          },
+          "docs": "Returns the accumulators for all tasks of a job, aggregated across the respective subtasks."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Checkpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/checkpoints",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns checkpointing statistics for a job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Create Jobs Checkpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/jobs/:jobid/checkpoints",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers a checkpoint. The 'checkpointType' parameter does not support 'INCREMENTAL' option for now. See FLINK-33723. This async operation would return a 'triggerid' for further query identifier."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Checkpoints Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/checkpoints/config",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns the checkpointing configuration."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Checkpoints Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/checkpoints/details/:checkpointid",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "checkpointid",
+                "value": "",
+                "type": "path",
+                "description": "Long value that identifies a checkpoint."
+              }
+            ]
+          },
+          "docs": "Returns details for a checkpoint."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Details Subtasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/checkpoints/details/:checkpointid/subtasks/:vertexid",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "checkpointid",
+                "value": "",
+                "type": "path",
+                "description": "Long value that identifies a checkpoint."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              }
+            ]
+          },
+          "docs": "Returns checkpoint statistics for a task and its subtasks."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Jobs Checkpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/checkpoints/:triggerid",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "triggerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered."
+              }
+            ]
+          },
+          "docs": "Returns the status of a checkpoint trigger operation."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Update Jobs Clientheartbeat",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/jobs/:jobid/clientHeartbeat",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Report the jobClient's aliveness."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/config",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns the configuration of a job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Exceptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/exceptions",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "maxExceptions",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of integer values that specifies the upper limit of exceptions to return."
+              },
+              {
+                "name": "failureLabelFilter",
+                "value": "",
+                "type": "query",
+                "description": "Collection of string values working as a filter in the form of `key:value` pairs allowing only exceptions with ALL of the specified failure labels to be returned."
+              }
+            ]
+          },
+          "docs": "Returns the most recent exceptions that have been handled by Flink for this job. The 'exceptionHistory.truncated' flag defines whether exceptions were filtered out through the GET parameter. The backend collects only a specific amount of most recent exceptions per job. This can be configured through web.exception-history-size in the Flink configuration. The following first-level members are deprecated: 'root-exception', 'timestamp', 'all-exceptions', and 'truncated'. Use the data provided throug"
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Execution-Result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/execution-result",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns the result of a job execution. Gives access to the execution time of the job and to all accumulators created by this job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobmanager Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/jobmanager/config",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns the jobmanager's configuration of a specific job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobmanager Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/jobmanager/environment",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns the jobmanager's environment of a specific job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobmanager Log-Url",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/jobmanager/log-url",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns the log url of jobmanager of a specific job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/metrics",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "get",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of string values to select specific metrics."
+              }
+            ]
+          },
+          "docs": "Provides access to job metrics."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/plan",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns the dataflow plan of a job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Update Jobs Rescaling",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/jobs/:jobid/rescaling",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "parallelism",
+                "value": "",
+                "type": "query",
+                "description": "Positive integer value that specifies the desired parallelism."
+              }
+            ]
+          },
+          "docs": "Triggers the rescaling of a job. This async operation would return a 'triggerid' for further query identifier."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Jobs Rescaling",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/rescaling/:triggerid",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "triggerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered."
+              }
+            ]
+          },
+          "docs": "Returns the status of a rescaling operation."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Resource-Requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/resource-requirements",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Request details on the job's resource requirements."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Update Jobs Resource-Requirements",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/jobs/:jobid/resource-requirements",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request to update job's resource requirements."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Create Jobs Savepoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/jobs/:jobid/savepoints",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers a savepoint, and optionally cancels the job afterwards. This async operation would return a 'triggerid' for further query identifier."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Jobs Savepoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/savepoints/:triggerid",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "triggerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered."
+              }
+            ]
+          },
+          "docs": "Returns the status of a savepoint operation."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Jobs Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/status",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ]
+          },
+          "docs": "Returns the current status of a job execution."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Create Jobs Stop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/jobs/:jobid/stop",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Stops a job with a savepoint. Optionally, it can also emit a MAX_WATERMARK before taking the savepoint to flush out any state waiting for timers to fire. This async operation would return a 'triggerid' for further query identifier."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Taskmanagers Log-Url",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/taskmanagers/:taskmanagerid/log-url",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "taskmanagerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies a task manager."
+              }
+            ]
+          },
+          "docs": "Returns the log url of jobmanager of a specific job."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Jobs Vertices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              }
+            ]
+          },
+          "docs": "Returns details for a task, with a summary for each of its subtasks."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Vertices Accumulators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/accumulators",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              }
+            ]
+          },
+          "docs": "Returns user-defined accumulators of a task, aggregated across all subtasks."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Vertices Backpressure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/backpressure",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              }
+            ]
+          },
+          "docs": "Returns back-pressure information for a job, and may initiate back-pressure sampling if necessary."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Vertices Flamegraph",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/flamegraph",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "String value that specifies the Flame Graph type. Supported options are: \"[FULL, ON_CPU, OFF_CPU]\"."
+              },
+              {
+                "name": "subtaskindex",
+                "value": "",
+                "type": "query",
+                "description": "Positive integer value that identifies a subtask."
+              }
+            ]
+          },
+          "docs": "Returns flame graph information for a vertex, and may initiate flame graph sampling if necessary."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Vertices Jm-Operator-Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/jm-operator-metrics",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              },
+              {
+                "name": "get",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of string values to select specific metrics."
+              }
+            ]
+          },
+          "docs": "Provides access to jobmanager operator metrics. This is an operator that executes on the jobmanager and the coordinator for FLIP 27 sources is one example of such an operator."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Vertices Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/metrics",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              },
+              {
+                "name": "get",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of string values to select specific metrics."
+              }
+            ]
+          },
+          "docs": "Provides access to task metrics."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Subtasks Accumulators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/subtasks/accumulators",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              }
+            ]
+          },
+          "docs": "Returns all user-defined accumulators for all subtasks of a task."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Subtasks Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/subtasks/metrics",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              },
+              {
+                "name": "get",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of string values to select specific metrics."
+              },
+              {
+                "name": "agg",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of aggregation modes which should be calculated. Available aggregations are: \"min, max, sum, avg, skew\"."
+              },
+              {
+                "name": "subtasks",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of integer ranges (e.g. \"1,3,5-9\") to select specific subtasks."
+              }
+            ]
+          },
+          "docs": "Provides access to aggregated subtask metrics."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Vertices Subtasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/subtasks/:subtaskindex",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              },
+              {
+                "name": "subtaskindex",
+                "value": "",
+                "type": "path",
+                "description": "Positive integer value that identifies a subtask."
+              }
+            ]
+          },
+          "docs": "Returns details of the current or latest execution attempt of a subtask."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Subtasks Attempts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/subtasks/:subtaskindex/attempts/:attempt",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              },
+              {
+                "name": "subtaskindex",
+                "value": "",
+                "type": "path",
+                "description": "Positive integer value that identifies a subtask."
+              },
+              {
+                "name": "attempt",
+                "value": "",
+                "type": "path",
+                "description": "Positive integer value that identifies an execution attempt."
+              }
+            ]
+          },
+          "docs": "Returns details of an execution attempt of a subtask. Multiple execution attempts happen in case of failure/recovery."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Attempts Accumulators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/subtasks/:subtaskindex/attempts/:attempt/accumulators",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              },
+              {
+                "name": "subtaskindex",
+                "value": "",
+                "type": "path",
+                "description": "Positive integer value that identifies a subtask."
+              },
+              {
+                "name": "attempt",
+                "value": "",
+                "type": "path",
+                "description": "Positive integer value that identifies an execution attempt."
+              }
+            ]
+          },
+          "docs": "Returns the accumulators of an execution attempt of a subtask. Multiple execution attempts happen in case of failure/recovery."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Subtasks Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/subtasks/:subtaskindex/metrics",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              },
+              {
+                "name": "subtaskindex",
+                "value": "",
+                "type": "path",
+                "description": "Positive integer value that identifies a subtask."
+              },
+              {
+                "name": "get",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of string values to select specific metrics."
+              }
+            ]
+          },
+          "docs": "Provides access to subtask metrics."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Vertices Subtasktimes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/subtasktimes",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              }
+            ]
+          },
+          "docs": "Returns time-related information for all subtasks of a task."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Vertices Taskmanagers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/taskmanagers",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              }
+            ]
+          },
+          "docs": "Returns task information aggregated by task manager."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Vertices Watermarks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:jobid/vertices/:vertexid/watermarks",
+            "params": [
+              {
+                "name": "jobid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job."
+              },
+              {
+                "name": "vertexid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string value that identifies a job vertex."
+              }
+            ]
+          },
+          "docs": "Returns the watermarks for all subtasks of a task."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flink JobManager REST Cluster Taskmanagers API",
+    "version": "v1/2.0-SNAPSHOT"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Taskmanagers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Flink List Taskmanagers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/taskmanagers"
+          },
+          "docs": "Returns an overview over all task managers."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Taskmanagers Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/taskmanagers/metrics",
+            "params": [
+              {
+                "name": "get",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of string values to select specific metrics."
+              },
+              {
+                "name": "agg",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of aggregation modes which should be calculated. Available aggregations are: \"min, max, sum, avg, skew\"."
+              },
+              {
+                "name": "taskmanagers",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of 32-character hexadecimal strings to select specific task managers."
+              }
+            ]
+          },
+          "docs": "Provides access to aggregated task manager metrics."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Get Taskmanagers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/taskmanagers/:taskmanagerid",
+            "params": [
+              {
+                "name": "taskmanagerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies a task manager."
+              }
+            ]
+          },
+          "docs": "Returns details for a task manager."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Taskmanagers Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/taskmanagers/:taskmanagerid/logs",
+            "params": [
+              {
+                "name": "taskmanagerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies a task manager."
+              }
+            ]
+          },
+          "docs": "Returns the list of log files on a TaskManager."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Taskmanagers Metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/taskmanagers/:taskmanagerid/metrics",
+            "params": [
+              {
+                "name": "taskmanagerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies a task manager."
+              },
+              {
+                "name": "get",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of string values to select specific metrics."
+              }
+            ]
+          },
+          "docs": "Provides access to task manager metrics."
+        },
+        {
+          "info": {
+            "name": "Apache Flink List Taskmanagers Thread-Dump",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/taskmanagers/:taskmanagerid/thread-dump",
+            "params": [
+              {
+                "name": "taskmanagerid",
+                "value": "",
+                "type": "path",
+                "description": "32-character hexadecimal string that identifies a task manager."
+              }
+            ]
+          },
+          "docs": "Returns the thread dump of the requested TaskManager."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

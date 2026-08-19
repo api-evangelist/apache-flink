@@ -1,0 +1,565 @@
+{
+  "item": [
+    {
+      "id": "d5e46531-0fa5-45ec-8e8f-5746d33ece57",
+      "name": "Jars",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3ad35a83-32c3-418d-8d72-92415910a281",
+          "name": "Apache Flink List Jars",
+          "request": {
+            "name": "Apache Flink List Jars",
+            "description": {
+              "content": "Returns a list of all jars previously uploaded via '/jars/upload'.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jars"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2b0de87-5d62-48ca-8989-715f84e9aac9",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jars"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"files\": [\n    {\n      \"entry\": [\n        {\n          \"description\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"description\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"uploaded\": 7599\n    },\n    {\n      \"entry\": [\n        {\n          \"description\": \"string\",\n          \"name\": \"string\"\n        },\n        {\n          \"description\": \"string\",\n          \"name\": \"string\"\n        }\n      ],\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"uploaded\": 3314\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "378a2606-031a-439f-8d8b-4cdf51a191f5",
+          "name": "Apache Flink Create Jars Upload",
+          "request": {
+            "name": "Apache Flink Create Jars Upload",
+            "description": {
+              "content": "Uploads a jar to the cluster. The jar must be sent as multi-part data. Make sure that the \"Content-Type\" header is set to \"application/x-java-archive\", as some http libraries do not add the header by default.\nUsing 'curl' you can upload a jar via 'curl -X POST -H \"Expect:\" -F \"jarfile=@path/to/flink-job.jar\" http://hostname:port/jars/upload'.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jars",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-java-archive"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "file"
+            }
+          },
+          "response": [
+            {
+              "id": "c20676ca-9502-453b-8e95-9d44559eca62",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jars",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "file"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filename\": \"string\",\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6a18653-5d4e-42c9-add0-48d0f9762e26",
+          "name": "Apache Flink Delete Jars",
+          "request": {
+            "name": "Apache Flink Delete Jars",
+            "description": {
+              "content": "Deletes a jar previously uploaded via '/jars/upload'.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jars",
+                ":jarid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jarid",
+                  "description": "(Required) String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars)."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6a01d32-6a22-4794-b26c-99a257344ea9",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jars",
+                    ":jarid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jarid",
+                      "description": "(Required) String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars)."
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58c82377-7605-42c3-a858-655b898fbeb0",
+          "name": "Apache Flink Create Jars Plan",
+          "request": {
+            "name": "Apache Flink Create Jars Plan",
+            "description": {
+              "content": "Returns the dataflow plan of a job contained in a jar previously uploaded via '/jars/upload'. Program arguments can be passed both via the JSON request (recommended) or query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jars",
+                ":jarid",
+                "plan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "programArg",
+                  "value": "<string>",
+                  "description": "Comma-separated list of program arguments."
+                },
+                {
+                  "disabled": false,
+                  "key": "entry-class",
+                  "value": "<string>",
+                  "description": "String value that specifies the fully qualified name of the entry point class. Overrides the class defined in the jar file manifest."
+                },
+                {
+                  "disabled": false,
+                  "key": "parallelism",
+                  "value": "<integer>",
+                  "description": "Positive integer value that specifies the desired parallelism for the job."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jarid",
+                  "description": "(Required) String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entryClass\": \"<string>\",\n  \"flinkConfiguration\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"jobId\": \"<string>\",\n  \"parallelism\": \"<integer>\",\n  \"programArgsList\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c7963c72-ba1f-4c1e-a2e1-56d81e7d73e5",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jars",
+                    ":jarid",
+                    "plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "programArg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entry-class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parallelism",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jarid",
+                      "description": "(Required) String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"entryClass\": \"<string>\",\n  \"flinkConfiguration\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"jobId\": \"<string>\",\n  \"parallelism\": \"<integer>\",\n  \"programArgsList\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plan\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f09a8780-6771-4408-8c0a-fb0106c2126e",
+          "name": "Apache Flink Create Jars Run",
+          "request": {
+            "name": "Apache Flink Create Jars Run",
+            "description": {
+              "content": "Submits a job by running a jar previously uploaded via '/jars/upload'. Program arguments can be passed both via the JSON request (recommended) or query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jars",
+                ":jarid",
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "allowNonRestoredState",
+                  "value": "<boolean>",
+                  "description": "Boolean value that specifies whether the job submission should be rejected if the savepoint contains state that cannot be mapped back to the job."
+                },
+                {
+                  "disabled": false,
+                  "key": "savepointPath",
+                  "value": "<string>",
+                  "description": "String value that specifies the path of the savepoint to restore the job from."
+                },
+                {
+                  "disabled": false,
+                  "key": "programArg",
+                  "value": "<string>",
+                  "description": "Comma-separated list of program arguments."
+                },
+                {
+                  "disabled": false,
+                  "key": "entry-class",
+                  "value": "<string>",
+                  "description": "String value that specifies the fully qualified name of the entry point class. Overrides the class defined in the jar file manifest."
+                },
+                {
+                  "disabled": false,
+                  "key": "parallelism",
+                  "value": "<integer>",
+                  "description": "Positive integer value that specifies the desired parallelism for the job."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jarid",
+                  "description": "(Required) String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"allowNonRestoredState\": \"<boolean>\",\n  \"claimMode\": \"<string>\",\n  \"entryClass\": \"<string>\",\n  \"flinkConfiguration\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  },\n  \"jobId\": \"<string>\",\n  \"parallelism\": \"<integer>\",\n  \"programArgsList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"restoreMode\": \"<string>\",\n  \"savepointPath\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1682eae-5858-4679-8633-2175271a290a",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jars",
+                    ":jarid",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "allowNonRestoredState",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "savepointPath",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "programArg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entry-class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parallelism",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jarid",
+                      "description": "(Required) String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allowNonRestoredState\": \"<boolean>\",\n  \"claimMode\": \"<string>\",\n  \"entryClass\": \"<string>\",\n  \"flinkConfiguration\": {\n    \"key_0\": \"<string>\"\n  },\n  \"jobId\": \"<string>\",\n  \"parallelism\": \"<integer>\",\n  \"programArgsList\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"restoreMode\": \"<string>\",\n  \"savepointPath\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jobid\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b880beb2-82ad-4f57-b7e1-88124ed704fb",
+    "name": "Flink JobManager REST Cluster Jars API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: user@flink.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

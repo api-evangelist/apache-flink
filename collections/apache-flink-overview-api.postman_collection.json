@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "66169a38-be2f-4114-880c-4e94d8323487",
+      "name": "Overview",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3831ab57-977f-434d-8325-b7ddf929e334",
+          "name": "Apache Flink List Overview",
+          "request": {
+            "name": "Apache Flink List Overview",
+            "description": {
+              "content": "Returns an overview over the Flink cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "overview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61755e86-9bf8-4564-90a8-21f1e6f0d729",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "overview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"flink-commit\": \"string\",\n  \"flink-version\": \"string\",\n  \"jobs-cancelled\": 2523,\n  \"jobs-failed\": 5142,\n  \"jobs-finished\": 6486,\n  \"jobs-running\": 3268,\n  \"slots-available\": 5329,\n  \"slots-free-and-blocked\": 7022,\n  \"slots-total\": 8507,\n  \"taskmanagers\": 2312,\n  \"taskmanagers-blocked\": 3347\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "23eec4a2-ca9e-433d-bd27-205cff13de22",
+    "name": "Flink JobManager REST Cluster Overview API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: user@flink.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

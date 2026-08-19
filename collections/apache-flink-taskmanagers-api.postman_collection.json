@@ -1,0 +1,576 @@
+{
+  "item": [
+    {
+      "id": "d83c1ed4-1f15-4ecc-b947-7c5bebe73555",
+      "name": "Taskmanagers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41341483-afd7-4953-a949-7d99905ba93e",
+          "name": "Apache Flink List Taskmanagers",
+          "request": {
+            "name": "Apache Flink List Taskmanagers",
+            "description": {
+              "content": "Returns an overview over all task managers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "taskmanagers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93486874-7f72-463e-b939-ea2689d639e1",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "taskmanagers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taskmanagers\": [\n    {\n      \"blocked\": false,\n      \"dataPort\": 6633,\n      \"freeResource\": {\n        \"cpuCores\": 3061.877721260704,\n        \"extendedResources\": {\n          \"key_0\": 7677.647938802197\n        },\n        \"managedMemory\": 4379,\n        \"networkMemory\": 4509,\n        \"taskHeapMemory\": 2758,\n        \"taskOffHeapMemory\": 4548\n      },\n      \"freeSlots\": 1288,\n      \"hardware\": {\n        \"cpuCores\": 7137,\n        \"freeMemory\": 8660,\n        \"managedMemory\": 3666,\n        \"physicalMemory\": 2401\n      },\n      \"id\": \"b4748aff2f90cc3219bffeaebded9f66\",\n      \"jmxPort\": 8260,\n      \"memoryConfiguration\": {\n        \"frameworkHeap\": 5236,\n        \"frameworkOffHeap\": 1565,\n        \"jvmMetaspace\": 4750,\n        \"jvmOverhead\": 7130,\n        \"managedMemory\": 767,\n        \"networkMemory\": 2302,\n        \"taskHeap\": 8742,\n        \"taskOffHeap\": 7393,\n        \"totalFlinkMemory\": 5798,\n        \"totalProcessMemory\": 1343\n      },\n      \"path\": \"string\",\n      \"slotsNumber\": 7255,\n      \"timeSinceLastHeartbeat\": 1358,\n      \"totalResource\": {\n        \"cpuCores\": 2217.6659481180072,\n        \"extendedResources\": {\n          \"key_0\": 4625.862459577481,\n          \"key_1\": 7491.1891006269\n        },\n        \"managedMemory\": 8329,\n        \"networkMemory\": 5685,\n        \"taskHeapMemory\": 5554,\n        \"taskOffHeapMemory\": 5290\n      }\n    },\n    {\n      \"blocked\": false,\n      \"dataPort\": 2556,\n      \"freeResource\": {\n        \"cpuCores\": 7870.842437766787,\n        \"extendedResources\": {\n          \"key_0\": 860.6526688798788\n        },\n        \"managedMemory\": 6173,\n        \"networkMemory\": 2570,\n        \"taskHeapMemory\": 9450,\n        \"taskOffHeapMemory\": 5197\n      },\n      \"freeSlots\": 646,\n      \"hardware\": {\n        \"cpuCores\": 6000,\n        \"freeMemory\": 6489,\n        \"managedMemory\": 4373,\n        \"physicalMemory\": 724\n      },\n      \"id\": \"ff27c6885ef328d5b8da27b31cf04575\",\n      \"jmxPort\": 8800,\n      \"memoryConfiguration\": {\n        \"frameworkHeap\": 2003,\n        \"frameworkOffHeap\": 4543,\n        \"jvmMetaspace\": 9898,\n        \"jvmOverhead\": 7610,\n        \"managedMemory\": 4517,\n        \"networkMemory\": 3160,\n        \"taskHeap\": 7817,\n        \"taskOffHeap\": 1165,\n        \"totalFlinkMemory\": 6796,\n        \"totalProcessMemory\": 9301\n      },\n      \"path\": \"string\",\n      \"slotsNumber\": 3716,\n      \"timeSinceLastHeartbeat\": 5189,\n      \"totalResource\": {\n        \"cpuCores\": 7100.464115541568,\n        \"extendedResources\": {\n          \"key_0\": 5032.448797143179\n        },\n        \"managedMemory\": 2385,\n        \"networkMemory\": 7059,\n        \"taskHeapMemory\": 125,\n        \"taskOffHeapMemory\": 7857\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00986a28-5a85-49c9-b308-fd962671afa8",
+          "name": "Apache Flink List Taskmanagers Metrics",
+          "request": {
+            "name": "Apache Flink List Taskmanagers Metrics",
+            "description": {
+              "content": "Provides access to aggregated task manager metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "taskmanagers",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "get",
+                  "value": "<string>",
+                  "description": "Comma-separated list of string values to select specific metrics."
+                },
+                {
+                  "disabled": false,
+                  "key": "agg",
+                  "value": "<string>",
+                  "description": "Comma-separated list of aggregation modes which should be calculated. Available aggregations are: \"min, max, sum, avg, skew\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "taskmanagers",
+                  "value": "<string>",
+                  "description": "Comma-separated list of 32-character hexadecimal strings to select specific task managers."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a88c53f-84f3-45f9-b22c-5d1c08cbd5dd",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "taskmanagers",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "get",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agg",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "taskmanagers",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7df0cd36-3110-4849-b04d-06c740e012b2",
+          "name": "Apache Flink Get Taskmanagers",
+          "request": {
+            "name": "Apache Flink Get Taskmanagers",
+            "description": {
+              "content": "Returns details for a task manager.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "taskmanagers",
+                ":taskmanagerid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskmanagerid",
+                  "description": "(Required) 32-character hexadecimal string that identifies a task manager."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24977974-051b-4c1f-90c9-1643891fdfb9",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "taskmanagers",
+                    ":taskmanagerid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskmanagerid",
+                      "description": "(Required) 32-character hexadecimal string that identifies a task manager."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allocatedSlots\": [\n    {\n      \"jobId\": \"7395fb817fef4a9ffbc0193c250d3cdb\",\n      \"resource\": {\n        \"cpuCores\": 7248.139546285667,\n        \"extendedResources\": {\n          \"key_0\": 3680.2998816059708\n        },\n        \"managedMemory\": 1776,\n        \"networkMemory\": 4750,\n        \"taskHeapMemory\": 3122,\n        \"taskOffHeapMemory\": 467\n      }\n    },\n    {\n      \"jobId\": \"457c79ced997e9addf8f35f60f186312\",\n      \"resource\": {\n        \"cpuCores\": 5424.505385068218,\n        \"extendedResources\": {\n          \"key_0\": 9996.915352889911,\n          \"key_1\": 5961.537154728446,\n          \"key_2\": 7703.93000913373\n        },\n        \"managedMemory\": 8366,\n        \"networkMemory\": 8459,\n        \"taskHeapMemory\": 1957,\n        \"taskOffHeapMemory\": 4431\n      }\n    }\n  ],\n  \"blocked\": false,\n  \"dataPort\": 5619,\n  \"freeResource\": {\n    \"cpuCores\": 3989.101870138938,\n    \"extendedResources\": {\n      \"key_0\": 5167.428170603376,\n      \"key_1\": 7779.585577281223,\n      \"key_2\": 3828.447881620496,\n      \"key_3\": 3823.162952786807\n    },\n    \"managedMemory\": 415,\n    \"networkMemory\": 6885,\n    \"taskHeapMemory\": 4011,\n    \"taskOffHeapMemory\": 4186\n  },\n  \"freeSlots\": 9874,\n  \"hardware\": {\n    \"cpuCores\": 8496,\n    \"freeMemory\": 8711,\n    \"managedMemory\": 5591,\n    \"physicalMemory\": 5555\n  },\n  \"id\": \"<string>\",\n  \"jmxPort\": 1250,\n  \"memoryConfiguration\": {\n    \"frameworkHeap\": 254,\n    \"frameworkOffHeap\": 5564,\n    \"jvmMetaspace\": 298,\n    \"jvmOverhead\": 7017,\n    \"managedMemory\": 7815,\n    \"networkMemory\": 8689,\n    \"taskHeap\": 3413,\n    \"taskOffHeap\": 2601,\n    \"totalFlinkMemory\": 8196,\n    \"totalProcessMemory\": 7595\n  },\n  \"metrics\": {\n    \"directCount\": 6096,\n    \"directMax\": 3840,\n    \"directUsed\": 4538,\n    \"garbageCollectors\": [\n      {\n        \"count\": 8694,\n        \"name\": \"string\",\n        \"time\": 9734\n      },\n      {\n        \"count\": 5127,\n        \"name\": \"string\",\n        \"time\": 6729\n      }\n    ],\n    \"heapCommitted\": 3257,\n    \"heapMax\": 6387,\n    \"heapUsed\": 4153,\n    \"mappedCount\": 3543,\n    \"mappedMax\": 2742,\n    \"mappedUsed\": 1183,\n    \"nettyShuffleMemoryAvailable\": 7090,\n    \"nettyShuffleMemorySegmentsAvailable\": 1778,\n    \"nettyShuffleMemorySegmentsTotal\": 5968,\n    \"nettyShuffleMemorySegmentsUsed\": 3882,\n    \"nettyShuffleMemoryTotal\": 4835,\n    \"nettyShuffleMemoryUsed\": 4880,\n    \"nonHeapCommitted\": 445,\n    \"nonHeapMax\": 2738,\n    \"nonHeapUsed\": 6359\n  },\n  \"path\": \"string\",\n  \"slotsNumber\": 2558,\n  \"timeSinceLastHeartbeat\": 3918,\n  \"totalResource\": {\n    \"cpuCores\": 3472.590726422634,\n    \"extendedResources\": {\n      \"key_0\": 128.26395486046138\n    },\n    \"managedMemory\": 3737,\n    \"networkMemory\": 2034,\n    \"taskHeapMemory\": 4274,\n    \"taskOffHeapMemory\": 4086\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c900042-d60d-468e-a9bd-640ecb884d13",
+          "name": "Apache Flink List Taskmanagers Logs",
+          "request": {
+            "name": "Apache Flink List Taskmanagers Logs",
+            "description": {
+              "content": "Returns the list of log files on a TaskManager.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "taskmanagers",
+                ":taskmanagerid",
+                "logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskmanagerid",
+                  "description": "(Required) 32-character hexadecimal string that identifies a task manager."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1431c34c-5cfa-440a-ab0c-a7eb8a35b2a0",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "taskmanagers",
+                    ":taskmanagerid",
+                    "logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskmanagerid",
+                      "description": "(Required) 32-character hexadecimal string that identifies a task manager."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"logs\": [\n    {\n      \"mtime\": 5712,\n      \"name\": \"string\",\n      \"size\": 9347\n    },\n    {\n      \"mtime\": 6670,\n      \"name\": \"string\",\n      \"size\": 5361\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c7bf6aa-a708-438f-a45c-04b402d3efc1",
+          "name": "Apache Flink List Taskmanagers Metrics",
+          "request": {
+            "name": "Apache Flink List Taskmanagers Metrics",
+            "description": {
+              "content": "Provides access to task manager metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "taskmanagers",
+                ":taskmanagerid",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "get",
+                  "value": "<string>",
+                  "description": "Comma-separated list of string values to select specific metrics."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskmanagerid",
+                  "description": "(Required) 32-character hexadecimal string that identifies a task manager."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e71381e6-f8f3-4786-a4aa-1239bde379cf",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "taskmanagers",
+                    ":taskmanagerid",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "get",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskmanagerid",
+                      "description": "(Required) 32-character hexadecimal string that identifies a task manager."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"metrics\": [\n    {\n      \"id\": \"string\",\n      \"value\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d871cf5b-3556-44cc-a27d-508a7c2ca74d",
+          "name": "Apache Flink List Taskmanagers Thread-Dump",
+          "request": {
+            "name": "Apache Flink List Taskmanagers Thread-Dump",
+            "description": {
+              "content": "Returns the thread dump of the requested TaskManager.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "taskmanagers",
+                ":taskmanagerid",
+                "thread-dump"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskmanagerid",
+                  "description": "(Required) 32-character hexadecimal string that identifies a task manager."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb35c021-98d8-4e99-90b5-2a8c20709404",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "taskmanagers",
+                    ":taskmanagerid",
+                    "thread-dump"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskmanagerid",
+                      "description": "(Required) 32-character hexadecimal string that identifies a task manager."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"threadInfos\": [\n    {\n      \"stringifiedThreadInfo\": \"string\",\n      \"threadName\": \"string\"\n    },\n    {\n      \"stringifiedThreadInfo\": \"string\",\n      \"threadName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "add67ca3-8318-4d74-9008-6410f5bdf7e2",
+    "name": "Flink JobManager REST Cluster Taskmanagers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: user@flink.apache.org",
+      "type": "text/plain"
+    }
+  }
+}

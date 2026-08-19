@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flink JobManager REST Cluster Jars API",
+    "version": "v1/2.0-SNAPSHOT"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache Flink List Jars",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jars"
+          },
+          "docs": "Returns a list of all jars previously uploaded via '/jars/upload'."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Create Jars Upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/jars/upload"
+          },
+          "docs": "Uploads a jar to the cluster. The jar must be sent as multi-part data. Make sure that the \"Content-Type\" header is set to \"application/x-java-archive\", as some http libraries do not add the header by default.\nUsing 'curl' you can upload a jar via 'curl -X POST -H \"Expect:\" -F \"jarfile=@path/to/flink-job.jar\" http://hostname:port/jars/upload'."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Delete Jars",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/jars/:jarid",
+            "params": [
+              {
+                "name": "jarid",
+                "value": "",
+                "type": "path",
+                "description": "String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars)."
+              }
+            ]
+          },
+          "docs": "Deletes a jar previously uploaded via '/jars/upload'."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Create Jars Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/jars/:jarid/plan",
+            "params": [
+              {
+                "name": "jarid",
+                "value": "",
+                "type": "path",
+                "description": "String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars)."
+              },
+              {
+                "name": "programArg",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of program arguments."
+              },
+              {
+                "name": "entry-class",
+                "value": "",
+                "type": "query",
+                "description": "String value that specifies the fully qualified name of the entry point class. Overrides the class defined in the jar file manifest."
+              },
+              {
+                "name": "parallelism",
+                "value": "",
+                "type": "query",
+                "description": "Positive integer value that specifies the desired parallelism for the job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns the dataflow plan of a job contained in a jar previously uploaded via '/jars/upload'. Program arguments can be passed both via the JSON request (recommended) or query parameters."
+        },
+        {
+          "info": {
+            "name": "Apache Flink Create Jars Run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/jars/:jarid/run",
+            "params": [
+              {
+                "name": "jarid",
+                "value": "",
+                "type": "path",
+                "description": "String value that identifies a jar. When uploading the jar a path is returned, where the filename is the ID. This value is equivalent to the `id` field in the list of uploaded jars (/jars)."
+              },
+              {
+                "name": "allowNonRestoredState",
+                "value": "",
+                "type": "query",
+                "description": "Boolean value that specifies whether the job submission should be rejected if the savepoint contains state that cannot be mapped back to the job."
+              },
+              {
+                "name": "savepointPath",
+                "value": "",
+                "type": "query",
+                "description": "String value that specifies the path of the savepoint to restore the job from."
+              },
+              {
+                "name": "programArg",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of program arguments."
+              },
+              {
+                "name": "entry-class",
+                "value": "",
+                "type": "query",
+                "description": "String value that specifies the fully qualified name of the entry point class. Overrides the class defined in the jar file manifest."
+              },
+              {
+                "name": "parallelism",
+                "value": "",
+                "type": "query",
+                "description": "Positive integer value that specifies the desired parallelism for the job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits a job by running a jar previously uploaded via '/jars/upload'. Program arguments can be passed both via the JSON request (recommended) or query parameters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

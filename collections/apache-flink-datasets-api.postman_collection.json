@@ -1,0 +1,280 @@
+{
+  "item": [
+    {
+      "id": "014f7ddf-ee7a-4cc8-855b-582819c4b4cb",
+      "name": "Datasets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f0a0b08-3265-4c9b-9a8a-bc3666a38091",
+          "name": "Apache Flink List Datasets",
+          "request": {
+            "name": "Apache Flink List Datasets",
+            "description": {
+              "content": "Returns all cluster data sets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f657cd01-b70d-4dc2-897a-81026566fd21",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dataSets\": [\n    {\n      \"id\": \"string\",\n      \"isComplete\": false\n    },\n    {\n      \"id\": \"string\",\n      \"isComplete\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "945faede-797a-41ef-935c-6558c9d7fdab",
+          "name": "Apache Flink Get Datasets Delete",
+          "request": {
+            "name": "Apache Flink Get Datasets Delete",
+            "description": {
+              "content": "Returns the status for the delete operation of a cluster data set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                "delete",
+                ":triggerid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "triggerid",
+                  "description": "(Required) 32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "688886f4-dd7f-45c7-995e-2a82938f8c89",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    "delete",
+                    ":triggerid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "triggerid",
+                      "description": "(Required) 32-character hexadecimal string that identifies an asynchronous operation trigger ID. The ID was returned then the operation was triggered."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"operation\": {\n    \"failure-cause\": {\n      \"serialized-throwable\": \"string\"\n    }\n  },\n  \"status\": {\n    \"id\": \"COMPLETED\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0906d650-b22d-4313-a3c3-e7d84625360e",
+          "name": "Apache Flink Delete Datasets",
+          "request": {
+            "name": "Apache Flink Delete Datasets",
+            "description": {
+              "content": "Triggers the deletion of a cluster data set. This async operation would return a 'triggerid' for further query identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "datasets",
+                ":datasetid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datasetid",
+                  "description": "(Required) 32-character hexadecimal string value that identifies a cluster data set."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b4b4d2a-3804-4e47-9079-69a431ab5ffb",
+              "name": "The request was successful.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "datasets",
+                    ":datasetid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datasetid",
+                      "description": "(Required) 32-character hexadecimal string value that identifies a cluster data set."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"request-id\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f9e9ab9b-f00b-46fa-a3f4-946f604c375e",
+    "name": "Flink JobManager REST Cluster Datasets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contact Support:\n Email: user@flink.apache.org",
+      "type": "text/plain"
+    }
+  }
+}
