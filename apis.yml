@@ -21,6 +21,14 @@ tags:
 - Apache
 - Batch Processing
 - Big Data
+- Open-Source
+- Real-Time Analytics
+- Stateful Computing
+- Stream Processing
+tags_raw:
+- Apache
+- Batch Processing
+- Big Data
 - Open Source
 - Real-Time Analytics
 - Stateful Computing
@@ -101,6 +109,8 @@ apis:
   humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
   baseURL: http://localhost:8081
   tags:
+  - JARs
+  tags_raw:
   - Jars
   properties:
   - type: OpenAPI
@@ -117,6 +127,8 @@ apis:
   humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
   baseURL: http://localhost:8081
   tags:
+  - JobManager
+  tags_raw:
   - Jobmanager
   properties:
   - type: OpenAPI
@@ -133,6 +145,8 @@ apis:
   humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
   baseURL: http://localhost:8081
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -181,6 +195,8 @@ apis:
   humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
   baseURL: http://localhost:8081
   tags:
+  - TaskManagers
+  tags_raw:
   - Taskmanagers
   properties:
   - type: OpenAPI
