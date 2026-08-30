@@ -122,7 +122,7 @@ apis:
   humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
   baseURL: http://localhost:8081
   tags:
-  - JARs
+  - Jars
   tags_raw:
   - Jars
   properties:
@@ -140,7 +140,7 @@ apis:
   humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
   baseURL: http://localhost:8081
   tags:
-  - JobManager
+  - Jobmanager
   tags_raw:
   - Jobmanager
   properties:
@@ -208,7 +208,7 @@ apis:
   humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
   baseURL: http://localhost:8081
   tags:
-  - TaskManagers
+  - Taskmanagers
   tags_raw:
   - Taskmanagers
   properties:
