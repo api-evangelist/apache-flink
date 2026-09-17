@@ -116,42 +116,6 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-- aid: apache-flink:apache-flink-jars-api
-  name: Apache Flink Jars API
-  description: The Jars API from Apache Flink — 5 operation(s) for jars.
-  humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
-  baseURL: http://localhost:8081
-  tags:
-  - JARs
-  tags_raw:
-  - Jars
-  properties:
-  - type: OpenAPI
-    url: openapi/apache-flink-jars-api-openapi.yml
-  - type: Documentation
-    url: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
-  - type: JSONSchema
-    url: json-schema/flink-rest-job-details-info-schema.json
-  - type: JSONLD
-    url: json-ld/apache-flink-rest-context.jsonld
-- aid: apache-flink:apache-flink-jobmanager-api
-  name: Apache Flink Jobmanager API
-  description: The Jobmanager API from Apache Flink — 5 operation(s) for jobmanager.
-  humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
-  baseURL: http://localhost:8081
-  tags:
-  - JobManager
-  tags_raw:
-  - Jobmanager
-  properties:
-  - type: OpenAPI
-    url: openapi/apache-flink-jobmanager-api-openapi.yml
-  - type: Documentation
-    url: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
-  - type: JSONSchema
-    url: json-schema/flink-rest-job-details-info-schema.json
-  - type: JSONLD
-    url: json-ld/apache-flink-rest-context.jsonld
 - aid: apache-flink:apache-flink-jobs-api
   name: Apache Flink Jobs API
   description: The Jobs API from Apache Flink — 42 operation(s) for jobs.
@@ -202,18 +166,48 @@ apis:
     url: json-schema/flink-rest-job-details-info-schema.json
   - type: JSONLD
     url: json-ld/apache-flink-rest-context.jsonld
-- aid: apache-flink:apache-flink-taskmanagers-api
-  name: Apache Flink Taskmanagers API
-  description: The Taskmanagers API from Apache Flink — 6 operation(s) for taskmanagers.
-  humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
+- aid: apache-flink:apache-flink-jars-api
+  name: Apache Flink Jars API
+  description: The Jars API from Apache Flink — 5 operation(s) for jars.
+  humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/monitoring/
   baseURL: http://localhost:8081
   tags:
-  - TaskManagers
-  tags_raw:
-  - Taskmanagers
+  - Jars
   properties:
   - type: OpenAPI
-    url: openapi/apache-flink-taskmanagers-api-openapi.yml
+    url: openapi/apache-flink-jars-api-openapi.yml
+  - type: Documentation
+    url: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
+  - type: JSONSchema
+    url: json-schema/flink-rest-job-details-info-schema.json
+  - type: JSONLD
+    url: json-ld/apache-flink-rest-context.jsonld
+- aid: apache-flink:apache-flink-job-manager-api
+  name: Apache Flink Job Manager API
+  description: The Job Manager API from Apache Flink — 5 operation(s) for job manager.
+  humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/monitoring/
+  baseURL: http://localhost:8081
+  tags:
+  - Job Manager
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-flink-job-manager-api-openapi.yml
+  - type: Documentation
+    url: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
+  - type: JSONSchema
+    url: json-schema/flink-rest-job-details-info-schema.json
+  - type: JSONLD
+    url: json-ld/apache-flink-rest-context.jsonld
+- aid: apache-flink:apache-flink-task-managers-api
+  name: Apache Flink Task Managers API
+  description: The Task Managers API from Apache Flink — 6 operation(s) for task managers.
+  humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/monitoring/
+  baseURL: http://localhost:8081
+  tags:
+  - Task Managers
+  properties:
+  - type: OpenAPI
+    url: openapi/apache-flink-task-managers-api-openapi.yml
   - type: Documentation
     url: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/rest_api/
   - type: JSONSchema
