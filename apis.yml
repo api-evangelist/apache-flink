@@ -38,8 +38,8 @@ tags:
 - Real-Time Analytics
 - Stateful Computing
 - Stream Processing
-- Apache Flink
 tags_raw:
+- Apache Flink
 - Apache
 - Batch Processing
 - Big Data
@@ -173,6 +173,8 @@ apis:
   humanURL: https://nightlies.apache.org/flink/flink-docs-stable/docs/ops/monitoring/
   baseURL: http://localhost:8081
   tags:
+  - JARs
+  tags_raw:
   - Jars
   properties:
   - type: OpenAPI
