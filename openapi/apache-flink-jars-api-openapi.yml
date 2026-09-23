@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Flink JobManager REST Cluster Jars API
+  title: Flink JobManager REST Jars API
   contact:
     email: user@flink.apache.org
   license:
@@ -8,7 +8,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: v1/2.0-SNAPSHOT
 tags:
-- name: Jars
+- name: JARs
 paths:
   /jars:
     get:
@@ -23,7 +23,7 @@ paths:
                 $ref: '#/components/schemas/JarListInfo'
       summary: Apache Flink List Jars
       tags:
-      - Jars
+      - JARs
   /jars/upload:
     post:
       description: 'Uploads a jar to the cluster. The jar must be sent as multi-part data. Make sure that the "Content-Type" header is set to "application/x-java-archive", as some http libraries do not add the header by default.
@@ -46,7 +46,7 @@ paths:
                 $ref: '#/components/schemas/JarUploadResponseBody'
       summary: Apache Flink Create Jars Upload
       tags:
-      - Jars
+      - JARs
   /jars/{jarid}:
     delete:
       description: Deletes a jar previously uploaded via '/jars/upload'.
@@ -63,7 +63,7 @@ paths:
           description: The request was successful.
       summary: Apache Flink Delete Jars
       tags:
-      - Jars
+      - JARs
   /jars/{jarid}/plan:
     post:
       description: Returns the dataflow plan of a job contained in a jar previously uploaded via '/jars/upload'. Program arguments can be passed both via the JSON request (recommended) or query parameters.
@@ -111,7 +111,7 @@ paths:
                 $ref: '#/components/schemas/JobPlanInfo'
       summary: Apache Flink Create Jars Plan
       tags:
-      - Jars
+      - JARs
   /jars/{jarid}/run:
     post:
       description: Submits a job by running a jar previously uploaded via '/jars/upload'. Program arguments can be passed both via the JSON request (recommended) or query parameters.
@@ -173,37 +173,14 @@ paths:
                 $ref: '#/components/schemas/JarRunResponseBody'
       summary: Apache Flink Create Jars Run
       tags:
-      - Jars
+      - JARs
 components:
   schemas:
-    JarEntryInfo:
+    JarRunResponseBody:
       type: object
       properties:
-        description:
-          type: string
-        name:
-          type: string
-    JarUploadResponseBody:
-      type: object
-      properties:
-        filename:
-          type: string
-        status:
-          $ref: '#/components/schemas/UploadStatus'
-    JobPlanInfo:
-      type: object
-      properties:
-        plan:
-          $ref: '#/components/schemas/RawJson'
-    JarListInfo:
-      type: object
-      properties:
-        address:
-          type: string
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/JarFileInfo'
+        jobid:
+          $ref: '#/components/schemas/JobID'
     JarPlanRequestBody:
       type: object
       properties:
@@ -222,11 +199,6 @@ components:
           type: array
           items:
             type: string
-    JarRunResponseBody:
-      type: object
-      properties:
-        jobid:
-          $ref: '#/components/schemas/JobID'
     JarFileInfo:
       type: object
       properties:
@@ -241,18 +213,36 @@ components:
         uploaded:
           type: integer
           format: int64
-    RawJson:
+    JobID:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    JobPlanInfo:
       type: object
+      properties:
+        plan:
+          $ref: '#/components/schemas/RawJson'
+    JarUploadResponseBody:
+      type: object
+      properties:
+        filename:
+          type: string
+        status:
+          $ref: '#/components/schemas/UploadStatus'
     RecoveryClaimMode:
       type: string
       enum:
       - CLAIM
       - NO_CLAIM
       - LEGACY
-    UploadStatus:
-      type: string
-      enum:
-      - success
+    RawJson:
+      type: object
+    JarEntryInfo:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
     JarRunRequestBody:
       type: object
       properties:
@@ -279,6 +269,16 @@ components:
           $ref: '#/components/schemas/RecoveryClaimMode'
         savepointPath:
           type: string
-    JobID:
-      pattern: '[0-9a-f]{32}'
+    JarListInfo:
+      type: object
+      properties:
+        address:
+          type: string
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/JarFileInfo'
+    UploadStatus:
       type: string
+      enum:
+      - success

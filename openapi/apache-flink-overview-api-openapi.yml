@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Flink JobManager REST Cluster Overview API
+  title: Flink JobManager REST Overview API
   contact:
     email: user@flink.apache.org
   license:

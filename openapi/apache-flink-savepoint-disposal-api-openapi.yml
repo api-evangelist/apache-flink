@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Flink JobManager REST Cluster Savepoint Disposal API
+  title: Flink JobManager REST Savepoint Disposal API
   contact:
     email: user@flink.apache.org
   license:
@@ -52,6 +52,37 @@ paths:
       - Savepoint Disposal
 components:
   schemas:
+    AsynchronousOperationInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+    SavepointDisposalRequest:
+      type: object
+      properties:
+        savepoint-path:
+          type: string
+    TriggerId:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    SavepointInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+        location:
+          type: string
+    TriggerResponse:
+      type: object
+      properties:
+        request-id:
+          $ref: '#/components/schemas/TriggerId'
+    SerializedThrowable:
+      type: object
+      properties:
+        serialized-throwable:
+          type: string
+          format: binary
     QueueStatus:
       required:
       - id
@@ -59,27 +90,6 @@ components:
       properties:
         id:
           $ref: '#/components/schemas/Id'
-    TriggerResponse:
-      type: object
-      properties:
-        request-id:
-          $ref: '#/components/schemas/TriggerId'
-    CheckpointInfo:
-      type: object
-      properties:
-        checkpointId:
-          type: integer
-          format: int64
-        failureCause:
-          $ref: '#/components/schemas/SerializedThrowable'
-    AsynchronousOperationInfo:
-      type: object
-      properties:
-        failure-cause:
-          $ref: '#/components/schemas/SerializedThrowable'
-    TriggerId:
-      pattern: '[0-9a-f]{32}'
-      type: string
     AsynchronousOperationResult:
       type: object
       properties:
@@ -90,26 +100,16 @@ components:
           - $ref: '#/components/schemas/SavepointInfo'
         status:
           $ref: '#/components/schemas/QueueStatus'
+    CheckpointInfo:
+      type: object
+      properties:
+        checkpointId:
+          type: integer
+          format: int64
+        failureCause:
+          $ref: '#/components/schemas/SerializedThrowable'
     Id:
       type: string
       enum:
       - IN_PROGRESS
       - COMPLETED
-    SavepointInfo:
-      type: object
-      properties:
-        failure-cause:
-          $ref: '#/components/schemas/SerializedThrowable'
-        location:
-          type: string
-    SerializedThrowable:
-      type: object
-      properties:
-        serialized-throwable:
-          type: string
-          format: binary
-    SavepointDisposalRequest:
-      type: object
-      properties:
-        savepoint-path:
-          type: string

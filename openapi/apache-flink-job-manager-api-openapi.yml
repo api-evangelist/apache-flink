@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Flink REST Cluster Jobmanager API
+  title: Flink REST Jobmanager API
   contact:
     email: user@flink.apache.org
   license:
@@ -8,7 +8,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: v1/2.0-SNAPSHOT
 tags:
-- name: Jobmanager
+- name: Job Manager
 paths:
   /jobmanager/config:
     get:
@@ -25,7 +25,7 @@ paths:
                   $ref: '#/components/schemas/ConfigurationInfoEntry'
       summary: Apache Flink List Jobmanager Config
       tags:
-      - Jobmanager
+      - Job Manager
   /jobmanager/environment:
     get:
       description: Returns the jobmanager environment.
@@ -39,7 +39,7 @@ paths:
                 $ref: '#/components/schemas/EnvironmentInfo'
       summary: Apache Flink List Jobmanager Environment
       tags:
-      - Jobmanager
+      - Job Manager
   /jobmanager/logs:
     get:
       description: Returns the list of log files on the JobManager.
@@ -53,7 +53,7 @@ paths:
                 $ref: '#/components/schemas/LogListInfo'
       summary: Apache Flink List Jobmanager Logs
       tags:
-      - Jobmanager
+      - Job Manager
   /jobmanager/metrics:
     get:
       description: Provides access to job manager metrics.
@@ -75,7 +75,7 @@ paths:
                 $ref: '#/components/schemas/MetricCollectionResponseBody'
       summary: Apache Flink List Jobmanager Metrics
       tags:
-      - Jobmanager
+      - Job Manager
   /jobmanager/thread-dump:
     get:
       description: Returns the thread dump of the JobManager.
@@ -89,48 +89,9 @@ paths:
                 $ref: '#/components/schemas/ThreadDumpInfo'
       summary: Apache Flink List Jobmanager Thread-Dump
       tags:
-      - Jobmanager
+      - Job Manager
 components:
   schemas:
-    Metric:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-        value:
-          type: string
-    EnvironmentInfo:
-      type: object
-      properties:
-        classpath:
-          type: array
-          items:
-            type: string
-        jvm:
-          $ref: '#/components/schemas/JVMInfo'
-    ThreadInfo:
-      type: object
-      properties:
-        stringifiedThreadInfo:
-          type: string
-        threadName:
-          type: string
-    ConfigurationInfoEntry:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-    LogListInfo:
-      type: object
-      properties:
-        logs:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogInfo'
     LogInfo:
       type: object
       properties:
@@ -149,6 +110,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Metric'
+    ThreadDumpInfo:
+      type: object
+      properties:
+        threadInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThreadInfo'
     JVMInfo:
       type: object
       properties:
@@ -160,10 +128,42 @@ components:
             type: string
         version:
           type: string
-    ThreadDumpInfo:
+    ConfigurationInfoEntry:
       type: object
       properties:
-        threadInfos:
+        key:
+          type: string
+        value:
+          type: string
+    Metric:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+    LogListInfo:
+      type: object
+      properties:
+        logs:
           type: array
           items:
-            $ref: '#/components/schemas/ThreadInfo'
+            $ref: '#/components/schemas/LogInfo'
+    ThreadInfo:
+      type: object
+      properties:
+        stringifiedThreadInfo:
+          type: string
+        threadName:
+          type: string
+    EnvironmentInfo:
+      type: object
+      properties:
+        classpath:
+          type: array
+          items:
+            type: string
+        jvm:
+          $ref: '#/components/schemas/JVMInfo'

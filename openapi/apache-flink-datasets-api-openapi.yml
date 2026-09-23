@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Flink JobManager REST Cluster Datasets API
+  title: Flink JobManager REST Datasets API
   contact:
     email: user@flink.apache.org
   license:
@@ -68,33 +68,6 @@ paths:
       - Datasets
 components:
   schemas:
-    QueueStatus:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-    ClusterDataSetEntry:
-      type: object
-      properties:
-        id:
-          type: string
-        isComplete:
-          type: boolean
-    TriggerResponse:
-      type: object
-      properties:
-        request-id:
-          $ref: '#/components/schemas/TriggerId'
-    CheckpointInfo:
-      type: object
-      properties:
-        checkpointId:
-          type: integer
-          format: int64
-        failureCause:
-          $ref: '#/components/schemas/SerializedThrowable'
     AsynchronousOperationInfo:
       type: object
       properties:
@@ -103,6 +76,48 @@ components:
     TriggerId:
       pattern: '[0-9a-f]{32}'
       type: string
+    SavepointInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+        location:
+          type: string
+    ClusterDataSetListResponseBody:
+      type: object
+      properties:
+        dataSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClusterDataSetEntry'
+    IntermediateDataSetID:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    TriggerResponse:
+      type: object
+      properties:
+        request-id:
+          $ref: '#/components/schemas/TriggerId'
+    ClusterDataSetEntry:
+      type: object
+      properties:
+        id:
+          type: string
+        isComplete:
+          type: boolean
+    SerializedThrowable:
+      type: object
+      properties:
+        serialized-throwable:
+          type: string
+          format: binary
+    QueueStatus:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
     AsynchronousOperationResult:
       type: object
       properties:
@@ -113,31 +128,16 @@ components:
           - $ref: '#/components/schemas/SavepointInfo'
         status:
           $ref: '#/components/schemas/QueueStatus'
+    CheckpointInfo:
+      type: object
+      properties:
+        checkpointId:
+          type: integer
+          format: int64
+        failureCause:
+          $ref: '#/components/schemas/SerializedThrowable'
     Id:
       type: string
       enum:
       - IN_PROGRESS
       - COMPLETED
-    IntermediateDataSetID:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    SavepointInfo:
-      type: object
-      properties:
-        failure-cause:
-          $ref: '#/components/schemas/SerializedThrowable'
-        location:
-          type: string
-    SerializedThrowable:
-      type: object
-      properties:
-        serialized-throwable:
-          type: string
-          format: binary
-    ClusterDataSetListResponseBody:
-      type: object
-      properties:
-        dataSets:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClusterDataSetEntry'
