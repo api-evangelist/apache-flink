@@ -92,6 +92,56 @@ paths:
       - Job Manager
 components:
   schemas:
+    ThreadInfo:
+      type: object
+      properties:
+        stringifiedThreadInfo:
+          type: string
+        threadName:
+          type: string
+    EnvironmentInfo:
+      type: object
+      properties:
+        classpath:
+          type: array
+          items:
+            type: string
+        jvm:
+          $ref: '#/components/schemas/JVMInfo'
+    Metric:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+    ThreadDumpInfo:
+      type: object
+      properties:
+        threadInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThreadInfo'
+    LogListInfo:
+      type: object
+      properties:
+        logs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogInfo'
+    JVMInfo:
+      type: object
+      properties:
+        arch:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        version:
+          type: string
     LogInfo:
       type: object
       properties:
@@ -110,24 +160,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Metric'
-    ThreadDumpInfo:
-      type: object
-      properties:
-        threadInfos:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThreadInfo'
-    JVMInfo:
-      type: object
-      properties:
-        arch:
-          type: string
-        options:
-          type: array
-          items:
-            type: string
-        version:
-          type: string
     ConfigurationInfoEntry:
       type: object
       properties:
@@ -135,35 +167,3 @@ components:
           type: string
         value:
           type: string
-    Metric:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-        value:
-          type: string
-    LogListInfo:
-      type: object
-      properties:
-        logs:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogInfo'
-    ThreadInfo:
-      type: object
-      properties:
-        stringifiedThreadInfo:
-          type: string
-        threadName:
-          type: string
-    EnvironmentInfo:
-      type: object
-      properties:
-        classpath:
-          type: array
-          items:
-            type: string
-        jvm:
-          $ref: '#/components/schemas/JVMInfo'

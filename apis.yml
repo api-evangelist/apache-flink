@@ -35,7 +35,7 @@ tags:
 - Apache
 - Batch Processing
 - Big Data
-- Open-Source
+- Open Source
 - Real-Time Analytics
 - Stateful Computing
 - Stream Processing
@@ -48,6 +48,7 @@ tags_raw:
 - Real-Time Analytics
 - Stateful Computing
 - Stream Processing
+- Open-Source
 url: https://raw.githubusercontent.com/api-evangelist/apache-flink/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-05-19'

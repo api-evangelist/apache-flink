@@ -68,56 +68,6 @@ paths:
       - Datasets
 components:
   schemas:
-    AsynchronousOperationInfo:
-      type: object
-      properties:
-        failure-cause:
-          $ref: '#/components/schemas/SerializedThrowable'
-    TriggerId:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    SavepointInfo:
-      type: object
-      properties:
-        failure-cause:
-          $ref: '#/components/schemas/SerializedThrowable'
-        location:
-          type: string
-    ClusterDataSetListResponseBody:
-      type: object
-      properties:
-        dataSets:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClusterDataSetEntry'
-    IntermediateDataSetID:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    TriggerResponse:
-      type: object
-      properties:
-        request-id:
-          $ref: '#/components/schemas/TriggerId'
-    ClusterDataSetEntry:
-      type: object
-      properties:
-        id:
-          type: string
-        isComplete:
-          type: boolean
-    SerializedThrowable:
-      type: object
-      properties:
-        serialized-throwable:
-          type: string
-          format: binary
-    QueueStatus:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
     AsynchronousOperationResult:
       type: object
       properties:
@@ -128,6 +78,61 @@ components:
           - $ref: '#/components/schemas/SavepointInfo'
         status:
           $ref: '#/components/schemas/QueueStatus'
+    SerializedThrowable:
+      type: object
+      properties:
+        serialized-throwable:
+          type: string
+          format: binary
+    ClusterDataSetListResponseBody:
+      type: object
+      properties:
+        dataSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClusterDataSetEntry'
+    SavepointInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+        location:
+          type: string
+    ClusterDataSetEntry:
+      type: object
+      properties:
+        id:
+          type: string
+        isComplete:
+          type: boolean
+    Id:
+      type: string
+      enum:
+      - IN_PROGRESS
+      - COMPLETED
+    IntermediateDataSetID:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    AsynchronousOperationInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+    QueueStatus:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+    TriggerResponse:
+      type: object
+      properties:
+        request-id:
+          $ref: '#/components/schemas/TriggerId'
+    TriggerId:
+      pattern: '[0-9a-f]{32}'
+      type: string
     CheckpointInfo:
       type: object
       properties:
@@ -136,8 +141,3 @@ components:
           format: int64
         failureCause:
           $ref: '#/components/schemas/SerializedThrowable'
-    Id:
-      type: string
-      enum:
-      - IN_PROGRESS
-      - COMPLETED

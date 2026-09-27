@@ -26,6 +26,17 @@ paths:
       - Config
 components:
   schemas:
+    Features:
+      type: object
+      properties:
+        web-cancel:
+          type: boolean
+        web-history:
+          type: boolean
+        web-rescale:
+          type: boolean
+        web-submit:
+          type: boolean
     DashboardConfiguration:
       type: object
       properties:
@@ -43,14 +54,3 @@ components:
         timezone-offset:
           type: integer
           format: int32
-    Features:
-      type: object
-      properties:
-        web-cancel:
-          type: boolean
-        web-history:
-          type: boolean
-        web-rescale:
-          type: boolean
-        web-submit:
-          type: boolean

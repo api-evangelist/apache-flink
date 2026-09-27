@@ -153,86 +153,59 @@ paths:
       - Task Managers
 components:
   schemas:
+    ResourceID:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    SlotInfo:
+      type: object
+      properties:
+        jobId:
+          $ref: '#/components/schemas/JobID'
+        resource:
+          $ref: '#/components/schemas/ResourceProfileInfo'
+    Metric:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+    LogInfo:
+      type: object
+      properties:
+        mtime:
+          type: integer
+          format: int64
+        name:
+          type: string
+        size:
+          type: integer
+          format: int64
+    MetricCollectionResponseBody:
+      type: object
+      properties:
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+    AggregatedMetricsResponseBody:
+      type: object
+    GarbageCollectorInfo:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        name:
+          type: string
+        time:
+          type: integer
+          format: int64
     JobID:
       pattern: '[0-9a-f]{32}'
       type: string
-    ThreadInfo:
-      type: object
-      properties:
-        stringifiedThreadInfo:
-          type: string
-        threadName:
-          type: string
-    TaskManagerInfo:
-      type: object
-      properties:
-        blocked:
-          type: boolean
-        dataPort:
-          type: integer
-          format: int32
-        freeResource:
-          $ref: '#/components/schemas/ResourceProfileInfo'
-        freeSlots:
-          type: integer
-          format: int32
-        hardware:
-          $ref: '#/components/schemas/HardwareDescription'
-        id:
-          $ref: '#/components/schemas/ResourceID'
-        jmxPort:
-          type: integer
-          format: int32
-        memoryConfiguration:
-          $ref: '#/components/schemas/TaskExecutorMemoryConfiguration'
-        path:
-          type: string
-        slotsNumber:
-          type: integer
-          format: int32
-        timeSinceLastHeartbeat:
-          type: integer
-          format: int64
-        totalResource:
-          $ref: '#/components/schemas/ResourceProfileInfo'
-    AggregationMode:
-      type: string
-      enum:
-      - MIN
-      - MAX
-      - SUM
-      - AVG
-      - SKEW
-    ResourceProfileInfo:
-      type: object
-      properties:
-        cpuCores:
-          type: number
-          format: double
-        extendedResources:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-        managedMemory:
-          type: integer
-          format: int32
-        networkMemory:
-          type: integer
-          format: int32
-        taskHeapMemory:
-          type: integer
-          format: int32
-        taskOffHeapMemory:
-          type: integer
-          format: int32
-    ThreadDumpInfo:
-      type: object
-      properties:
-        threadInfos:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThreadInfo'
     TaskExecutorMemoryConfiguration:
       type: object
       properties:
@@ -266,38 +239,105 @@ components:
         totalProcessMemory:
           type: integer
           format: int64
-    AggregatedMetricsResponseBody:
-      type: object
-    LogInfo:
+    TaskManagersInfo:
       type: object
       properties:
-        mtime:
-          type: integer
-          format: int64
-        name:
-          type: string
-        size:
-          type: integer
-          format: int64
-    ResourceID:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    SlotInfo:
+        taskmanagers:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskManagerInfo'
+    TaskManagerInfo:
       type: object
       properties:
-        jobId:
-          $ref: '#/components/schemas/JobID'
-        resource:
+        blocked:
+          type: boolean
+        dataPort:
+          type: integer
+          format: int32
+        freeResource:
           $ref: '#/components/schemas/ResourceProfileInfo'
-    Metric:
-      required:
-      - id
+        freeSlots:
+          type: integer
+          format: int32
+        hardware:
+          $ref: '#/components/schemas/HardwareDescription'
+        id:
+          $ref: '#/components/schemas/ResourceID'
+        jmxPort:
+          type: integer
+          format: int32
+        memoryConfiguration:
+          $ref: '#/components/schemas/TaskExecutorMemoryConfiguration'
+        path:
+          type: string
+        slotsNumber:
+          type: integer
+          format: int32
+        timeSinceLastHeartbeat:
+          type: integer
+          format: int64
+        totalResource:
+          $ref: '#/components/schemas/ResourceProfileInfo'
+    ThreadInfo:
       type: object
       properties:
-        id:
+        stringifiedThreadInfo:
           type: string
-        value:
+        threadName:
           type: string
+    ThreadDumpInfo:
+      type: object
+      properties:
+        threadInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThreadInfo'
+    ResourceProfileInfo:
+      type: object
+      properties:
+        cpuCores:
+          type: number
+          format: double
+        extendedResources:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        managedMemory:
+          type: integer
+          format: int32
+        networkMemory:
+          type: integer
+          format: int32
+        taskHeapMemory:
+          type: integer
+          format: int32
+        taskOffHeapMemory:
+          type: integer
+          format: int32
+    HardwareDescription:
+      type: object
+      properties:
+        cpuCores:
+          type: integer
+          format: int32
+        freeMemory:
+          type: integer
+          format: int64
+        managedMemory:
+          type: integer
+          format: int64
+        physicalMemory:
+          type: integer
+          format: int64
+    AggregationMode:
+      type: string
+      enum:
+      - MIN
+      - MAX
+      - SUM
+      - AVG
+      - SKEW
     LogListInfo:
       type: object
       properties:
@@ -305,6 +345,44 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LogInfo'
+    TaskManagerDetailsInfo:
+      type: object
+      properties:
+        allocatedSlots:
+          type: array
+          items:
+            $ref: '#/components/schemas/SlotInfo'
+        blocked:
+          type: boolean
+        dataPort:
+          type: integer
+          format: int32
+        freeResource:
+          $ref: '#/components/schemas/ResourceProfileInfo'
+        freeSlots:
+          type: integer
+          format: int32
+        hardware:
+          $ref: '#/components/schemas/HardwareDescription'
+        id:
+          $ref: '#/components/schemas/ResourceID'
+        jmxPort:
+          type: integer
+          format: int32
+        memoryConfiguration:
+          $ref: '#/components/schemas/TaskExecutorMemoryConfiguration'
+        metrics:
+          $ref: '#/components/schemas/TaskManagerMetricsInfo'
+        path:
+          type: string
+        slotsNumber:
+          type: integer
+          format: int32
+        timeSinceLastHeartbeat:
+          type: integer
+          format: int64
+        totalResource:
+          $ref: '#/components/schemas/ResourceProfileInfo'
     TaskManagerMetricsInfo:
       type: object
       properties:
@@ -366,81 +444,3 @@ components:
         nonHeapUsed:
           type: integer
           format: int64
-    GarbageCollectorInfo:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-        name:
-          type: string
-        time:
-          type: integer
-          format: int64
-    MetricCollectionResponseBody:
-      type: object
-      properties:
-        metrics:
-          type: array
-          items:
-            $ref: '#/components/schemas/Metric'
-    TaskManagerDetailsInfo:
-      type: object
-      properties:
-        allocatedSlots:
-          type: array
-          items:
-            $ref: '#/components/schemas/SlotInfo'
-        blocked:
-          type: boolean
-        dataPort:
-          type: integer
-          format: int32
-        freeResource:
-          $ref: '#/components/schemas/ResourceProfileInfo'
-        freeSlots:
-          type: integer
-          format: int32
-        hardware:
-          $ref: '#/components/schemas/HardwareDescription'
-        id:
-          $ref: '#/components/schemas/ResourceID'
-        jmxPort:
-          type: integer
-          format: int32
-        memoryConfiguration:
-          $ref: '#/components/schemas/TaskExecutorMemoryConfiguration'
-        metrics:
-          $ref: '#/components/schemas/TaskManagerMetricsInfo'
-        path:
-          type: string
-        slotsNumber:
-          type: integer
-          format: int32
-        timeSinceLastHeartbeat:
-          type: integer
-          format: int64
-        totalResource:
-          $ref: '#/components/schemas/ResourceProfileInfo'
-    HardwareDescription:
-      type: object
-      properties:
-        cpuCores:
-          type: integer
-          format: int32
-        freeMemory:
-          type: integer
-          format: int64
-        managedMemory:
-          type: integer
-          format: int64
-        physicalMemory:
-          type: integer
-          format: int64
-    TaskManagersInfo:
-      type: object
-      properties:
-        taskmanagers:
-          type: array
-          items:
-            $ref: '#/components/schemas/TaskManagerInfo'

@@ -52,44 +52,11 @@ paths:
       - Savepoint Disposal
 components:
   schemas:
-    AsynchronousOperationInfo:
-      type: object
-      properties:
-        failure-cause:
-          $ref: '#/components/schemas/SerializedThrowable'
     SavepointDisposalRequest:
       type: object
       properties:
         savepoint-path:
           type: string
-    TriggerId:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    SavepointInfo:
-      type: object
-      properties:
-        failure-cause:
-          $ref: '#/components/schemas/SerializedThrowable'
-        location:
-          type: string
-    TriggerResponse:
-      type: object
-      properties:
-        request-id:
-          $ref: '#/components/schemas/TriggerId'
-    SerializedThrowable:
-      type: object
-      properties:
-        serialized-throwable:
-          type: string
-          format: binary
-    QueueStatus:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
     AsynchronousOperationResult:
       type: object
       properties:
@@ -100,6 +67,44 @@ components:
           - $ref: '#/components/schemas/SavepointInfo'
         status:
           $ref: '#/components/schemas/QueueStatus'
+    SerializedThrowable:
+      type: object
+      properties:
+        serialized-throwable:
+          type: string
+          format: binary
+    SavepointInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+        location:
+          type: string
+    Id:
+      type: string
+      enum:
+      - IN_PROGRESS
+      - COMPLETED
+    QueueStatus:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+    AsynchronousOperationInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+    TriggerResponse:
+      type: object
+      properties:
+        request-id:
+          $ref: '#/components/schemas/TriggerId'
+    TriggerId:
+      pattern: '[0-9a-f]{32}'
+      type: string
     CheckpointInfo:
       type: object
       properties:
@@ -108,8 +113,3 @@ components:
           format: int64
         failureCause:
           $ref: '#/components/schemas/SerializedThrowable'
-    Id:
-      type: string
-      enum:
-      - IN_PROGRESS
-      - COMPLETED

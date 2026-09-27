@@ -15,7 +15,7 @@
     "apache-flink-taskmanagers-api-openapi.yml"
   ],
   "archived": [
-    "deleted 3 superseded output(s) from the previous generation"
+    "deleted 2 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
@@ -100,14 +100,14 @@
     "apache-flink-rest-openapi-original.yml: declared missing tag: Overview",
     "apache-flink-rest-openapi-original.yml: declared missing tag: Savepoint Disposal",
     "apache-flink-rest-openapi-original.yml: declared missing tag: Taskmanagers",
-    "superseded outputs removed: apache-flink-ja-rs-api-openapi.yml, apache-flink-job-manager-api-openapi.yml, apache-flink-task-managers-api-openapi.yml",
-    "apis.yml register: written (+3 apis, 10 total)"
+    "superseded outputs removed: apache-flink-job-manager-api-openapi.yml, apache-flink-task-managers-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 10 total)"
   ],
   "skipped": [
     "apache-flink-cluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "apache-flink-config-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "apache-flink-datasets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-flink-ja-rs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apache-flink-jars-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "apache-flink-job-manager-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "apache-flink-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "apache-flink-overview-api-openapi.yml: previously refined output, superseded by openapi/_original/",
