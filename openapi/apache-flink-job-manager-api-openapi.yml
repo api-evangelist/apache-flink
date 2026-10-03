@@ -92,6 +92,33 @@ paths:
       - Job Manager
 components:
   schemas:
+    Metric:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+    JVMInfo:
+      type: object
+      properties:
+        arch:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        version:
+          type: string
+    LogListInfo:
+      type: object
+      properties:
+        logs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogInfo'
     ThreadInfo:
       type: object
       properties:
@@ -108,40 +135,13 @@ components:
             type: string
         jvm:
           $ref: '#/components/schemas/JVMInfo'
-    Metric:
-      required:
-      - id
+    MetricCollectionResponseBody:
       type: object
       properties:
-        id:
-          type: string
-        value:
-          type: string
-    ThreadDumpInfo:
-      type: object
-      properties:
-        threadInfos:
+        metrics:
           type: array
           items:
-            $ref: '#/components/schemas/ThreadInfo'
-    LogListInfo:
-      type: object
-      properties:
-        logs:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogInfo'
-    JVMInfo:
-      type: object
-      properties:
-        arch:
-          type: string
-        options:
-          type: array
-          items:
-            type: string
-        version:
-          type: string
+            $ref: '#/components/schemas/Metric'
     LogInfo:
       type: object
       properties:
@@ -153,13 +153,6 @@ components:
         size:
           type: integer
           format: int64
-    MetricCollectionResponseBody:
-      type: object
-      properties:
-        metrics:
-          type: array
-          items:
-            $ref: '#/components/schemas/Metric'
     ConfigurationInfoEntry:
       type: object
       properties:
@@ -167,3 +160,10 @@ components:
           type: string
         value:
           type: string
+    ThreadDumpInfo:
+      type: object
+      properties:
+        threadInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThreadInfo'

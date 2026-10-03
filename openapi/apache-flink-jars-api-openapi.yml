@@ -176,61 +176,35 @@ paths:
       - JARs
 components:
   schemas:
-    RawJson:
-      type: object
-    UploadStatus:
+    RecoveryClaimMode:
       type: string
       enum:
-      - success
+      - CLAIM
+      - NO_CLAIM
+      - LEGACY
+    RawJson:
+      type: object
     JarRunResponseBody:
       type: object
       properties:
         jobid:
           $ref: '#/components/schemas/JobID'
-    JarPlanRequestBody:
+    JarUploadResponseBody:
       type: object
       properties:
-        entryClass:
+        filename:
           type: string
-        flinkConfiguration:
-          type: object
-          additionalProperties:
-            type: string
-        jobId:
-          $ref: '#/components/schemas/JobID'
-        parallelism:
-          type: integer
-          format: int32
-        programArgsList:
-          type: array
-          items:
-            type: string
+        status:
+          $ref: '#/components/schemas/UploadStatus'
+    UploadStatus:
+      type: string
+      enum:
+      - success
     JobPlanInfo:
       type: object
       properties:
         plan:
           $ref: '#/components/schemas/RawJson'
-    JarFileInfo:
-      type: object
-      properties:
-        entry:
-          type: array
-          items:
-            $ref: '#/components/schemas/JarEntryInfo'
-        id:
-          type: string
-        name:
-          type: string
-        uploaded:
-          type: integer
-          format: int64
-    JarEntryInfo:
-      type: object
-      properties:
-        description:
-          type: string
-        name:
-          type: string
     JobID:
       pattern: '[0-9a-f]{32}'
       type: string
@@ -260,19 +234,6 @@ components:
           $ref: '#/components/schemas/RecoveryClaimMode'
         savepointPath:
           type: string
-    RecoveryClaimMode:
-      type: string
-      enum:
-      - CLAIM
-      - NO_CLAIM
-      - LEGACY
-    JarUploadResponseBody:
-      type: object
-      properties:
-        filename:
-          type: string
-        status:
-          $ref: '#/components/schemas/UploadStatus'
     JarListInfo:
       type: object
       properties:
@@ -282,3 +243,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/JarFileInfo'
+    JarEntryInfo:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+    JarFileInfo:
+      type: object
+      properties:
+        entry:
+          type: array
+          items:
+            $ref: '#/components/schemas/JarEntryInfo'
+        id:
+          type: string
+        name:
+          type: string
+        uploaded:
+          type: integer
+          format: int64
+    JarPlanRequestBody:
+      type: object
+      properties:
+        entryClass:
+          type: string
+        flinkConfiguration:
+          type: object
+          additionalProperties:
+            type: string
+        jobId:
+          $ref: '#/components/schemas/JobID'
+        parallelism:
+          type: integer
+          format: int32
+        programArgsList:
+          type: array
+          items:
+            type: string
