@@ -182,32 +182,14 @@ components:
       - CLAIM
       - NO_CLAIM
       - LEGACY
-    RawJson:
-      type: object
-    JarRunResponseBody:
-      type: object
-      properties:
-        jobid:
-          $ref: '#/components/schemas/JobID'
-    JarUploadResponseBody:
-      type: object
-      properties:
-        filename:
-          type: string
-        status:
-          $ref: '#/components/schemas/UploadStatus'
-    UploadStatus:
+    JobID:
+      pattern: '[0-9a-f]{32}'
       type: string
-      enum:
-      - success
     JobPlanInfo:
       type: object
       properties:
         plan:
           $ref: '#/components/schemas/RawJson'
-    JobID:
-      pattern: '[0-9a-f]{32}'
-      type: string
     JarRunRequestBody:
       type: object
       properties:
@@ -234,6 +216,17 @@ components:
           $ref: '#/components/schemas/RecoveryClaimMode'
         savepointPath:
           type: string
+    UploadStatus:
+      type: string
+      enum:
+      - success
+    JarUploadResponseBody:
+      type: object
+      properties:
+        filename:
+          type: string
+        status:
+          $ref: '#/components/schemas/UploadStatus'
     JarListInfo:
       type: object
       properties:
@@ -243,13 +236,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/JarFileInfo'
-    JarEntryInfo:
-      type: object
-      properties:
-        description:
-          type: string
-        name:
-          type: string
     JarFileInfo:
       type: object
       properties:
@@ -264,6 +250,13 @@ components:
         uploaded:
           type: integer
           format: int64
+    JarEntryInfo:
+      type: object
+      properties:
+        description:
+          type: string
+        name:
+          type: string
     JarPlanRequestBody:
       type: object
       properties:
@@ -282,3 +275,10 @@ components:
           type: array
           items:
             type: string
+    RawJson:
+      type: object
+    JarRunResponseBody:
+      type: object
+      properties:
+        jobid:
+          $ref: '#/components/schemas/JobID'

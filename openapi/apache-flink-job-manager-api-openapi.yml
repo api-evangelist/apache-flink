@@ -92,6 +92,15 @@ paths:
       - Job Manager
 components:
   schemas:
+    EnvironmentInfo:
+      type: object
+      properties:
+        classpath:
+          type: array
+          items:
+            type: string
+        jvm:
+          $ref: '#/components/schemas/JVMInfo'
     Metric:
       required:
       - id
@@ -100,6 +109,31 @@ components:
         id:
           type: string
         value:
+          type: string
+    LogInfo:
+      type: object
+      properties:
+        mtime:
+          type: integer
+          format: int64
+        name:
+          type: string
+        size:
+          type: integer
+          format: int64
+    MetricCollectionResponseBody:
+      type: object
+      properties:
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+    ThreadInfo:
+      type: object
+      properties:
+        stringifiedThreadInfo:
+          type: string
+        threadName:
           type: string
     JVMInfo:
       type: object
@@ -112,54 +146,6 @@ components:
             type: string
         version:
           type: string
-    LogListInfo:
-      type: object
-      properties:
-        logs:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogInfo'
-    ThreadInfo:
-      type: object
-      properties:
-        stringifiedThreadInfo:
-          type: string
-        threadName:
-          type: string
-    EnvironmentInfo:
-      type: object
-      properties:
-        classpath:
-          type: array
-          items:
-            type: string
-        jvm:
-          $ref: '#/components/schemas/JVMInfo'
-    MetricCollectionResponseBody:
-      type: object
-      properties:
-        metrics:
-          type: array
-          items:
-            $ref: '#/components/schemas/Metric'
-    LogInfo:
-      type: object
-      properties:
-        mtime:
-          type: integer
-          format: int64
-        name:
-          type: string
-        size:
-          type: integer
-          format: int64
-    ConfigurationInfoEntry:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
     ThreadDumpInfo:
       type: object
       properties:
@@ -167,3 +153,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ThreadInfo'
+    LogListInfo:
+      type: object
+      properties:
+        logs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogInfo'
+    ConfigurationInfoEntry:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
