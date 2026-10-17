@@ -68,57 +68,9 @@ paths:
       - Datasets
 components:
   schemas:
-    SerializedThrowable:
-      type: object
-      properties:
-        serialized-throwable:
-          type: string
-          format: binary
     TriggerId:
       pattern: '[0-9a-f]{32}'
       type: string
-    IntermediateDataSetID:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    Id:
-      type: string
-      enum:
-      - IN_PROGRESS
-      - COMPLETED
-    QueueStatus:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/Id'
-    ClusterDataSetListResponseBody:
-      type: object
-      properties:
-        dataSets:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClusterDataSetEntry'
-    TriggerResponse:
-      type: object
-      properties:
-        request-id:
-          $ref: '#/components/schemas/TriggerId'
-    SavepointInfo:
-      type: object
-      properties:
-        failure-cause:
-          $ref: '#/components/schemas/SerializedThrowable'
-        location:
-          type: string
-    CheckpointInfo:
-      type: object
-      properties:
-        checkpointId:
-          type: integer
-          format: int64
-        failureCause:
-          $ref: '#/components/schemas/SerializedThrowable'
     AsynchronousOperationResult:
       type: object
       properties:
@@ -129,6 +81,24 @@ components:
           - $ref: '#/components/schemas/SavepointInfo'
         status:
           $ref: '#/components/schemas/QueueStatus'
+    ClusterDataSetListResponseBody:
+      type: object
+      properties:
+        dataSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClusterDataSetEntry'
+    Id:
+      type: string
+      enum:
+      - IN_PROGRESS
+      - COMPLETED
+    SerializedThrowable:
+      type: object
+      properties:
+        serialized-throwable:
+          type: string
+          format: binary
     ClusterDataSetEntry:
       type: object
       properties:
@@ -136,8 +106,38 @@ components:
           type: string
         isComplete:
           type: boolean
+    CheckpointInfo:
+      type: object
+      properties:
+        checkpointId:
+          type: integer
+          format: int64
+        failureCause:
+          $ref: '#/components/schemas/SerializedThrowable'
+    TriggerResponse:
+      type: object
+      properties:
+        request-id:
+          $ref: '#/components/schemas/TriggerId'
+    IntermediateDataSetID:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    SavepointInfo:
+      type: object
+      properties:
+        failure-cause:
+          $ref: '#/components/schemas/SerializedThrowable'
+        location:
+          type: string
     AsynchronousOperationInfo:
       type: object
       properties:
         failure-cause:
           $ref: '#/components/schemas/SerializedThrowable'
+    QueueStatus:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'

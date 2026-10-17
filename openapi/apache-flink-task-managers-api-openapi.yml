@@ -153,30 +153,21 @@ paths:
       - Task Managers
 components:
   schemas:
-    Metric:
-      required:
-      - id
+    HardwareDescription:
       type: object
       properties:
-        id:
-          type: string
-        value:
-          type: string
-    AggregationMode:
-      type: string
-      enum:
-      - MIN
-      - MAX
-      - SUM
-      - AVG
-      - SKEW
-    MetricCollectionResponseBody:
-      type: object
-      properties:
-        metrics:
-          type: array
-          items:
-            $ref: '#/components/schemas/Metric'
+        cpuCores:
+          type: integer
+          format: int32
+        freeMemory:
+          type: integer
+          format: int64
+        managedMemory:
+          type: integer
+          format: int64
+        physicalMemory:
+          type: integer
+          format: int64
     TaskManagerDetailsInfo:
       type: object
       properties:
@@ -215,55 +206,6 @@ components:
           format: int64
         totalResource:
           $ref: '#/components/schemas/ResourceProfileInfo'
-    ThreadDumpInfo:
-      type: object
-      properties:
-        threadInfos:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThreadInfo'
-    LogListInfo:
-      type: object
-      properties:
-        logs:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogInfo'
-    AggregatedMetricsResponseBody:
-      type: object
-    TaskExecutorMemoryConfiguration:
-      type: object
-      properties:
-        frameworkHeap:
-          type: integer
-          format: int64
-        frameworkOffHeap:
-          type: integer
-          format: int64
-        jvmMetaspace:
-          type: integer
-          format: int64
-        jvmOverhead:
-          type: integer
-          format: int64
-        managedMemory:
-          type: integer
-          format: int64
-        networkMemory:
-          type: integer
-          format: int64
-        taskHeap:
-          type: integer
-          format: int64
-        taskOffHeap:
-          type: integer
-          format: int64
-        totalFlinkMemory:
-          type: integer
-          format: int64
-        totalProcessMemory:
-          type: integer
-          format: int64
     TaskManagerMetricsInfo:
       type: object
       properties:
@@ -325,29 +267,77 @@ components:
         nonHeapUsed:
           type: integer
           format: int64
-    ResourceProfileInfo:
+    MetricCollectionResponseBody:
       type: object
       properties:
-        cpuCores:
-          type: number
-          format: double
-        extendedResources:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+    Metric:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+    ThreadInfo:
+      type: object
+      properties:
+        stringifiedThreadInfo:
+          type: string
+        threadName:
+          type: string
+    ResourceID:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    TaskExecutorMemoryConfiguration:
+      type: object
+      properties:
+        frameworkHeap:
+          type: integer
+          format: int64
+        frameworkOffHeap:
+          type: integer
+          format: int64
+        jvmMetaspace:
+          type: integer
+          format: int64
+        jvmOverhead:
+          type: integer
+          format: int64
         managedMemory:
           type: integer
-          format: int32
+          format: int64
         networkMemory:
           type: integer
-          format: int32
-        taskHeapMemory:
+          format: int64
+        taskHeap:
           type: integer
-          format: int32
-        taskOffHeapMemory:
+          format: int64
+        taskOffHeap:
           type: integer
-          format: int32
+          format: int64
+        totalFlinkMemory:
+          type: integer
+          format: int64
+        totalProcessMemory:
+          type: integer
+          format: int64
+    AggregatedMetricsResponseBody:
+      type: object
+    LogListInfo:
+      type: object
+      properties:
+        logs:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogInfo'
+    JobID:
+      pattern: '[0-9a-f]{32}'
+      type: string
     TaskManagerInfo:
       type: object
       properties:
@@ -380,20 +370,13 @@ components:
           format: int64
         totalResource:
           $ref: '#/components/schemas/ResourceProfileInfo'
-    JobID:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    LogInfo:
+    ThreadDumpInfo:
       type: object
       properties:
-        mtime:
-          type: integer
-          format: int64
-        name:
-          type: string
-        size:
-          type: integer
-          format: int64
+        threadInfos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThreadInfo'
     SlotInfo:
       type: object
       properties:
@@ -401,31 +384,6 @@ components:
           $ref: '#/components/schemas/JobID'
         resource:
           $ref: '#/components/schemas/ResourceProfileInfo'
-    ResourceID:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    ThreadInfo:
-      type: object
-      properties:
-        stringifiedThreadInfo:
-          type: string
-        threadName:
-          type: string
-    HardwareDescription:
-      type: object
-      properties:
-        cpuCores:
-          type: integer
-          format: int32
-        freeMemory:
-          type: integer
-          format: int64
-        managedMemory:
-          type: integer
-          format: int64
-        physicalMemory:
-          type: integer
-          format: int64
     GarbageCollectorInfo:
       type: object
       properties:
@@ -435,6 +393,48 @@ components:
         name:
           type: string
         time:
+          type: integer
+          format: int64
+    ResourceProfileInfo:
+      type: object
+      properties:
+        cpuCores:
+          type: number
+          format: double
+        extendedResources:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        managedMemory:
+          type: integer
+          format: int32
+        networkMemory:
+          type: integer
+          format: int32
+        taskHeapMemory:
+          type: integer
+          format: int32
+        taskOffHeapMemory:
+          type: integer
+          format: int32
+    AggregationMode:
+      type: string
+      enum:
+      - MIN
+      - MAX
+      - SUM
+      - AVG
+      - SKEW
+    LogInfo:
+      type: object
+      properties:
+        mtime:
+          type: integer
+          format: int64
+        name:
+          type: string
+        size:
           type: integer
           format: int64
     TaskManagersInfo:

@@ -52,32 +52,38 @@ paths:
       - Savepoint Disposal
 components:
   schemas:
+    TriggerId:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    AsynchronousOperationResult:
+      type: object
+      properties:
+        operation:
+          oneOf:
+          - $ref: '#/components/schemas/AsynchronousOperationInfo'
+          - $ref: '#/components/schemas/CheckpointInfo'
+          - $ref: '#/components/schemas/SavepointInfo'
+        status:
+          $ref: '#/components/schemas/QueueStatus'
     SerializedThrowable:
       type: object
       properties:
         serialized-throwable:
           type: string
           format: binary
-    TriggerId:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    SavepointDisposalRequest:
-      type: object
-      properties:
-        savepoint-path:
-          type: string
     Id:
       type: string
       enum:
       - IN_PROGRESS
       - COMPLETED
-    QueueStatus:
-      required:
-      - id
+    CheckpointInfo:
       type: object
       properties:
-        id:
-          $ref: '#/components/schemas/Id'
+        checkpointId:
+          type: integer
+          format: int64
+        failureCause:
+          $ref: '#/components/schemas/SerializedThrowable'
     TriggerResponse:
       type: object
       properties:
@@ -90,26 +96,20 @@ components:
           $ref: '#/components/schemas/SerializedThrowable'
         location:
           type: string
-    CheckpointInfo:
-      type: object
-      properties:
-        checkpointId:
-          type: integer
-          format: int64
-        failureCause:
-          $ref: '#/components/schemas/SerializedThrowable'
-    AsynchronousOperationResult:
-      type: object
-      properties:
-        operation:
-          oneOf:
-          - $ref: '#/components/schemas/AsynchronousOperationInfo'
-          - $ref: '#/components/schemas/CheckpointInfo'
-          - $ref: '#/components/schemas/SavepointInfo'
-        status:
-          $ref: '#/components/schemas/QueueStatus'
     AsynchronousOperationInfo:
       type: object
       properties:
         failure-cause:
           $ref: '#/components/schemas/SerializedThrowable'
+    SavepointDisposalRequest:
+      type: object
+      properties:
+        savepoint-path:
+          type: string
+    QueueStatus:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'

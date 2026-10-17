@@ -92,15 +92,6 @@ paths:
       - Job Manager
 components:
   schemas:
-    EnvironmentInfo:
-      type: object
-      properties:
-        classpath:
-          type: array
-          items:
-            type: string
-        jvm:
-          $ref: '#/components/schemas/JVMInfo'
     Metric:
       required:
       - id
@@ -110,24 +101,20 @@ components:
           type: string
         value:
           type: string
-    LogInfo:
+    ConfigurationInfoEntry:
       type: object
       properties:
-        mtime:
-          type: integer
-          format: int64
-        name:
+        key:
           type: string
-        size:
-          type: integer
-          format: int64
-    MetricCollectionResponseBody:
+        value:
+          type: string
+    ThreadDumpInfo:
       type: object
       properties:
-        metrics:
+        threadInfos:
           type: array
           items:
-            $ref: '#/components/schemas/Metric'
+            $ref: '#/components/schemas/ThreadInfo'
     ThreadInfo:
       type: object
       properties:
@@ -146,13 +133,17 @@ components:
             type: string
         version:
           type: string
-    ThreadDumpInfo:
+    LogInfo:
       type: object
       properties:
-        threadInfos:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThreadInfo'
+        mtime:
+          type: integer
+          format: int64
+        name:
+          type: string
+        size:
+          type: integer
+          format: int64
     LogListInfo:
       type: object
       properties:
@@ -160,10 +151,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LogInfo'
-    ConfigurationInfoEntry:
+    MetricCollectionResponseBody:
       type: object
       properties:
-        key:
-          type: string
-        value:
-          type: string
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Metric'
+    EnvironmentInfo:
+      type: object
+      properties:
+        classpath:
+          type: array
+          items:
+            type: string
+        jvm:
+          $ref: '#/components/schemas/JVMInfo'

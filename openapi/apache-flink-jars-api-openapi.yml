@@ -176,20 +176,6 @@ paths:
       - JARs
 components:
   schemas:
-    RecoveryClaimMode:
-      type: string
-      enum:
-      - CLAIM
-      - NO_CLAIM
-      - LEGACY
-    JobID:
-      pattern: '[0-9a-f]{32}'
-      type: string
-    JobPlanInfo:
-      type: object
-      properties:
-        plan:
-          $ref: '#/components/schemas/RawJson'
     JarRunRequestBody:
       type: object
       properties:
@@ -216,26 +202,11 @@ components:
           $ref: '#/components/schemas/RecoveryClaimMode'
         savepointPath:
           type: string
-    UploadStatus:
-      type: string
-      enum:
-      - success
-    JarUploadResponseBody:
+    JarRunResponseBody:
       type: object
       properties:
-        filename:
-          type: string
-        status:
-          $ref: '#/components/schemas/UploadStatus'
-    JarListInfo:
-      type: object
-      properties:
-        address:
-          type: string
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/JarFileInfo'
+        jobid:
+          $ref: '#/components/schemas/JobID'
     JarFileInfo:
       type: object
       properties:
@@ -250,13 +221,42 @@ components:
         uploaded:
           type: integer
           format: int64
-    JarEntryInfo:
+    UploadStatus:
+      type: string
+      enum:
+      - success
+    RawJson:
+      type: object
+    JarListInfo:
       type: object
       properties:
-        description:
+        address:
           type: string
-        name:
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/JarFileInfo'
+    RecoveryClaimMode:
+      type: string
+      enum:
+      - CLAIM
+      - NO_CLAIM
+      - LEGACY
+    JarUploadResponseBody:
+      type: object
+      properties:
+        filename:
           type: string
+        status:
+          $ref: '#/components/schemas/UploadStatus'
+    JobID:
+      pattern: '[0-9a-f]{32}'
+      type: string
+    JobPlanInfo:
+      type: object
+      properties:
+        plan:
+          $ref: '#/components/schemas/RawJson'
     JarPlanRequestBody:
       type: object
       properties:
@@ -275,10 +275,10 @@ components:
           type: array
           items:
             type: string
-    RawJson:
-      type: object
-    JarRunResponseBody:
+    JarEntryInfo:
       type: object
       properties:
-        jobid:
-          $ref: '#/components/schemas/JobID'
+        description:
+          type: string
+        name:
+          type: string
